@@ -1,0 +1,13 @@
+name: "International Year of the Salmon"
+output:
+ html_document:
+   theme: cosmo
+   code_folding: show
+output_dir: "docs"
+navbar:
+  title: "My Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Data Registry"
+      href: registry.html

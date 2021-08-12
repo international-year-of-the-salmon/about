@@ -1,0 +1,27 @@
+---
+title: "Dataset registry"
+---
+
+```{r setup}
+knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
+library(ckanr)
+library(tidyverse)
+```
+
+```{r, include = FALSE}
+ckanr_setup(url = "http://iys.hakai.org")
+
+pkgs <- package_list_current(as = "table")
+names(pkgs)
+
+subset <- pkgs %>% 
+  select(title, resources)
+```
+
+```{r, include = TRUE}
+knitr::kable(subset)
+
+# Check for DOI
+# Check for minimum 2 resources with valid links
+# Check for abstract
+```

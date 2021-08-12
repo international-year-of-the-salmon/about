@@ -1,0 +1,8 @@
+---
+title: "Home"
+---
+
+Welcome to the International Year of the Salmon (IYS) GitHub Organizational account. This is where we host data collected by the IYS expeditions, scripts that transform data, and supplementary materials such as protocols and methods.
+
+Each dataset received will be hosted in it's own repository. Each repository should contain three folders: original_data, scripts, and docs.
+

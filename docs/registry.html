@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Dataset registry</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="registry.html">Data Registry</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Dataset registry</h1>
+
+</div>
+
+
+<table>
+<colgroup>
+<col width="0%" />
+<col width="1%" />
+<col width="98%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">title</th>
+<th align="left">resources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ca-cioos_9bcf7978-77eb-47da-9f3b-2d2eaa7df589</td>
+<td align="left">CTD Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , NA , 2b5e4417-a98b-4219-a5a1-7aaf097c1b15 , 2b5e4417-a98b-4219-a5a1-7aaf097c1b15 , FALSE , FALSE , 4bc014c7-2092-4e33-a06d-fd82da688c8c , 9d8df701-9599-4af7-beef-e56d818e1878 , NA , NA , active , active , , , , , The ‘Standardardized Data’ is a reformation of the ‘Original Data’ and has undergone some standardization to make it interoperable with other datasets. , This is the version of the dataset that was originally provided to us by the IYS scientists responsible for the data and is included here for reproducibility purposes, , HTML , NA , NA , NA , NA , WWW:LINK , WWW:LINK , NA , NA , NA , NA , Standardized CTD Data on ERDDAP , Original CTD on GitHub , 2021-07-29T20:55:05.627626 , 2021-07-29T20:55:05.627632 , <a href="http://erddap" class="uri">http://erddap</a> data link , <a href="https://github.com/international-year-of-the-salmon/2019-CTD/tree/main/original_data" class="uri">https://github.com/international-year-of-the-salmon/2019-CTD/tree/main/original_data</a> , NA , NA , 0 , 1 , 7fd70fb4-b088-4ed7-b2ab-050a987954ac , 7fd70fb4-b088-4ed7-b2ab-050a987954ac , NA , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_223a40da-5999-4755-a8f4-cbaee3057278</td>
+<td align="left">Environmental DNA (eDNA) data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 1b5d2b8b-228d-4a13-b556-c08437788902 , FALSE , 0330b727-eca9-4674-8c58-b0443b9f8c87 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , eDNA 2020 data , 2021-07-16T18:55:36.033753 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 04f495fb-02de-4573-818d-d60636177ff4 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_b294672e-b03c-4aa9-b4c4-e567ae0a9571</td>
+<td align="left">Juday Net Zooplankton Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , f068fc9b-bf61-42f8-a889-162a029ea5c6 , FALSE , 362f669d-7ac8-4b0a-8c12-6404f711e7d3 , NA , active , , , Zooplankton biomass and community composition data caught with a Juday Net in the Northeast Pacific Ocean during the 2019 International Year of the Salmon High Seas Expedition, , NA , NA , WWW:LINK , NA , NA , Juday Net Zooplankton Biomass and Diversity Data from the 2019 IYS High Seas Expedition in the Northeast Pacific Ocean , 2021-07-16T18:55:35.064838 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , NA , 0 , 045ad771-1e66-40a1-aff4-5b0b4132f5b6 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_4454824b-75d6-481a-90f3-0d3196f87f19</td>
+<td align="left">Stable Isotopes from Salmon Caught in the 2019 and 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 2fc75c28-0a7a-4d40-98ce-ad4634cd0e6a , FALSE , 7e0a459a-b56b-438c-97d9-ac441affc7a5 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Stable isotope data , 2021-07-16T18:55:34.158140 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 3c88276d-e4d6-4fb0-b6fe-c3c319af6158 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_4140c1f4-f081-4918-b103-4c980458fed2</td>
+<td align="left">Salmon Age Data from the 2019 and 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , e082ed66-6b56-480c-ae41-1b71577f8b8f , FALSE , 89ae460e-29c7-425e-9e27-2aeecb3ebc30 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Age data , 2021-07-16T18:55:33.326271 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 3565b423-4ee7-4de4-b082-fdfd660559c8 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_f643597e-e8fe-4402-8dc5-f164a271c85a</td>
+<td align="left">Salmon Energy Density Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 1571f00f-8fc1-483f-b06e-060046a740ca , FALSE , d98e40df-c9be-4b4a-8c4e-597a4d94fe28 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Fish Energy Density Data , 2021-07-16T18:55:32.372279 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 08e8cc0f-4f19-46eb-b5ae-9b1e6f021f61 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_edec5074-0644-49d7-86ff-03098113d6bf</td>
+<td align="left">Microplastic distributions from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , c749edc5-459a-4b74-99f4-8b387fe76643 , FALSE , 14687bb3-93df-46f1-81a4-1c40dbb8f682 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Microplastics data , 2021-07-16T18:55:31.397266 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , bf17a10d-73af-451b-aee8-bce898cc546a , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_6657743b-f2c2-43f2-89a2-c5dbbe168eea</td>
+<td align="left">Genetic Stock Identification of Salmon from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 3caab2db-54a6-42f2-9b21-ea314302b3e2 , FALSE , cc2f2d42-18a4-41dd-9f6d-9b4d305fabd4 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , GSI data , 2021-07-16T18:55:29.361039 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 694ed08e-e9f4-4755-98e0-f22f2bb4d7d5 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_5e8ae69e-16d5-46f8-986f-14694b26a001</td>
+<td align="left">Satellite Chlorophyll a Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 496f301c-6180-455d-a700-258cd8b3ab8d , FALSE , 3932d9af-8dec-4412-8335-87e71ddede44 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Satellite derived Chlorophyll a data , 2021-07-16T18:55:28.519480 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , b66667f1-92da-4b27-9150-ec42dd47e640 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_094bee30-02cf-48bc-b940-b56c6233fd9a</td>
+<td align="left">Nutrient Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , bcf64f59-52e2-4e3c-a86f-0dd34630dabc , FALSE , 2ebc42c1-0ce2-431c-8aeb-b185edcc44b2 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Nutrient Data , 2021-07-16T18:55:26.639275 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 80900f78-437b-4542-a284-248745c817c7 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_618c68dd-73a6-481b-9e01-2264b97ffcc4</td>
+<td align="left">Salmon Energy Density Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 5cdab386-44f2-42dc-9ca6-e1d5ebe6106f , FALSE , 1ff6483a-f3dc-414e-85a6-8534364e12e3 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , 2020 salmon energy density data , 2021-07-16T18:55:25.682697 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 96eadec7-081a-4882-bba0-b57a2cc68f61 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_d88f81fe-7257-4e02-8352-4bb9414b1915</td>
+<td align="left">Salmon Growth Data from the 2019 and 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , f06fbc6f-460b-4405-b970-ba296f3e934a , FALSE , 34c82ddd-adc4-49ff-b778-9f47b77a763c , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Growth data , 2021-07-16T18:55:24.775521 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , eea4133a-7fa7-4fd5-bdfd-6bf16bba497e , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_37d22da1-c557-44bc-99c2-a01e9f3b5a66</td>
+<td align="left">Particulate Organic Matter data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 217707e3-6b07-49b6-abbc-f65697cb4971 , FALSE , f5b26f35-52b1-4a25-9629-09223f413bfa , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , POM data , 2021-07-16T18:55:23.896035 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , bfe55d19-ed8b-48d8-b849-4ebf0ab6932f , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_811845a7-0959-40ba-9803-404976d91e7d</td>
+<td align="left">Fatty Acid Profiles of Salmon caught in 2019 and 2020 in the Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 580e2f23-f0d0-4489-bfc0-3e999d3cadc0 , FALSE , c4287603-79fc-4b23-958f-07115253da10 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Fatty Acid Data , 2021-07-16T18:55:23.033803 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 63cb1df2-28d0-492e-a6bf-1cbd1a166744 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_5db6f443-231c-4d6b-b27a-3afa88991bab</td>
+<td align="left">High Performance Liquid Chromatography (HPLC) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 421c759b-43ab-4237-9edf-30f3bf458e84 , FALSE , c463936b-045d-4053-9bbc-2f88e15bb0f5 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , HPLC Data , 2021-07-16T18:55:22.033680 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 60739b00-9c12-4451-908a-34188a0b0ffb , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_8fdd7a05-4c65-489a-9054-a768a9b51766</td>
+<td align="left">Particulate Organic Matter (POM) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 70ed3db5-d9d4-4650-b82e-56eab01406d8 , FALSE , 92ec5952-b0c0-4493-a987-11c93e44a894 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , POM Data , 2021-07-16T18:55:21.039923 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , d473f703-5e36-4144-a518-b88376925ff4 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_fdba20a9-0e91-4e37-bf5f-086b08d56209</td>
+<td align="left">Salmon Diet data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , c59bb0b5-aa05-49e3-951d-6e12bc51083f , FALSE , 91c857dd-49e4-4dee-acb5-f236a59a9cdb , NA , active , , , Data includes taxa identified, to the lowest taxonomic rank possible, from the stomach contents of select salmon caught during the 2019 High Seas Expedition as part of the International Year of the Salmon (IYS) project. Data includes salmon gut fullness index and biomass of prey content., , NA , NA , WWW:LINK , NA , NA , Gulf of Alaska 2019 Salmon diet data , 2021-07-16T18:55:20.025506 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , NA , 0 , 48d98c78-ba93-4729-90f6-7b0c261d188b , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_79f3fcf8-3283-4a80-957d-d73fbdb8e15f</td>
+<td align="left">Zooplankton Juday Net Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , f65b66ba-c192-4534-838c-39cf2c575f75 , FALSE , 01d030fe-5f3e-4188-b98e-2a0a3ee23a15 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Juday Zooplankton Data , 2021-07-16T18:55:19.018438 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 97882d6c-ecc3-415d-a977-9adab9ccd967 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_8c70e80e-68a1-4ac9-bba4-c950baea4516</td>
+<td align="left">Nutrient data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 7f80bf0a-a539-49ea-b2f7-ac7546390c50 , FALSE , 7e939fc2-8784-4990-9f0c-144614730c85 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Nutrient Data , 2021-07-16T18:55:18.170708 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , d1fedafe-d0f5-4170-aff4-7a28281511b2 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_9744c15d-3731-4d45-83af-3cc7f7a57cde</td>
+<td align="left">High Performance Liquid Chromatography (HPLC) Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 3345117a-8a21-4568-a6a5-726cec3c043b , FALSE , fbfb0330-5e14-40af-8ce6-eb5a4ffa307d , NA , active , , , , , NA , NA , WWW:LINK , NA , NA , HPLC Data , 2021-07-16T18:55:17.215081 , <a href="http://A" class="uri">http://A</a> URL will be here when data are published, NA , 0 , fdcd200f-a409-498e-be78-bd8c050ab96b , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_8df09011-488d-4ce4-91d8-9ade189c9c43</td>
+<td align="left">Trawl Catch and Species Abundance data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 1ba9cf73-adab-4565-adc4-5f7f1d9d757a , FALSE , 7d5dbca5-9845-4af4-97d7-79a0978ee60b , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Trawl catch data , 2021-07-16T18:55:16.219903 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , be91b48b-1d4f-4abf-8a3e-dee79e374d95 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_5839dbcc-baa6-40b7-9f43-770624a180a8</td>
+<td align="left">Zooplankton Bongo Net Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 4a769959-5a7f-4bcb-9727-0c100126e530 , FALSE , 794ecd8a-96cb-496d-8938-6441d6dee1f0 , NA , active , , , Data contains zooplankton species-specific biometrics, abundance and community composition in the Northeast Pacific Ocean, as determined with a Bongo Net during the 2019 High Seas Expedition as part of the International Year of the Salmon project., , NA , NA , WWW:LINK , NA , NA , Gulf of Alaska 2019 Zooplankton Bongo Data , 2021-07-16T18:55:15.170705 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , NA , 0 , a658423a-6171-4a41-acb4-5f6c64b60757 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_719af869-9068-40cc-be7d-7a1180db4926</td>
+<td align="left">Zooplankton Bongo Net Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 22f1ce27-a8a3-49e0-8007-7d976bb85d7f , FALSE , 8b97bb0f-0bbd-45a3-b5bb-870d8118767d , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , HPLC Data , 2021-07-16T18:55:14.201935 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , c38acff4-49a3-428b-abd1-bbc05ef7f44f , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_f2d3b46b-6745-4b70-a7a2-a552704e498e</td>
+<td align="left">Hydroacoustic Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 66fa0093-9737-4778-a541-a77d1b5ad7c4 , FALSE , e20a6506-5d71-49a2-9860-b5476f2e57ab , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Hydroacoustic data , 2021-07-16T18:55:12.218072 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 67e85c13-a157-4880-950c-6b79f5d76ee3 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_382a8a4b-9b9f-41b7-a394-917353e0810e</td>
+<td align="left">Salmon diet data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 05749b60-2ce8-433c-816b-198c458fcbfd , FALSE , 05df9d18-7e63-4bd2-9340-d8430d55100a , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Salmon diet data , 2021-07-16T18:55:11.224283 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 21f45690-c742-480d-b87b-c9a0ff4e1816 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_bd4c4a33-40fd-40bb-97b8-689de1b450fb</td>
+<td align="left">Pathogen Burden Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , f859ed14-0d14-4572-aad4-e144c4eae26c , FALSE , b7e69d0c-81b6-48fc-8333-9bd2503086c0 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Pathogen 2020 data , 2021-07-16T18:55:10.259717 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 90c4a2b5-3a93-4b6c-935a-d76801e71433 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_377873af-56d8-4ea8-828a-c19350758350</td>
+<td align="left">Trawl Catch and Species Abundance from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , NA , a37f589e-6516-407d-99e1-00412b5bacb7 , a37f589e-6516-407d-99e1-00412b5bacb7 , FALSE , FALSE , ea984a1f-e4b0-4c47-ae5b-9a63b34261ea , 56d7cd35-852e-421d-979e-d28488ff9106 , NA , NA , active , active , , , , , This data contains the trawl catch and species abundance in 2019 from the IYS High Seas Expedition in the Northeast Pacific Ocean. The data received from the data provider has been formatted to the Darwin Core (DwC) standards., Processed trawl catch and species abundance data as provided by the data provider. The processed data has undergone QA/QC. , , , NA , NA , NA , NA , WWW:LINK , WWW:LINK , NA , NA , NA , NA , Trawl Catch and Species Abundance in 2019 in the Northeast Pacific Ocean , Trawl Catch and Species Abundance in 2019 in the Northeast Pacific Ocean , 2021-07-16T18:55:09.164319 , 2021-07-16T18:55:09.164324 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , <a href="http://Include" class="uri">http://Include</a> link to the processed data in the IYS GitHub repository here , NA , NA , 0 , 1 , cd07abd2-cb62-4493-9926-4d74de81ab8c , cd07abd2-cb62-4493-9926-4d74de81ab8c , NA , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_a8fd5ba4-5407-4d03-914f-27eb7f3f8121</td>
+<td align="left">Conductivity, Temperature, and Depth (CTD) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 5dd74fe0-4914-4561-8566-f7d215582e7b , FALSE , 7a510873-fa53-48af-b2a7-bb252b59e7de , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , CTD Data , 2021-07-16T18:55:08.135734 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 267227dc-c59c-4f00-9882-8c0026d6d695 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_afd48563-7076-4053-84b2-610beb69c483</td>
+<td align="left">Environmental DNA (eDNA) from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , f3e684b3-42cf-45a4-b5aa-97c840a910ea , FALSE , 97269550-b948-41cb-8192-9736982ebff2 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , eDNA Data , 2021-07-16T18:55:07.170366 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 4dd4d6f3-e551-4ac1-a5da-ba1d7bfdd8b4 , NA</td>
+</tr>
+<tr class="even">
+<td align="left">ca-cioos_a0923bbe-803c-412c-b652-a28732c4b687</td>
+<td align="left">Oxygen data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , 43dee8e0-a75e-4651-9fe6-8d84ca3e9f86 , FALSE , ed3a30ac-fc50-4131-b810-a0efe41966ca , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Oxygen data , 2021-07-16T18:55:06.355341 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , e7118262-186b-4edb-ac0b-b5d8bd9126b0 , NA</td>
+</tr>
+<tr class="odd">
+<td align="left">ca-cioos_b0e3ac65-e7c2-4ba2-b986-b5e64eeb5f3b</td>
+<td align="left">Chlorophyll a and Phaeopigment Concentrations from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="left">NA , a4a92077-1a06-43ce-bfef-9d4a3a9aeb77 , FALSE , d55cdac6-49d9-47df-be3d-6d20e1dab746 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Chlorophyll a and Phaeopigment Data , 2021-07-16T18:55:05.409921 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 88f447bc-d652-4da2-9d41-f4fefcb748c1 , NA</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
