@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>ERDDAP_dataset_xml_template</title>
 
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -249,7 +249,10 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="registry.html">Data Registry</a>
+  <a href="https://iys.hakai.org">Data Catalogue</a>
+</li>
+<li>
+  <a href="dataset-summary.html">Dataset Summary</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -298,13 +301,46 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">ERDDAP_dataset_xml_template</h1>
 
 </div>
 
 
-<p>Welcome to the International Year of the Salmon (IYS) GitHub Organizational account. This is where we host data collected by the IYS expeditions, scripts that transform data, and supplementary materials such as protocols and methods.</p>
-<p>Each dataset received will be hosted in it’s own repository. Each repository should contain three folders: original_data, scripts, and docs.</p>
+<p>Part of the process for uploading data to ERDDAP is to include some standard metadata fields defined in an .xml file. There are many things that could be included based on the Earth Science Information Partners (Attribute Convention for Data Discovery)[<a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3" class="uri">https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3</a>] (which ERDDAP adheres to a promotes). Below are some of the standard attributes and values that should be included with each dataset.</p>
+<div id="global-attributes" class="section level2">
+<h2>Global Attributes</h2>
+<pre><code>  &lt;att name=&quot;project&quot;&gt;International Year of the Salmon (IYS)&lt;/att&gt;
+  &lt;att name=&quot;creator_name&quot;&gt;Lead Author&#39;s name&lt;/att&gt;
+  &lt;att name=&quot;creator_type&quot;&gt;Person&lt;/att&gt;
+  &lt;att name=&quot;metadata_link&quot;&gt;insert DOI here&lt;/att&gt;
+  &lt;att name=&quot;id&quot;&gt;insert DOI here&lt;/att&gt;
+  &lt;att name=&quot;publisher&quot;&gt;Hakai Institute&lt;/att&gt;
+  &lt;att name=&quot;publisher_type&quot;&gt;Organization&lt;/att&gt;
+  &lt;att name=&quot;publisher_email&quot;&gt;data@hakai.org&lt;/att&gt;
+  &lt;att name=&quot;infoUrl&quot;&gt;http://yearofthesalmon.org&lt;/att&gt;
+  &lt;att name=&quot;institution&quot;&gt;Lead authors&lt;/att&gt;
+  &lt;att name=&quot;keywords&quot;&gt;oceans, international year of the salmon (IYS)&lt;/att&gt;
+  &lt;att name=&quot;license&quot;&gt;https://creativecommons.org/licenses/by/4.0/&lt;/att&gt;
+  &lt;att name=&quot;standard_name_vocabulary&quot;&gt;CF Standard Name Table v55&lt;/att&gt;</code></pre>
+<p>It’s also important to determine the ’cdm_data_type, (the Common Data Model data type)</p>
+<p>Ensure there isn’t repetition in units/long names in ERDDAP table subset interface</p>
+<p>Make sure original data doesn’t have raw data subfolder and instead just a standardized data folder that’s git ignored</p>
+</div>
+<div id="data-strucute" class="section level2">
+<h2>Data strucute</h2>
+<ul>
+<li>Include new columns:
+<ul>
+<li>cruise (eg. GoA2019)</li>
+<li>station (eg GoA2019_Stn1)</li>
+<li>dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00+00:00)</li>
+<li>year</li>
+<li>month</li>
+<li>day</li>
+<li>time (in UTC)</li>
+</ul></li>
+</ul>
+</div>
 
 
 

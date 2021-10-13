@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>Dataset registry</title>
 
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -249,7 +249,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="registry.html">Data Registry</a>
+  <a href="https://iys.hakai.org">Data Catalogue</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -276,6 +276,12 @@ $(document).ready(function () {
     <li>
       <a href="IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf">IYS Data Mobilization and Communication Plan</a>
     </li>
+    <li>
+      <a href="Draft IYS Data Policy_May312021.docx">Draft IYS Data Policy</a>
+    </li>
+    <li>
+      <a href="IYS2022_Template_2021_08_12.xlsx">2022 Expedition Data Reporting Template</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -298,13 +304,24 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Dataset registry</h1>
 
 </div>
 
 
-<p>Welcome to the International Year of the Salmon (IYS) GitHub Organizational account. This is where we host data collected by the IYS expeditions, scripts that transform data, and supplementary materials such as protocols and methods.</p>
-<p>Each dataset received will be hosted in it’s own repository. Each repository should contain three folders: original_data, scripts, and docs.</p>
+<pre class="r"><code>knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
+library(ckanr)</code></pre>
+<pre><code>## Loading required package: DBI</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.2     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::changes() masks ckanr::changes()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::lag()     masks stats::lag()</code></pre>
 
 
 

@@ -1,13 +1,26 @@
 name: "International Year of the Salmon"
 output:
  html_document:
-   theme: cosmo
    code_folding: show
 output_dir: "docs"
 navbar:
-  title: "My Website"
+  title: "IYS Data Mobilization"
   left:
     - text: "Home"
       href: index.html
-    - text: "Data Registry"
-      href: registry.html
+    - text: "Data Catalogue"
+      href: https://iys.hakai.org
+    - text: "Templates"
+      menu: 
+        - text: "ERDDAP"
+          href: ERDDAP_xml_template.html
+    - text: "Documents"
+      menu:
+        - text: "IYS Data Mobilization Strategic Recommendations"
+          href: IYS-OOS-Phase_1-Report.pdf  
+        - text: "IYS Data Mobilization and Communication Plan"
+          href: IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf
+        - text: "Draft IYS Data Policy"
+          href: Draft IYS Data Policy_May312021.docx
+        - text: "2022 Expedition Data Reporting Template"
+          href: IYS2022_Template_2021_08_12.xlsx

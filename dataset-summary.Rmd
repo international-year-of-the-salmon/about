@@ -12,14 +12,14 @@ library(tidyverse)
 ckanr_setup(url = "http://iys.hakai.org")
 
 pkgs <- package_list_current(as = "table")
+pkgs <- pkgs %>% unnest(resources, name_repair = "universal")
 names(pkgs)
 
 subset <- pkgs %>% 
-  select(title, resources)
+  select(title, num_resources, `metadata-point-of-contact`, description , url, notes)
 ```
 
 ```{r, include = TRUE}
-knitr::kable(subset)
 
 # Check for DOI
 # Check for minimum 2 resources with valid links

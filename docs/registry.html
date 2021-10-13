@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -241,7 +241,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">IYS Data Mobilization</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -250,6 +250,33 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="registry.html">Data Registry</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Templates
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ERDDAP_xml_template.html">ERDDAP</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Documents
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="IYS-OOS-Phase_1-Report.pdf">IYS Data Mobilization Strategic Recommendations</a>
+    </li>
+    <li>
+      <a href="IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf">IYS Data Mobilization and Communication Plan</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -276,174 +303,454 @@ $(document).ready(function () {
 </div>
 
 
-<table>
+<pre class="r"><code>knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
+library(ckanr)</code></pre>
+<pre><code>## Loading required package: DBI</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.2     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::changes() masks ckanr::changes()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::lag()     masks stats::lag()</code></pre>
+<table style="width:100%;">
 <colgroup>
+<col width="3%" />
 <col width="0%" />
-<col width="1%" />
-<col width="98%" />
+<col width="19%" />
+<col width="7%" />
+<col width="6%" />
+<col width="62%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">name</th>
 <th align="left">title</th>
-<th align="left">resources</th>
+<th align="right">num_resources</th>
+<th align="left">metadata-point-of-contact</th>
+<th align="left">description</th>
+<th align="left">url</th>
+<th align="left">notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ca-cioos_9bcf7978-77eb-47da-9f3b-2d2eaa7df589</td>
-<td align="left">CTD Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , NA , 2b5e4417-a98b-4219-a5a1-7aaf097c1b15 , 2b5e4417-a98b-4219-a5a1-7aaf097c1b15 , FALSE , FALSE , 4bc014c7-2092-4e33-a06d-fd82da688c8c , 9d8df701-9599-4af7-beef-e56d818e1878 , NA , NA , active , active , , , , , The ‘Standardardized Data’ is a reformation of the ‘Original Data’ and has undergone some standardization to make it interoperable with other datasets. , This is the version of the dataset that was originally provided to us by the IYS scientists responsible for the data and is included here for reproducibility purposes, , HTML , NA , NA , NA , NA , WWW:LINK , WWW:LINK , NA , NA , NA , NA , Standardized CTD Data on ERDDAP , Original CTD on GitHub , 2021-07-29T20:55:05.627626 , 2021-07-29T20:55:05.627632 , <a href="http://erddap" class="uri">http://erddap</a> data link , <a href="https://github.com/international-year-of-the-salmon/2019-CTD/tree/main/original_data" class="uri">https://github.com/international-year-of-the-salmon/2019-CTD/tree/main/original_data</a> , NA , NA , 0 , 1 , 7fd70fb4-b088-4ed7-b2ab-050a987954ac , 7fd70fb4-b088-4ed7-b2ab-050a987954ac , NA , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_223a40da-5999-4755-a8f4-cbaee3057278</td>
-<td align="left">Environmental DNA (eDNA) data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 1b5d2b8b-228d-4a13-b556-c08437788902 , FALSE , 0330b727-eca9-4674-8c58-b0443b9f8c87 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , eDNA 2020 data , 2021-07-16T18:55:36.033753 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 04f495fb-02de-4573-818d-d60636177ff4 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_b294672e-b03c-4aa9-b4c4-e567ae0a9571</td>
-<td align="left">Juday Net Zooplankton Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , f068fc9b-bf61-42f8-a889-162a029ea5c6 , FALSE , 362f669d-7ac8-4b0a-8c12-6404f711e7d3 , NA , active , , , Zooplankton biomass and community composition data caught with a Juday Net in the Northeast Pacific Ocean during the 2019 International Year of the Salmon High Seas Expedition, , NA , NA , WWW:LINK , NA , NA , Juday Net Zooplankton Biomass and Diversity Data from the 2019 IYS High Seas Expedition in the Northeast Pacific Ocean , 2021-07-16T18:55:35.064838 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , NA , 0 , 045ad771-1e66-40a1-aff4-5b0b4132f5b6 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_4454824b-75d6-481a-90f3-0d3196f87f19</td>
-<td align="left">Stable Isotopes from Salmon Caught in the 2019 and 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 2fc75c28-0a7a-4d40-98ce-ad4634cd0e6a , FALSE , 7e0a459a-b56b-438c-97d9-ac441affc7a5 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Stable isotope data , 2021-07-16T18:55:34.158140 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 3c88276d-e4d6-4fb0-b6fe-c3c319af6158 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_4140c1f4-f081-4918-b103-4c980458fed2</td>
-<td align="left">Salmon Age Data from the 2019 and 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , e082ed66-6b56-480c-ae41-1b71577f8b8f , FALSE , 89ae460e-29c7-425e-9e27-2aeecb3ebc30 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Age data , 2021-07-16T18:55:33.326271 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 3565b423-4ee7-4de4-b082-fdfd660559c8 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_f643597e-e8fe-4402-8dc5-f164a271c85a</td>
-<td align="left">Salmon Energy Density Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 1571f00f-8fc1-483f-b06e-060046a740ca , FALSE , d98e40df-c9be-4b4a-8c4e-597a4d94fe28 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Fish Energy Density Data , 2021-07-16T18:55:32.372279 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 08e8cc0f-4f19-46eb-b5ae-9b1e6f021f61 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_edec5074-0644-49d7-86ff-03098113d6bf</td>
-<td align="left">Microplastic distributions from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , c749edc5-459a-4b74-99f4-8b387fe76643 , FALSE , 14687bb3-93df-46f1-81a4-1c40dbb8f682 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Microplastics data , 2021-07-16T18:55:31.397266 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , bf17a10d-73af-451b-aee8-bce898cc546a , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_6657743b-f2c2-43f2-89a2-c5dbbe168eea</td>
-<td align="left">Genetic Stock Identification of Salmon from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 3caab2db-54a6-42f2-9b21-ea314302b3e2 , FALSE , cc2f2d42-18a4-41dd-9f6d-9b4d305fabd4 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , GSI data , 2021-07-16T18:55:29.361039 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 694ed08e-e9f4-4755-98e0-f22f2bb4d7d5 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_5e8ae69e-16d5-46f8-986f-14694b26a001</td>
-<td align="left">Satellite Chlorophyll a Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 496f301c-6180-455d-a700-258cd8b3ab8d , FALSE , 3932d9af-8dec-4412-8335-87e71ddede44 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Satellite derived Chlorophyll a data , 2021-07-16T18:55:28.519480 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , b66667f1-92da-4b27-9150-ec42dd47e640 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_094bee30-02cf-48bc-b940-b56c6233fd9a</td>
-<td align="left">Nutrient Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , bcf64f59-52e2-4e3c-a86f-0dd34630dabc , FALSE , 2ebc42c1-0ce2-431c-8aeb-b185edcc44b2 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Nutrient Data , 2021-07-16T18:55:26.639275 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 80900f78-437b-4542-a284-248745c817c7 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_618c68dd-73a6-481b-9e01-2264b97ffcc4</td>
-<td align="left">Salmon Energy Density Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 5cdab386-44f2-42dc-9ca6-e1d5ebe6106f , FALSE , 1ff6483a-f3dc-414e-85a6-8534364e12e3 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , 2020 salmon energy density data , 2021-07-16T18:55:25.682697 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 96eadec7-081a-4882-bba0-b57a2cc68f61 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_d88f81fe-7257-4e02-8352-4bb9414b1915</td>
-<td align="left">Salmon Growth Data from the 2019 and 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , f06fbc6f-460b-4405-b970-ba296f3e934a , FALSE , 34c82ddd-adc4-49ff-b778-9f47b77a763c , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Growth data , 2021-07-16T18:55:24.775521 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , eea4133a-7fa7-4fd5-bdfd-6bf16bba497e , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_37d22da1-c557-44bc-99c2-a01e9f3b5a66</td>
-<td align="left">Particulate Organic Matter data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 217707e3-6b07-49b6-abbc-f65697cb4971 , FALSE , f5b26f35-52b1-4a25-9629-09223f413bfa , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , POM data , 2021-07-16T18:55:23.896035 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , bfe55d19-ed8b-48d8-b849-4ebf0ab6932f , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_811845a7-0959-40ba-9803-404976d91e7d</td>
-<td align="left">Fatty Acid Profiles of Salmon caught in 2019 and 2020 in the Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 580e2f23-f0d0-4489-bfc0-3e999d3cadc0 , FALSE , c4287603-79fc-4b23-958f-07115253da10 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Fatty Acid Data , 2021-07-16T18:55:23.033803 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 63cb1df2-28d0-492e-a6bf-1cbd1a166744 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_5db6f443-231c-4d6b-b27a-3afa88991bab</td>
-<td align="left">High Performance Liquid Chromatography (HPLC) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 421c759b-43ab-4237-9edf-30f3bf458e84 , FALSE , c463936b-045d-4053-9bbc-2f88e15bb0f5 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , HPLC Data , 2021-07-16T18:55:22.033680 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 60739b00-9c12-4451-908a-34188a0b0ffb , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_8fdd7a05-4c65-489a-9054-a768a9b51766</td>
-<td align="left">Particulate Organic Matter (POM) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 70ed3db5-d9d4-4650-b82e-56eab01406d8 , FALSE , 92ec5952-b0c0-4493-a987-11c93e44a894 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , POM Data , 2021-07-16T18:55:21.039923 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , d473f703-5e36-4144-a518-b88376925ff4 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_fdba20a9-0e91-4e37-bf5f-086b08d56209</td>
-<td align="left">Salmon Diet data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , c59bb0b5-aa05-49e3-951d-6e12bc51083f , FALSE , 91c857dd-49e4-4dee-acb5-f236a59a9cdb , NA , active , , , Data includes taxa identified, to the lowest taxonomic rank possible, from the stomach contents of select salmon caught during the 2019 High Seas Expedition as part of the International Year of the Salmon (IYS) project. Data includes salmon gut fullness index and biomass of prey content., , NA , NA , WWW:LINK , NA , NA , Gulf of Alaska 2019 Salmon diet data , 2021-07-16T18:55:20.025506 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , NA , 0 , 48d98c78-ba93-4729-90f6-7b0c261d188b , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_79f3fcf8-3283-4a80-957d-d73fbdb8e15f</td>
-<td align="left">Zooplankton Juday Net Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , f65b66ba-c192-4534-838c-39cf2c575f75 , FALSE , 01d030fe-5f3e-4188-b98e-2a0a3ee23a15 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Juday Zooplankton Data , 2021-07-16T18:55:19.018438 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 97882d6c-ecc3-415d-a977-9adab9ccd967 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_8c70e80e-68a1-4ac9-bba4-c950baea4516</td>
-<td align="left">Nutrient data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 7f80bf0a-a539-49ea-b2f7-ac7546390c50 , FALSE , 7e939fc2-8784-4990-9f0c-144614730c85 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Nutrient Data , 2021-07-16T18:55:18.170708 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , d1fedafe-d0f5-4170-aff4-7a28281511b2 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_9744c15d-3731-4d45-83af-3cc7f7a57cde</td>
-<td align="left">High Performance Liquid Chromatography (HPLC) Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 3345117a-8a21-4568-a6a5-726cec3c043b , FALSE , fbfb0330-5e14-40af-8ce6-eb5a4ffa307d , NA , active , , , , , NA , NA , WWW:LINK , NA , NA , HPLC Data , 2021-07-16T18:55:17.215081 , <a href="http://A" class="uri">http://A</a> URL will be here when data are published, NA , 0 , fdcd200f-a409-498e-be78-bd8c050ab96b , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_8df09011-488d-4ce4-91d8-9ade189c9c43</td>
-<td align="left">Trawl Catch and Species Abundance data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 1ba9cf73-adab-4565-adc4-5f7f1d9d757a , FALSE , 7d5dbca5-9845-4af4-97d7-79a0978ee60b , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Trawl catch data , 2021-07-16T18:55:16.219903 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , be91b48b-1d4f-4abf-8a3e-dee79e374d95 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_5839dbcc-baa6-40b7-9f43-770624a180a8</td>
-<td align="left">Zooplankton Bongo Net Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 4a769959-5a7f-4bcb-9727-0c100126e530 , FALSE , 794ecd8a-96cb-496d-8938-6441d6dee1f0 , NA , active , , , Data contains zooplankton species-specific biometrics, abundance and community composition in the Northeast Pacific Ocean, as determined with a Bongo Net during the 2019 High Seas Expedition as part of the International Year of the Salmon project., , NA , NA , WWW:LINK , NA , NA , Gulf of Alaska 2019 Zooplankton Bongo Data , 2021-07-16T18:55:15.170705 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , NA , 0 , a658423a-6171-4a41-acb4-5f6c64b60757 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_719af869-9068-40cc-be7d-7a1180db4926</td>
-<td align="left">Zooplankton Bongo Net Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 22f1ce27-a8a3-49e0-8007-7d976bb85d7f , FALSE , 8b97bb0f-0bbd-45a3-b5bb-870d8118767d , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , HPLC Data , 2021-07-16T18:55:14.201935 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , c38acff4-49a3-428b-abd1-bbc05ef7f44f , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_f2d3b46b-6745-4b70-a7a2-a552704e498e</td>
-<td align="left">Hydroacoustic Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 66fa0093-9737-4778-a541-a77d1b5ad7c4 , FALSE , e20a6506-5d71-49a2-9860-b5476f2e57ab , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Hydroacoustic data , 2021-07-16T18:55:12.218072 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 67e85c13-a157-4880-950c-6b79f5d76ee3 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_382a8a4b-9b9f-41b7-a394-917353e0810e</td>
-<td align="left">Salmon diet data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 05749b60-2ce8-433c-816b-198c458fcbfd , FALSE , 05df9d18-7e63-4bd2-9340-d8430d55100a , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Salmon diet data , 2021-07-16T18:55:11.224283 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 21f45690-c742-480d-b87b-c9a0ff4e1816 , NA</td>
-</tr>
-<tr class="even">
-<td align="left">ca-cioos_bd4c4a33-40fd-40bb-97b8-689de1b450fb</td>
-<td align="left">Pathogen Burden Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , f859ed14-0d14-4572-aad4-e144c4eae26c , FALSE , b7e69d0c-81b6-48fc-8333-9bd2503086c0 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Pathogen 2020 data , 2021-07-16T18:55:10.259717 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 90c4a2b5-3a93-4b6c-935a-d76801e71433 , NA</td>
-</tr>
-<tr class="odd">
-<td align="left">ca-cioos_377873af-56d8-4ea8-828a-c19350758350</td>
 <td align="left">Trawl Catch and Species Abundance from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , NA , a37f589e-6516-407d-99e1-00412b5bacb7 , a37f589e-6516-407d-99e1-00412b5bacb7 , FALSE , FALSE , ea984a1f-e4b0-4c47-ae5b-9a63b34261ea , 56d7cd35-852e-421d-979e-d28488ff9106 , NA , NA , active , active , , , , , This data contains the trawl catch and species abundance in 2019 from the IYS High Seas Expedition in the Northeast Pacific Ocean. The data received from the data provider has been formatted to the Darwin Core (DwC) standards., Processed trawl catch and species abundance data as provided by the data provider. The processed data has undergone QA/QC. , , , NA , NA , NA , NA , WWW:LINK , WWW:LINK , NA , NA , NA , NA , Trawl Catch and Species Abundance in 2019 in the Northeast Pacific Ocean , Trawl Catch and Species Abundance in 2019 in the Northeast Pacific Ocean , 2021-07-16T18:55:09.164319 , 2021-07-16T18:55:09.164324 , <a href="http://Link" class="uri">http://Link</a> to data will be here once published , <a href="http://Include" class="uri">http://Include</a> link to the processed data in the IYS GitHub repository here , NA , NA , 0 , 1 , cd07abd2-cb62-4493-9926-4d74de81ab8c , cd07abd2-cb62-4493-9926-4d74de81ab8c , NA , NA</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Biologist“,”contact-info_email“:”<a href="mailto:chrys.neville@dfo-mpo.gc.ca" class="email">chrys.neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">This OBIS record contains the trawl catch and species abundance in 2019 from the IYS High Seas Expedition in the Gulf of Alaska. The data received from the data provider has been formatted to the Darwin Core (DwC) standards.</td>
+<td align="left"><a href="http://ipt.iobis.org/obiscanada/resource?r=trawl-catch-and-species-abundance-from-the-2019-gulf-of-alaska-international-year-of-the-salmon-expedition" class="uri">http://ipt.iobis.org/obiscanada/resource?r=trawl-catch-and-species-abundance-from-the-2019-gulf-of-alaska-international-year-of-the-salmon-expedition</a></td>
+<td align="left">{“fr”: “Cet ensemble de donn contient des donn sur l’abondance des esp de poissons et des donn biom propres  chaque esp recueillies dans le nord-est de l’oc Pacifique  l’aide d’un chalut moyen. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (AIYS) men en f et mars 2019, afin d’am encore la compr des facteurs qui influent sur la survie du saumon en hiver en mer. Au total, 64 remorquages ont  effectu, et pour chaque remorquage, le poids total et les prises propres  l’esp ont  consign. Les enregistrements taxonomiques ont  identifi au rang taxonomique le plus bas possible. De plus, pour certaines esp, certaines donn biom individuelles ont  enregistr, telles que la longueur, le poids, le sexe et la classe d’ (fourche, total, standard et/ou manteau). De plus, pour les salmonid, des  d’ADN, des otolithes, des tissus musculaires, des  et des donn sur le foie/gonade ont  recueillis en vue d’une analyse plus pouss dans les laboratoires de l’Alaska et de l’UBC. Les donn recueillies au chalut visent  am notre compr de la structure du r trophique.”, “en”: “This dataset contains fish species abundance data and species-specific biometrics data collected in the Northeast Pacific Ocean using a midwater trawl net. These data were collected as part of the International Year of the Salmon (IYS) High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon marine winter survival. A total of 64 tows were conducted, and for each tow the total species-specific weight and catch were recorded. Taxonomic records were identified to the lowest taxonomic rank possible. Additionally, for some species some individual biometrics were recorded, such as (fork, total, standard and/or mantle) length, weight, sex and age class. Furthermore for salmonids, DNA samples, otoliths, muscle tissue, scales and liver/gonad data were collected for further analysis in Alaskan and UBC labs. The data collected from the trawl aims to improve our understanding of the food web structure.”}</td>
 </tr>
 <tr class="even">
-<td align="left">ca-cioos_a8fd5ba4-5407-4d03-914f-27eb7f3f8121</td>
-<td align="left">Conductivity, Temperature, and Depth (CTD) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 5dd74fe0-4914-4561-8566-f7d215582e7b , FALSE , 7a510873-fa53-48af-b2a7-bb252b59e7de , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , CTD Data , 2021-07-16T18:55:08.135734 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 267227dc-c59c-4f00-9882-8c0026d6d695 , NA</td>
+<td align="left">Trawl Catch and Species Abundance from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Biologist“,”contact-info_email“:”<a href="mailto:chrys.neville@dfo-mpo.gc.ca" class="email">chrys.neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-FishTrawl/blob/master/docs/Supplementary%20Material-Trawl%20Catch%20and%20Species%20Abundance%20data%20from%20the%202019%20GOA%20IYS%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-FishTrawl/blob/master/docs/Supplementary%20Material-Trawl%20Catch%20and%20Species%20Abundance%20data%20from%20the%202019%20GOA%20IYS%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Cet ensemble de donn contient des donn sur l’abondance des esp de poissons et des donn biom propres  chaque esp recueillies dans le nord-est de l’oc Pacifique  l’aide d’un chalut moyen. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (AIYS) men en f et mars 2019, afin d’am encore la compr des facteurs qui influent sur la survie du saumon en hiver en mer. Au total, 64 remorquages ont  effectu, et pour chaque remorquage, le poids total et les prises propres  l’esp ont  consign. Les enregistrements taxonomiques ont  identifi au rang taxonomique le plus bas possible. De plus, pour certaines esp, certaines donn biom individuelles ont  enregistr, telles que la longueur, le poids, le sexe et la classe d’ (fourche, total, standard et/ou manteau). De plus, pour les salmonid, des  d’ADN, des otolithes, des tissus musculaires, des  et des donn sur le foie/gonade ont  recueillis en vue d’une analyse plus pouss dans les laboratoires de l’Alaska et de l’UBC. Les donn recueillies au chalut visent  am notre compr de la structure du r trophique.”, “en”: “This dataset contains fish species abundance data and species-specific biometrics data collected in the Northeast Pacific Ocean using a midwater trawl net. These data were collected as part of the International Year of the Salmon (IYS) High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon marine winter survival. A total of 64 tows were conducted, and for each tow the total species-specific weight and catch were recorded. Taxonomic records were identified to the lowest taxonomic rank possible. Additionally, for some species some individual biometrics were recorded, such as (fork, total, standard and/or mantle) length, weight, sex and age class. Furthermore for salmonids, DNA samples, otoliths, muscle tissue, scales and liver/gonad data were collected for further analysis in Alaskan and UBC labs. The data collected from the trawl aims to improve our understanding of the food web structure.”}</td>
 </tr>
 <tr class="odd">
-<td align="left">ca-cioos_afd48563-7076-4053-84b2-610beb69c483</td>
-<td align="left">Environmental DNA (eDNA) from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , f3e684b3-42cf-45a4-b5aa-97c840a910ea , FALSE , 97269550-b948-41cb-8192-9736982ebff2 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , eDNA Data , 2021-07-16T18:55:07.170366 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 4dd4d6f3-e551-4ac1-a5da-ba1d7bfdd8b4 , NA</td>
+<td align="left">Salmon Diet data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Assistant Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt“}, {”contact-info_online-resource“:”“,”position-name“:”Assistant Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”pointOfContact“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Data includes taxa identified, to the lowest taxonomic rank possible, from the stomach contents of select salmon caught during the 2019 High Seas Expedition as part of the International Year of the Salmon (IYS) project. Data includes salmon gut fullness index and biomass of prey content.</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn sur la teneur en estomac du saumon recueillies dans l’oc Pacifique Nord-Est en f et mars 2019. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (AIA). Le saumon a  captur au chalut de surface dans 48 des 58 stations p. Une analyse de l’estomac pour examiner le r alimentaire du saumon a  effectu sur tous les saumons captur (n = 425) au cours de l’enqu. Une analyse pr a r que les principales cat de r selon le volume comprenaient les euphausiac, les pt, les larves de poissons et les calmars. Le contenu de l’estomac a  pr (congel) et fera l’objet d’analyses suppl dans les laboratoires du Canada et des -Unis. La teneur individuelle de l’estomac a  identifi au rang taxonomique le plus bas possible et pond  0,01 gramme pr. De plus, l’indice de pl intestinale (GFI) a  calcul.”, “en”: “This dataset contains salmon stomach content data collected in the Northeast Pacific Ocean during February and March 2019. These data were collected as part of the International Year of the Salmon (IYS) High Seas Expedition, to further improve the understanding of factors impacting salmon early marine winter survival. Salmon were caught with a midwater trawl at 48 of the 58 stations fished. Stomach analysis to examine salmon diet was conducted on all salmon captured (n=425) during the survey. Preliminary analysis indicated that key diet categories by volume included euphausiids, pteropods, larval fish, and squid. Stomach contents have been preserved (frozen) and will undergo additional analysis in laboratories in Canada and the US. Individual stomach content was identified to the lowest taxonomic rank possible, and weighted to the nearest 0.01 gram. Additionally, the gut fullness index (GFI) was derived.”}</td>
 </tr>
 <tr class="even">
-<td align="left">ca-cioos_a0923bbe-803c-412c-b652-a28732c4b687</td>
-<td align="left">Oxygen data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , 43dee8e0-a75e-4651-9fe6-8d84ca3e9f86 , FALSE , ed3a30ac-fc50-4131-b810-a0efe41966ca , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Oxygen data , 2021-07-16T18:55:06.355341 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , e7118262-186b-4edb-ac0b-b5d8bd9126b0 , NA</td>
+<td align="left">Salmon Diet data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Assistant Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt“}, {”contact-info_online-resource“:”“,”position-name“:”Assistant Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”pointOfContact“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-salmon-diet/blob/main/docs/Supplementary%20Material-Salmon%20Diet%20data%20from%20the%202019%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-salmon-diet/blob/main/docs/Supplementary%20Material-Salmon%20Diet%20data%20from%20the%202019%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn sur la teneur en estomac du saumon recueillies dans l’oc Pacifique Nord-Est en f et mars 2019. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (AIA). Le saumon a  captur au chalut de surface dans 48 des 58 stations p. Une analyse de l’estomac pour examiner le r alimentaire du saumon a  effectu sur tous les saumons captur (n = 425) au cours de l’enqu. Une analyse pr a r que les principales cat de r selon le volume comprenaient les euphausiac, les pt, les larves de poissons et les calmars. Le contenu de l’estomac a  pr (congel) et fera l’objet d’analyses suppl dans les laboratoires du Canada et des -Unis. La teneur individuelle de l’estomac a  identifi au rang taxonomique le plus bas possible et pond  0,01 gramme pr. De plus, l’indice de pl intestinale (GFI) a  calcul.”, “en”: “This dataset contains salmon stomach content data collected in the Northeast Pacific Ocean during February and March 2019. These data were collected as part of the International Year of the Salmon (IYS) High Seas Expedition, to further improve the understanding of factors impacting salmon early marine winter survival. Salmon were caught with a midwater trawl at 48 of the 58 stations fished. Stomach analysis to examine salmon diet was conducted on all salmon captured (n=425) during the survey. Preliminary analysis indicated that key diet categories by volume included euphausiids, pteropods, larval fish, and squid. Stomach contents have been preserved (frozen) and will undergo additional analysis in laboratories in Canada and the US. Individual stomach content was identified to the lowest taxonomic rank possible, and weighted to the nearest 0.01 gram. Additionally, the gut fullness index (GFI) was derived.”}</td>
 </tr>
 <tr class="odd">
-<td align="left">ca-cioos_b0e3ac65-e7c2-4ba2-b986-b5e64eeb5f3b</td>
-<td align="left">Chlorophyll a and Phaeopigment Concentrations from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
-<td align="left">NA , a4a92077-1a06-43ce-bfef-9d4a3a9aeb77 , FALSE , d55cdac6-49d9-47df-be3d-6d20e1dab746 , NA , active , , , Description needed once data is published, , NA , NA , WWW:LINK , NA , NA , Chlorophyll a and Phaeopigment Data , 2021-07-16T18:55:05.409921 , <a href="http://Link" class="uri">http://Link</a> to be added once published , NA , 0 , 88f447bc-d652-4da2-9d41-f4fefcb748c1 , NA</td>
+<td align="left">Stable Isotopes from Organisms Caught in the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Des isotopes stables au carbone et  l’azote ont  analys  la recherche d’ de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars-avril 2020 afin d’am la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les donn sur les isotopes stables fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est.”, “en”: “Carbon and nitrogen stable isotopes were analyzed for samples of particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020 to further improve the understanding of factors impacting salmon early marine winter survival. The stable isotope data provides information about trophic interactions in the Northeast Pacific Ocean.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Stable Isotopes from Organisms Caught in the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-stable-isotope/blob/main/docs/Supplementary%20Material%20-%20Stable%20Isotopes%20from%20Organisms%20Caught%20in%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-stable-isotope/blob/main/docs/Supplementary%20Material%20-%20Stable%20Isotopes%20from%20Organisms%20Caught%20in%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Des isotopes stables au carbone et  l’azote ont  analys  la recherche d’ de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars-avril 2020 afin d’am la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les donn sur les isotopes stables fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est.”, “en”: “Carbon and nitrogen stable isotopes were analyzed for samples of particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020 to further improve the understanding of factors impacting salmon early marine winter survival. The stable isotope data provides information about trophic interactions in the Northeast Pacific Ocean.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Fatty Acid Profiles of Organisms Caught in 2019 in the Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Des  de tissus provenant de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est ont  analys pour d leur profil en acides gras. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) qui a eu lieu en f-mars 2019 afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer. Les donn sur les acides gras fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est et sur la sant et l’ des organismes.”, “en”: “Tissue samples from particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean were analyzed for their fatty acid profiles. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February-March 2019 to further improve the understanding of factors impacting salmon early marine winter survival. The fatty acid data provides information about trophic interactions in the Northeast Pacific Ocean and the health and condition of organisms.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Fatty Acid Profiles of Organisms Caught in 2019 in the Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-fatty-acid/blob/main/docs/Supplementary%20Material%20-%20Fatty%20Acids%20Profiles%20of%20Organisms%20Caught%20in%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-fatty-acid/blob/main/docs/Supplementary%20Material%20-%20Fatty%20Acids%20Profiles%20of%20Organisms%20Caught%20in%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Des  de tissus provenant de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est ont  analys pour d leur profil en acides gras. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) qui a eu lieu en f-mars 2019 afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer. Les donn sur les acides gras fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est et sur la sant et l’ des organismes.”, “en”: “Tissue samples from particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean were analyzed for their fatty acid profiles. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February-March 2019 to further improve the understanding of factors impacting salmon early marine winter survival. The fatty acid data provides information about trophic interactions in the Northeast Pacific Ocean and the health and condition of organisms.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Genetic Stock Identification of Pink Salmon from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Donn d’identification des stocks g par s du polymorphisme unique nucl (SNP) pour le saumon rose r dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (YS) men en mars-avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Genetic stock identification data by single nucleotide polymorphism (SNP) sequencing for pink salmon collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Chum Salmon Otolith Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:urawa@affrc.go.jp" class="email">urawa@affrc.go.jp</a>“,”role“:”custodian“,”organisation-name“:”Fisheries Resources Institute, Japan Fisheries Research &amp; Education Agency“,”individual-name“:”Shigehiko Urawa“}, {”contact-info_online-resource“:”“,”position-name“:”Program Manager - Ecosystem Monitoring and Assessment“,”contact-info_email“:”<a href="mailto:ed.farley@noaa.gov" class="email">ed.farley@noaa.gov</a>“,”role“:”custodian“,”organisation-name“:”National Oceanic and Atmospheric Administration“,”individual-name“:”Ed Farley"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Les otolithes du saumon k ont  pr sur du saumon dans l’oc Pacifique Nord-Est et analys pour obtenir des informations sur l’ et la croissance. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les marques thermiques des otolithes ont   examin pour aider  d l’origine du stock.”, “en”: “Chum salmon otoliths were collected from salmon in the Northeast Pacific Ocean and analyzed for information about age and growth. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Otolith thermal marks were also examined to help determine stock origin.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Genetic Stock Identification of Chinook Salmon from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Donn d’identification g des stocks par s du polymorphisme unique nucl (SNP) pour le saumon quinnat pr dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer.”, “en”: “Genetic stock identification data by single nucleotide polymorphism (SNP) sequencing for Chinook salmon collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Salmon Energy Density Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:chrys.neville@dfo-mpo.gc.ca" class="email">chrys.neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:ed.farley@noaa.gov" class="email">ed.farley@noaa.gov</a>“,”role“:”custodian“,”organisation-name“:”National Oceanic Atmospheric Administration“,”individual-name“:”Ed Farley"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn sur la densit  des tissus musculaires du saumon collect dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Ces donn fournissent des informations sur la croissance et la sant du saumon pendant la p hivernale dans le golfe d’Alaska.”, “en”: “This dataset contains salmon muscle tissue energy density data collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. This data provides information about the growth and health of salmon during the winter period in the Gulf of Alaska.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Salmon Energy Density Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:chrys.neville@dfo-mpo.gc.ca" class="email">chrys.neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:ed.farley@noaa.gov" class="email">ed.farley@noaa.gov</a>“,”role“:”custodian“,”organisation-name“:”National Oceanic Atmospheric Administration“,”individual-name“:”Ed Farley"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-fish-energy-density/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Energy%20Density%20Data%20from%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-fish-energy-density/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Energy%20Density%20Data%20from%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn sur la densit  des tissus musculaires du saumon collect dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Ces donn fournissent des informations sur la croissance et la sant du saumon pendant la p hivernale dans le golfe d’Alaska.”, “en”: “This dataset contains salmon muscle tissue energy density data collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. This data provides information about the growth and health of salmon during the winter period in the Gulf of Alaska.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Environmental DNA (eDNA) data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Postdoctoral Fellow“,”contact-info_email“:”<a href="mailto:Christoph.Deeg@dfo-mpo.gc.ca" class="email">Christoph.Deeg@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Christoph Deeg"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn d’ADN environnemental (EDNA) collect dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (YS) men en mars et avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. l’environnement pour  la diversit et la composition des esp. La base de donn de l’ADNa fournira la composition globale du nekton, du micronekton et du zooplancton permettant d’estimer les proies de saumon et les pr potentiels.”, “en”: “This dataset contains environmental DNA (eDNA) data collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March and April 2020, to further improve the understanding of factors impacting salmon early marine winter survival. eDNA analysis uses the free DNA shed from organisms and available in the environment to assess species diversity and composition. The eDNA database will provide overall composition of nekton, micronekton and zooplankton allowing estimation of salmon prey and potential predators.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Environmental DNA (eDNA) data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Postdoctoral Fellow“,”contact-info_email“:”<a href="mailto:Christoph.Deeg@dfo-mpo.gc.ca" class="email">Christoph.Deeg@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Christoph Deeg"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-eDNA/blob/main/docs/Supplementary%20Material%20-%20Environmental%20DNA%20(eDNA)%20data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-eDNA/blob/main/docs/Supplementary%20Material%20-%20Environmental%20DNA%20(eDNA)%20data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn d’ADN environnemental (EDNA) collect dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (YS) men en mars et avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. l’environnement pour  la diversit et la composition des esp. La base de donn de l’ADNa fournira la composition globale du nekton, du micronekton et du zooplancton permettant d’estimer les proies de saumon et les pr potentiels.”, “en”: “This dataset contains environmental DNA (eDNA) data collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March and April 2020, to further improve the understanding of factors impacting salmon early marine winter survival. eDNA analysis uses the free DNA shed from organisms and available in the environment to assess species diversity and composition. The eDNA database will provide overall composition of nekton, micronekton and zooplankton allowing estimation of salmon prey and potential predators.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Microplastic distributions from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:gennadykantakov@gmail.com" class="email">gennadykantakov@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Gennady Kantakov"}]</td>
+<td align="left">Published paper by Egger et al. (2020) that includes data collected on microplastics during the 2019 Gulf of Alaska High Seas Expedition</td>
+<td align="left"><a href="https://iopscience.iop.org/article/10.1088/1748-9326/abbb4f/pdf" class="uri">https://iopscience.iop.org/article/10.1088/1748-9326/abbb4f/pdf</a></td>
+<td align="left">{“fr”: “Des donn ont  recueillies sur l’abondance et le poids relatifs des microplastiques (0,05-0,15 cm et 0,15-0,5 cm) et des m (0,5  1,5 cm et 1,5  5 cm). L’ a  effectu  l’aide d’un chalut  neutrons Hydro-Bios (ouverture buccale de 70 cm x 40 cm), avec un filet d’ de 260 cm de long avec un maillage de 300 um dans les eaux de surface du golfe d’Alaska (GoA), dans l’est de l’oc Pacifique Nord. 56 chaluts Neuston ont  r et un relev visuel du plastique flottant a jou sur 20 sites. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (IYS) dans le golfe de l’Alaska, qui a eu lieu en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Data were collected on the relative abundance and weight of microplastics (0.05-0.15 cm and 0.15-0.5 cm) and mesoplastics (0.5-1.5 cm and 1.5-5 cm). The sampling was done using a Hydro-Bios neuston trawl (mouth opening of 70 cm x 40 cm), with a 260 cm long sampling net with a mesh size of 300 um in the surface waters of the Gulf of Alaska (GoA), in the eastern North Pacific Ocean. 56 Neuston trawls were conducted and a visual survey of floating plastic was performed at 20 locations. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Microplastic distributions from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:gennadykantakov@gmail.com" class="email">gennadykantakov@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Gennady Kantakov"}]</td>
+<td align="left">The supplementary materials include a protocol on how to conduct visual surveys for floating marine debris, and the sampling methodology used to generate the 2019 IYS Microplastic dataset</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-plastics/tree/main/docs" class="uri">https://github.com/international-year-of-the-salmon/2019-plastics/tree/main/docs</a></td>
+<td align="left">{“fr”: “Des donn ont  recueillies sur l’abondance et le poids relatifs des microplastiques (0,05-0,15 cm et 0,15-0,5 cm) et des m (0,5  1,5 cm et 1,5  5 cm). L’ a  effectu  l’aide d’un chalut  neutrons Hydro-Bios (ouverture buccale de 70 cm x 40 cm), avec un filet d’ de 260 cm de long avec un maillage de 300 um dans les eaux de surface du golfe d’Alaska (GoA), dans l’est de l’oc Pacifique Nord. 56 chaluts Neuston ont  r et un relev visuel du plastique flottant a jou sur 20 sites. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (IYS) dans le golfe de l’Alaska, qui a eu lieu en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Data were collected on the relative abundance and weight of microplastics (0.05-0.15 cm and 0.15-0.5 cm) and mesoplastics (0.5-1.5 cm and 1.5-5 cm). The sampling was done using a Hydro-Bios neuston trawl (mouth opening of 70 cm x 40 cm), with a 260 cm long sampling net with a mesh size of 300 um in the surface waters of the Gulf of Alaska (GoA), in the eastern North Pacific Ocean. 56 Neuston trawls were conducted and a visual survey of floating plastic was performed at 20 locations. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Fatty Acid Profiles of Organisms Caught in 2020 in the Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Des  de tissus provenant de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est ont  analys pour d leur profil en acides gras. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars-avril 2020 afin d’am la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les donn sur les acides gras fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est et sur la sant et l’ des organismes.”, “en”: “Tissue samples from particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean were analyzed for their fatty acid profiles. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020 to further improve the understanding of factors impacting salmon early marine winter survival. The fatty acid data provides information about trophic interactions in the Northeast Pacific Ocean and the health and condition of organisms.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Fatty Acid Profiles of Organisms Caught in 2020 in the Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-fatty-acid/blob/main/docs/Supplementary%20Material%20-%20Fatty%20Acids%20Profiles%20of%20Organisms%20Caught%20in%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-fatty-acid/blob/main/docs/Supplementary%20Material%20-%20Fatty%20Acids%20Profiles%20of%20Organisms%20Caught%20in%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Des  de tissus provenant de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est ont  analys pour d leur profil en acides gras. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars-avril 2020 afin d’am la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les donn sur les acides gras fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est et sur la sant et l’ des organismes.”, “en”: “Tissue samples from particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean were analyzed for their fatty acid profiles. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020 to further improve the understanding of factors impacting salmon early marine winter survival. The fatty acid data provides information about trophic interactions in the Northeast Pacific Ocean and the health and condition of organisms.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Genetic Stock Identification of Sockeye Salmon from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Donn d’identification des stocks g par s du polymorphisme unique nucl (SNP) pour le saumon rouge r dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer.”, “en”: “Genetic stock identification data by single nucleotide polymorphism (SNP) sequencing for sockeye salmon collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Nutrient and Oxygen Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">3</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:anna.vazhova@gmail.com" class="email">anna.vazhova@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Anna Vazhova"}]</td>
+<td align="left">ERDDAP’s version of the OPeNDAP .html web page for this dataset. Specify a subset of the dataset and download the data via OPeNDAP or in many different file types.</td>
+<td align="left"><a href="https://data.cioospacific.ca/erddap/tabledap/IYS_2019_nutrients_O2.html" class="uri">https://data.cioospacific.ca/erddap/tabledap/IYS_2019_nutrients_O2.html</a></td>
+<td align="left">{“fr”: “Donn sur les  nutritifs recueillies dans le nord-est de l’oc Pacifique au cours de l’exp dans le golfe de l’Alaska (GoA) en 2019. L’ensemble de donn contient  des mesures de temp, de salinit, de pH et d’oxyg aux profondeurs auxquelles les  d’ nutritifs ont  pr. L’exp faisait partie du projet plus vaste de l’Ann internationale du saumon (AIY).”, “en”: “Nutrient data collected in the Northeast Pacific Ocean during the Gulf of Alaska (GoA) expedition in 2019. The dataset also contains temperature, salinity, pH, and oxygen measurements at the depths at which nutrient samples were collected. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Nutrient and Oxygen Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">3</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:anna.vazhova@gmail.com" class="email">anna.vazhova@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Anna Vazhova"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-nutrients/blob/main/docs/Supplementary%20Material-Nutrient%20data%20from%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-nutrients/blob/main/docs/Supplementary%20Material-Nutrient%20data%20from%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Donn sur les  nutritifs recueillies dans le nord-est de l’oc Pacifique au cours de l’exp dans le golfe de l’Alaska (GoA) en 2019. L’ensemble de donn contient  des mesures de temp, de salinit, de pH et d’oxyg aux profondeurs auxquelles les  d’ nutritifs ont  pr. L’exp faisait partie du projet plus vaste de l’Ann internationale du saumon (AIY).”, “en”: “Nutrient data collected in the Northeast Pacific Ocean during the Gulf of Alaska (GoA) expedition in 2019. The dataset also contains temperature, salinity, pH, and oxygen measurements at the depths at which nutrient samples were collected. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Nutrient and Oxygen Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">3</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:anna.vazhova@gmail.com" class="email">anna.vazhova@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Anna Vazhova"}]</td>
+<td align="left">Data format provided by scientist before standardization by IYS Data Scientists</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-nutrients/tree/main/original_data" class="uri">https://github.com/international-year-of-the-salmon/2019-nutrients/tree/main/original_data</a></td>
+<td align="left">{“fr”: “Donn sur les  nutritifs recueillies dans le nord-est de l’oc Pacifique au cours de l’exp dans le golfe de l’Alaska (GoA) en 2019. L’ensemble de donn contient  des mesures de temp, de salinit, de pH et d’oxyg aux profondeurs auxquelles les  d’ nutritifs ont  pr. L’exp faisait partie du projet plus vaste de l’Ann internationale du saumon (AIY).”, “en”: “Nutrient data collected in the Northeast Pacific Ocean during the Gulf of Alaska (GoA) expedition in 2019. The dataset also contains temperature, salinity, pH, and oxygen measurements at the depths at which nutrient samples were collected. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Satellite Chlorophyll a Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:psvishnu2014@gmail.com" class="email">psvishnu2014@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”University of Victoria“,”individual-name“:”Vishnu Perumthuruthil Suseelan"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Donn relatives  la chlorophylle A satellitaire recueillies  l’aide d’images provenant de Sentinel-3 (r spatiale de 300 m) et de VIIRS et Modis-Aqua (r de 1 km) pour d la concentration en chlorophylle et les groupes phytoplancton. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Satellite Chlorophyll-a Data collected using imagery from Sentinel-3 (300 m spatial resolution) and VIIRS and MODIS-Aqua (1 km resolution) to derive chlorophyll concentration and phytoplankton groups. This data was collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Satellite Chlorophyll a Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:psvishnu2014@gmail.com" class="email">psvishnu2014@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”University of Victoria“,”individual-name“:”Vishnu Perumthuruthil Suseelan"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-satellite-chlorophyll-a/blob/main/docs/Supplementary%20Material-%20Satellite%20Chlorophyll%20a%20and%20Phaeopigment%20Concentrations%20from%20the%202019%20GOA%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-satellite-chlorophyll-a/blob/main/docs/Supplementary%20Material-%20Satellite%20Chlorophyll%20a%20and%20Phaeopigment%20Concentrations%20from%20the%202019%20GOA%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Donn relatives  la chlorophylle A satellitaire recueillies  l’aide d’images provenant de Sentinel-3 (r spatiale de 300 m) et de VIIRS et Modis-Aqua (r de 1 km) pour d la concentration en chlorophylle et les groupes phytoplancton. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Satellite Chlorophyll-a Data collected using imagery from Sentinel-3 (300 m spatial resolution) and VIIRS and MODIS-Aqua (1 km resolution) to derive chlorophyll concentration and phytoplankton groups. This data was collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Genetic Stock Identification of Coho Salmon (lab analysis) from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Donn d’identification des stocks g par s du polymorphisme unique nucl (SNP) pour le saumon coho r dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Ces  ont  trait en laboratoire et compar aux analyses g en mer.”, “en”: “Genetic stock identification data by single nucleotide polymorphism (SNP) sequencing for Coho salmon collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. These samples were processed in the lab and compared with the at-sea genetic analyses.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Nutrient Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Donn sur les nutriments collect dans l’oc Pacifique Nord-Est. Le jeu de donn contient  des mesures de temp, de salinit, de pH et d’oxyg aux profondeurs auxquelles des  de nutriments ont  pr. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (YS) men en mars-avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Nutrient data collected in the Northeast Pacific Ocean. The dataset also contains temperature, salinity, pH, and oxygen measurements at the depths at which nutrient samples were collected. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Nutrient Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-Nutrients/blob/main/docs/Supplementary%20Material-Nutrient%20data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-Nutrients/blob/main/docs/Supplementary%20Material-Nutrient%20data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon.txt</a></td>
+<td align="left">{“fr”: “Donn sur les nutriments collect dans l’oc Pacifique Nord-Est. Le jeu de donn contient  des mesures de temp, de salinit, de pH et d’oxyg aux profondeurs auxquelles des  de nutriments ont  pr. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (YS) men en mars-avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Nutrient data collected in the Northeast Pacific Ocean. The dataset also contains temperature, salinity, pH, and oxygen measurements at the depths at which nutrient samples were collected. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Particulate Organic Matter (POM) data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">3</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">ERDDAP’s version of the OPeNDAP .html web page for this dataset. Specify a subset of the dataset and download the data via OPeNDAP or in many different file types.</td>
+<td align="left"><a href="https://data.cioospacific.ca/erddap/tabledap/IYS_2019_POM.html" class="uri">https://data.cioospacific.ca/erddap/tabledap/IYS_2019_POM.html</a></td>
+<td align="left">{“fr”: “Des  de mati organiques particulaires (POM) ont  pr pour l’analyse de la teneur en carbone et en azote et de la composition des isotopes stables  toutes les stations oc. Les  ont  pr  l’aide de bouteilles Niskin  une profondeur de 5 m. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (IYS) dans le golfe de l’Alaska, qui a eu lieu en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Particulate Organic Matter (POM) samples were collected for the analysis of carbon and nitrogen content and stable isotope composition at all oceanographic stations. Samples were collected using Niskin bottles from a depth of 5m. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Particulate Organic Matter (POM) data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">3</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-POM/blob/main/docs/Supplementary%20Material-POM%20data%20from%20the%202019%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-POM/blob/main/docs/Supplementary%20Material-POM%20data%20from%20the%202019%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Des  de mati organiques particulaires (POM) ont  pr pour l’analyse de la teneur en carbone et en azote et de la composition des isotopes stables  toutes les stations oc. Les  ont  pr  l’aide de bouteilles Niskin  une profondeur de 5 m. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (IYS) dans le golfe de l’Alaska, qui a eu lieu en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Particulate Organic Matter (POM) samples were collected for the analysis of carbon and nitrogen content and stable isotope composition at all oceanographic stations. Samples were collected using Niskin bottles from a depth of 5m. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Particulate Organic Matter (POM) data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">3</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">As provided by IYS Scientists and not having undergone standardization</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-POM/tree/main/original_data" class="uri">https://github.com/international-year-of-the-salmon/2019-POM/tree/main/original_data</a></td>
+<td align="left">{“fr”: “Des  de mati organiques particulaires (POM) ont  pr pour l’analyse de la teneur en carbone et en azote et de la composition des isotopes stables  toutes les stations oc. Les  ont  pr  l’aide de bouteilles Niskin  une profondeur de 5 m. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (IYS) dans le golfe de l’Alaska, qui a eu lieu en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Particulate Organic Matter (POM) samples were collected for the analysis of carbon and nitrogen content and stable isotope composition at all oceanographic stations. Samples were collected using Niskin bottles from a depth of 5m. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Salmon Energy Density Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Biologist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:ed.farley@noaa.gov" class="email">ed.farley@noaa.gov</a>“,”role“:”custodian“,”organisation-name“:”National Oceanic Atmospheric Administration“,”individual-name“:”Ed Farley"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn sur la densit  des tissus musculaires du saumon collect dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars et avril 2020, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Ces donn fournissent des informations sur la croissance et la sant du saumon pendant la p hivernale dans le golfe d’Alaska.”, “en”: “This dataset contains salmon muscle tissue energy density data collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March and April 2020, to further improve the understanding of factors impacting salmon early marine winter survival. This data provides information about the growth and health of salmon during the winter period in the Gulf of Alaska.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Salmon Energy Density Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Biologist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:ed.farley@noaa.gov" class="email">ed.farley@noaa.gov</a>“,”role“:”custodian“,”organisation-name“:”National Oceanic Atmospheric Administration“,”individual-name“:”Ed Farley"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-fish-energy-density/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Energy%20Density%20Data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-fish-energy-density/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Energy%20Density%20Data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient des donn sur la densit  des tissus musculaires du saumon collect dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars et avril 2020, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Ces donn fournissent des informations sur la croissance et la sant du saumon pendant la p hivernale dans le golfe d’Alaska.”, “en”: “This dataset contains salmon muscle tissue energy density data collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March and April 2020, to further improve the understanding of factors impacting salmon early marine winter survival. This data provides information about the growth and health of salmon during the winter period in the Gulf of Alaska.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Marine Mammal and Bird Observations from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Des mammif marins et des oiseaux ont  observ  partir d’un navire dans l’oc Pacifique Nord-Est dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (YS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver marin.”, “en”: “Marine mammal and birds were observed from a ship in the Northeast Pacific Ocean as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Surface Radiance Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:psvishnu2014@gmail.com" class="email">psvishnu2014@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”University of Victoria“,”individual-name“:”Vishnu Perumthuruthil Suseelan"}]</td>
+<td align="left"></td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “R n du fournisseur de donn”, “en”: “Sea surface radiance (LT()), sky radiance (Ls()), and total irradiance (Ed()) data collected using a set of hyperspectral radiometers. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Surface Radiance Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:psvishnu2014@gmail.com" class="email">psvishnu2014@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”University of Victoria“,”individual-name“:”Vishnu Perumthuruthil Suseelan"}]</td>
+<td align="left"></td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-irradiance-surface-radiance/blob/main/docs/Supplementary%20Material-Surface%20Radiance%20Data%20from%20the%202019%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-irradiance-surface-radiance/blob/main/docs/Supplementary%20Material-Surface%20Radiance%20Data%20from%20the%202019%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “R n du fournisseur de donn”, “en”: “Sea surface radiance (LT()), sky radiance (Ls()), and total irradiance (Ed()) data collected using a set of hyperspectral radiometers. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Pink Salmon Otolith Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Program Manager - Ecosystem Monitoring and Assessment“,”contact-info_email“:”<a href="mailto:ed.farley@noaa.gov" class="email">ed.farley@noaa.gov</a>“,”role“:”custodian“,”organisation-name“:”National Oceanic and Atmospheric Administration“,”individual-name“:”Ed Farley"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Les otolithes de saumon rose ont  pr sur du saumon dans l’oc Pacifique Nord-Est et analys pour obtenir des informations sur l’ et la croissance. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les marques thermiques des otolithes ont   examin pour aider  d l’origine du stock.”, “en”: “Pink salmon otoliths were collected from salmon in the Northeast Pacific Ocean and analyzed for information about age and growth. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Otolith thermal marks were also examined to help determine stock origin.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Salmon Pathogen Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Postdoctoral Fellow“,”contact-info_email“:”<a href="mailto:Christoph.Deeg@dfo-mpo.gc.ca" class="email">Christoph.Deeg@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Christoph Deeg"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Des informations sur la charge d’agents pathog ont  recueillies aupr du saumon dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les marqueurs de la charge pathog du saumon, du stress et de l’inflammation ont    l’aide d’une plateforme QPCR de nanofluidiques  haut d.”, “en”: “Information on pathogen load was collected from salmon in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Salmon pathogen burden, stress, and inflammation markers were assessed using a high throughput nanofluidics qPCR platform.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Salmon Pathogen Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Postdoctoral Fellow“,”contact-info_email“:”<a href="mailto:Christoph.Deeg@dfo-mpo.gc.ca" class="email">Christoph.Deeg@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Christoph Deeg"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-salmon-health-pathogen/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Pathogen%20Data%20from%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-salmon-health-pathogen/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Pathogen%20Data%20from%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Des informations sur la charge d’agents pathog ont  recueillies aupr du saumon dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les marqueurs de la charge pathog du saumon, du stress et de l’inflammation ont    l’aide d’une plateforme QPCR de nanofluidiques  haut d.”, “en”: “Information on pathogen load was collected from salmon in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Salmon pathogen burden, stress, and inflammation markers were assessed using a high throughput nanofluidics qPCR platform.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Juday Net Zooplankton Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:aleksey.somov@tinro-center.ru" class="email">aleksey.somov@tinro-center.ru</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Aleksey Somov“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:zhadko.helen@gmail.com" class="email">zhadko.helen@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Aleksander Slabinsky“}, {”contact-info_online-resource“:”“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:epakhomov@eoas.ubc.ca" class="email">epakhomov@eoas.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Evgeny Pakhomov"}]</td>
+<td align="left">Zooplankton biomass and community composition data caught with a Juday Net in the Northeast Pacific Ocean during the 2019 International Year of the Salmon High Seas Expedition</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient les donn sur le zooplancton collect dans l’oc Pacifique Nord-Est avec un filet de Juday. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (AIY) men en f et mars 2019, afin de mieux comprendre les facteurs qui influent sur la survie du saumon au d de l’hiver en mer. Deux filets de Juday (0,1 m2 de surface de l’embouchure, 160 um maillage) ont  d  58 stations  une profondeur de 50 et 200 m, et des  ont  trait  bord du navire. Les donn sur le zooplancton rapport contiennent des donn sur la biomasse (mg de poids humide) pour trois classes de taille: 0,1-0,5 mm, 0,5  1,2 mm et &gt;1,2 mm, et des donn sur la biodiversit. Le zooplancton a  agr sous Copepoda, Euphausiacea, Amphipoda, Pteropoda, Chaetognatha, Hydromedusae et autres. Les donn recueillies servent  comprendre la structure sous-jacente du r alimentaire.”, “en”: “This dataset contains zooplankton data collected in the Northeast Pacific Ocean with a Juday net. These data were collected as part of the International Year of the Salmon (IYS) High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Two Juday nets (0.1 m2 mouth area, 160 um mesh size) were deployed at 58 stations to a depth of 50 and 200 meters, and samples were processed onboard the vessel. Reported zooplankton data contains biomass (mg wet weight) data for three size classes: 0.1-0.5mm, 0.5-1.2mm and &gt;1.2mm, and biodiversity data. Zooplankton were aggregated under Copepoda, Euphausiacea, Amphipoda, Pteropoda, Chaetognatha, Hydromedusae and Others. The data collected is used to understand the underlying food web structure.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Juday Net Zooplankton Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”“,”contact-info_email“:”<a href="mailto:aleksey.somov@tinro-center.ru" class="email">aleksey.somov@tinro-center.ru</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Aleksey Somov“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:zhadko.helen@gmail.com" class="email">zhadko.helen@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”Russian Federal Fisheries Research Institute for Fisheries and Oceanography“,”individual-name“:”Aleksander Slabinsky“}, {”contact-info_online-resource“:”“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:epakhomov@eoas.ubc.ca" class="email">epakhomov@eoas.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Evgeny Pakhomov"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-juday-zooplankton/blob/main/docs/Supplementary%20Material-Juday%20Net%20Zooplankton%20Data%20from%20the%202019%20Gulf%20of%20Alaska%20IYS%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-juday-zooplankton/blob/main/docs/Supplementary%20Material-Juday%20Net%20Zooplankton%20Data%20from%20the%202019%20Gulf%20of%20Alaska%20IYS%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Ce jeu de donn contient les donn sur le zooplancton collect dans l’oc Pacifique Nord-Est avec un filet de Juday. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (AIY) men en f et mars 2019, afin de mieux comprendre les facteurs qui influent sur la survie du saumon au d de l’hiver en mer. Deux filets de Juday (0,1 m2 de surface de l’embouchure, 160 um maillage) ont  d  58 stations  une profondeur de 50 et 200 m, et des  ont  trait  bord du navire. Les donn sur le zooplancton rapport contiennent des donn sur la biomasse (mg de poids humide) pour trois classes de taille: 0,1-0,5 mm, 0,5  1,2 mm et &gt;1,2 mm, et des donn sur la biodiversit. Le zooplancton a  agr sous Copepoda, Euphausiacea, Amphipoda, Pteropoda, Chaetognatha, Hydromedusae et autres. Les donn recueillies servent  comprendre la structure sous-jacente du r alimentaire.”, “en”: “This dataset contains zooplankton data collected in the Northeast Pacific Ocean with a Juday net. These data were collected as part of the International Year of the Salmon (IYS) High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Two Juday nets (0.1 m2 mouth area, 160 um mesh size) were deployed at 58 stations to a depth of 50 and 200 meters, and samples were processed onboard the vessel. Reported zooplankton data contains biomass (mg wet weight) data for three size classes: 0.1-0.5mm, 0.5-1.2mm and &gt;1.2mm, and biodiversity data. Zooplankton were aggregated under Copepoda, Euphausiacea, Amphipoda, Pteropoda, Chaetognatha, Hydromedusae and Others. The data collected is used to understand the underlying food web structure.”}</td>
+</tr>
+<tr class="even">
+<td align="left">High Performance Liquid Chromatography (HPLC) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-HPLC/blob/main/docs/Supplementary%20Material-High%20Performance%20Liquid%20Chromatography%20(HPLC)%20Data%20from%20the%202020%20IYS%20GOA%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-HPLC/blob/main/docs/Supplementary%20Material-High%20Performance%20Liquid%20Chromatography%20(HPLC)%20Data%20from%20the%202020%20IYS%20GOA%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Donn de chromatographie liquide haute performance d d’ de 2000 ml pr  une profondeur de 5 m. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (YS) men en mars-avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “High Performance Liquid Chromatography data derived from 2000ml samples collected at a depth of 5m. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Genetic Stock Identification of Coho Salmon from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Donn d’identification des stocks g par s du polymorphisme unique nucl (SNP) pour le saumon coho r dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (YS) men en mars-avril 2020, afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Genetic stock identification data by single nucleotide polymorphism (SNP) sequencing for coho salmon collected in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Particulate Organic Matter (POM) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Donn sur les mati organiques particulaires collect  5 m de profondeur  l’aide de bouteilles Niskin. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (IYS) men en mars  avril 2020, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Particulate Organic Matter data collected at 5m depth using Niskin bottles. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March to April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Particulate Organic Matter (POM) Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-POM/blob/main/docs/Supplementary%20Material-POM%20data%20from%20the%202020%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-POM/blob/main/docs/Supplementary%20Material-POM%20data%20from%20the%202020%20GOA%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Donn sur les mati organiques particulaires collect  5 m de profondeur  l’aide de bouteilles Niskin. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe de l’Alaska de l’Ann internationale du saumon (IYS) men en mars  avril 2020, afin d’am encore la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Particulate Organic Matter data collected at 5m depth using Niskin bottles. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March to April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Salmon Otolith Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Research Scientist“,”contact-info_email“:”<a href="mailto:Chrys.Neville@dfo-mpo.gc.ca" class="email">Chrys.Neville@dfo-mpo.gc.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Chrys Neville"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Les otolithes ont  pr sur du saumon dans l’oc Pacifique Nord-Est et analys pour obtenir des informations sur l’ et la croissance. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en f et mars 2019, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer. Les marques thermiques des otolithes ont   examin pour aider  d l’origine des stocks de saumons roses et k.”, “en”: “Otoliths were collected from salmon in the Northeast Pacific Ocean and analyzed for information about age and growth. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival. Otolith thermal marks were also examined to help determine stock origin for pink and chum salmon.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Phytoplankton Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:maycira@uvic.ca" class="email">maycira@uvic.ca</a>“,”role“:”custodian“,”organisation-name“:”University of Victoria“,”individual-name“:”Maycira Costa“}, {”contact-info_online-resource“:”“,”position-name“:”“,”contact-info_email“:”<a href="mailto:psvishnu2014@gmail.com" class="email">psvishnu2014@gmail.com</a>“,”role“:”custodian“,”organisation-name“:”University of Victoria“,”individual-name“:”Vishnu Perumthuruthil Suseelan"}]</td>
+<td align="left"></td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-Phytoplankton/blob/main/docs/Supplementary%20Materials-Phytoplankton%20data%20from%20the%202020%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition" class="uri">https://github.com/international-year-of-the-salmon/2020-Phytoplankton/blob/main/docs/Supplementary%20Materials-Phytoplankton%20data%20from%20the%202020%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition</a></td>
+<td align="left">{“fr”: “Donn phytoplanctoniques collect dans l’oc Pacifique Nord  l’aide d’images satellites et valid  l’aide d’ d’eau in situ. Ces donn ont  recueillies dans le cadre de l’exp en haute mer de l’Ann internationale du saumon (IYS) dans le golfe de l’Alaska, qui a eu lieu en mars-avril 2020 afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer.”, “en”: “Phytoplankton data collected in the North Pacific Ocean using satellite imagery and validated using in situ water samples. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March-April 2020 to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Zooplankton Juday Net Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">1</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:epakhomov@eoas.ubc.ca" class="email">epakhomov@eoas.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Evgeny Pakhomov"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://Link" class="uri">http://Link</a> to be added once published</td>
+<td align="left">{“fr”: “R n du fournisseur de donn”, “en”: “Abstract needed from Data Provider”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Stable Isotopes from Organisms Caught in the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com" class="uri">http://link.to.be.added.once.published.com</a></td>
+<td align="left">{“fr”: “Des isotopes stables au carbone et  l’azote ont  analys  la recherche d’ de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) qui a eu lieu en f-mars 2019 afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer. Les donn sur les isotopes stables fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est.”, “en”: “Carbon and nitrogen stable isotopes were analyzed for samples of particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February-March 2019 to further improve the understanding of factors impacting salmon early marine winter survival. The stable isotope data provides information about trophic interactions in the Northeast Pacific Ocean.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Stable Isotopes from Organisms Caught in the 2019 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Professor“,”contact-info_email“:”<a href="mailto:b.hunt@oceans.ubc.ca" class="email">b.hunt@oceans.ubc.ca</a>“,”role“:”custodian“,”organisation-name“:”University of British Columbia“,”individual-name“:”Brian Hunt"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2019-stable-isotope-data/blob/main/docs/Supplementary%20Material%20-%20Stable%20Isotopes%20from%20Organisms%20Caught%20in%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2019-stable-isotope-data/blob/main/docs/Supplementary%20Material%20-%20Stable%20Isotopes%20from%20Organisms%20Caught%20in%20the%202019%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Des isotopes stables au carbone et  l’azote ont  analys  la recherche d’ de mati organiques particulaires (POM), de zooplancton, de saumon et de prises accessoires captur dans l’oc Pacifique Nord-Est. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) qui a eu lieu en f-mars 2019 afin d’am la compr des facteurs ayant une incidence sur la survie du saumon en d d’hiver en mer. Les donn sur les isotopes stables fournissent des informations sur les interactions trophiques dans l’oc Pacifique Nord-Est.”, “en”: “Carbon and nitrogen stable isotopes were analyzed for samples of particulate organic matter (POM), zooplankton, salmon and bycatch caught in the Northeast Pacific Ocean. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February-March 2019 to further improve the understanding of factors impacting salmon early marine winter survival. The stable isotope data provides information about trophic interactions in the Northeast Pacific Ocean.”}</td>
+</tr>
+<tr class="odd">
+<td align="left">Salmon Scale Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Emeritus Scientist“,”contact-info_email“:”<a href="mailto:rabeamish@shaw.ca" class="email">rabeamish@shaw.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Richard Beamish"}]</td>
+<td align="left">Description needed once data is published</td>
+<td align="left"><a href="http://link.to.be.added.once.published.com/" class="uri">http://link.to.be.added.once.published.com/</a></td>
+<td align="left">{“fr”: “Les  ont  pr sur le saumon dans l’oc Pacifique Nord-Est et analys pour obtenir des informations sur l’. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars et avril 2020, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer.”, “en”: “Scales were collected from salmon in the Northeast Pacific Ocean and analyzed for information about age. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March and April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
+</tr>
+<tr class="even">
+<td align="left">Salmon Scale Data from the 2020 Gulf of Alaska International Year of the Salmon Expedition</td>
+<td align="right">2</td>
+<td align="left">[{“contact-info_online-resource”: "“,”position-name“:”Emeritus Scientist“,”contact-info_email“:”<a href="mailto:rabeamish@shaw.ca" class="email">rabeamish@shaw.ca</a>“,”role“:”custodian“,”organisation-name“:”Fisheries and Oceans Canada“,”individual-name“:”Richard Beamish"}]</td>
+<td align="left">Information about the methodologies used for data collection and processing</td>
+<td align="left"><a href="https://github.com/international-year-of-the-salmon/2020-scale-data/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Scale%20Data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt" class="uri">https://github.com/international-year-of-the-salmon/2020-scale-data/blob/main/docs/Supplementary%20Material%20-%20Salmon%20Scale%20Data%20from%20the%202020%20Gulf%20of%20Alaska%20International%20Year%20of%20the%20Salmon%20Expedition.txt</a></td>
+<td align="left">{“fr”: “Les  ont  pr sur le saumon dans l’oc Pacifique Nord-Est et analys pour obtenir des informations sur l’. Ces donn ont  recueillies dans le cadre de l’exp en haute mer du golfe d’Alaska de l’Ann internationale du saumon (IYS) men en mars et avril 2020, afin d’am encore la compr des facteurs ayant une incidence sur la survie hivernale du saumon en d de mer.”, “en”: “Scales were collected from salmon in the Northeast Pacific Ocean and analyzed for information about age. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in March and April 2020, to further improve the understanding of factors impacting salmon early marine winter survival.”}</td>
 </tr>
 </tbody>
 </table>

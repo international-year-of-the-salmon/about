@@ -1,0 +1,40 @@
+---
+title: "ERDDAP_dataset_xml_template"
+---
+
+Part of the process for uploading data to ERDDAP is to include some standard metadata fields defined in an .xml file. There are many things that could be included based on the Earth Science Information Partners (Attribute Convention for Data Discovery)[https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3] (which ERDDAP adheres to a promotes). Below are some of the standard attributes and values that should be included with each dataset.
+
+## Global Attributes
+
+      <att name="project">International Year of the Salmon (IYS)</att>
+      <att name="creator_name">Lead Author's name</att>
+      <att name="creator_type">Person</att>
+      <att name="metadata_link">insert DOI here</att>
+      <att name="id">insert DOI here</att>
+      <att name="publisher">Hakai Institute</att>
+      <att name="publisher_type">Organization</att>
+      <att name="publisher_email">data@hakai.org</att>
+      <att name="infoUrl">http://yearofthesalmon.org</att>
+      <att name="institution">Lead authors</att>
+      <att name="keywords">oceans, international year of the salmon (IYS)</att>
+      <att name="license">https://creativecommons.org/licenses/by/4.0/</att>
+      <att name="standard_name_vocabulary">CF Standard Name Table v55</att>
+
+It's also important to determine the 'cdm_data_type, (the Common Data Model data type)
+
+Ensure there isn't repetition in units/long names in ERDDAP table subset interface
+
+Make sure original data doesn't have raw data subfolder and instead just a standardized data folder that's git ignored
+
+
+## Data structure
+
+* Include new columns:
+   - cruise (eg. GoA2019)
+   - station (eg GoA2019_Stn1)
+   - dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00+00:00)
+   - year
+   - month
+   - day
+   - time (in UTC)
+   
