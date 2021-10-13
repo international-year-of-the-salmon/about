@@ -17,10 +17,12 @@ navbar:
     - text: "Documents"
       menu:
         - text: "IYS Data Mobilization Strategic Recommendations"
-          href: IYS-OOS-Phase_1-Report.pdf  
+          href: IYS-OOS-strategy.pdf  
         - text: "IYS Data Mobilization and Communication Plan"
           href: IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf
         - text: "Draft IYS Data Policy"
-          href: Draft IYS Data Policy_May312021.docx
+          href: IYS Data Policy_draft.pdf
         - text: "2022 Expedition Data Reporting Template"
           href: IYS2022_Template_2021_08_12.xlsx
+        - text: "Data Management Plans"
+          href: "https://drive.google.com/drive/folders/1vON4KCVBauzp7IgyJ-hrvFtQI9yx7L5r?usp=sharing"
