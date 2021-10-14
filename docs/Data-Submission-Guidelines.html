@@ -11,7 +11,7 @@
 
 
 
-<title>ERDDAP_dataset_xml_template</title>
+<title>Data Submission Guidelines</title>
 
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -310,46 +310,27 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">ERDDAP_dataset_xml_template</h1>
+<h1 class="title toc-ignore">Data Submission Guidelines</h1>
 
 </div>
 
 
-<p>Part of the process for uploading data to ERDDAP is to include some standard metadata fields defined in an .xml file. There are many things that could be included based on the Earth Science Information Partners (Attribute Convention for Data Discovery)[<a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3" class="uri">https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3</a>] (which ERDDAP adheres to a promotes). Below are some of the standard attributes and values that should be included with each dataset.</p>
-<div id="global-attributes" class="section level2">
-<h2>Global Attributes</h2>
-<pre><code>  &lt;att name=&quot;project&quot;&gt;International Year of the Salmon (IYS)&lt;/att&gt;
-  &lt;att name=&quot;creator_name&quot;&gt;Lead Author&#39;s name&lt;/att&gt;
-  &lt;att name=&quot;creator_type&quot;&gt;Person&lt;/att&gt;
-  &lt;att name=&quot;metadata_link&quot;&gt;insert DOI here&lt;/att&gt;
-  &lt;att name=&quot;id&quot;&gt;insert DOI here&lt;/att&gt;
-  &lt;att name=&quot;publisher&quot;&gt;Hakai Institute&lt;/att&gt;
-  &lt;att name=&quot;publisher_type&quot;&gt;Organization&lt;/att&gt;
-  &lt;att name=&quot;publisher_email&quot;&gt;data@hakai.org&lt;/att&gt;
-  &lt;att name=&quot;infoUrl&quot;&gt;http://yearofthesalmon.org&lt;/att&gt;
-  &lt;att name=&quot;institution&quot;&gt;Lead authors&lt;/att&gt;
-  &lt;att name=&quot;keywords&quot;&gt;oceans, international year of the salmon (IYS)&lt;/att&gt;
-  &lt;att name=&quot;license&quot;&gt;https://creativecommons.org/licenses/by/4.0/&lt;/att&gt;
-  &lt;att name=&quot;standard_name_vocabulary&quot;&gt;CF Standard Name Table v55&lt;/att&gt;</code></pre>
-<p>It’s also important to determine the ’cdm_data_type, (the Common Data Model data type)</p>
-<p>Ensure there isn’t repetition in units/long names in ERDDAP table subset interface</p>
-<p>Make sure original data doesn’t have raw data subfolder and instead just a standardized data folder that’s git ignored</p>
-</div>
-<div id="data-structure" class="section level2">
-<h2>Data structure</h2>
+<p>All data sets must have certain accompanying documents to ensure that others can understand the data. Please submit datasets as a ‘package’ with the following additional files.</p>
+<p>Note: Trawl catch/specimen information, CTD, and Rosette data must be transformed to the standardized <a href="https://international-year-of-the-salmon.github.io/about/IYS2022_data_template.xlsx">IYS Data Template</a> and submitted with all required accompanying files noted below. All other datasets may be submitted in a non-standardized wide view of the data (every variable has it’s own column), so long as it is possible to link this data with events from the trawl catch/specimen or rosette data tables using the eventID column.</p>
+<p>Required accompanying files:</p>
 <ul>
-<li>Include new columns:
+<li><p><strong>Supply data as plain text files</strong> (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software</p></li>
+<li><p><strong>Data Dictionary</strong>: This defines each variable (column name) in every table of your data. Include variable name, units, description. Recommended format: spreadsheet</p></li>
+<li><p><strong>Supplementary materials:</strong> Describe thoroughly the field, lab, and data processing protocols used to produce your data.</p>
 <ul>
-<li>cruise (eg. GoA2019)</li>
-<li>station (eg GoA2019_Stn1)</li>
-<li>dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00+00:00)</li>
-<li>year</li>
-<li>month</li>
-<li>day</li>
-<li>time (in UTC)</li>
+<li>This could be done in a <code>Readme.txt</code>, a .pdf, or previous publication(s) defining your methods.</li>
+<li>Any scripts that were used to clean up/quality control data, filter data from the raw data, or calculate values in the final data package, or example scripts to join data.</li>
+<li>Optionally include any literature referenced if it’s published in an Open Access article.</li>
 </ul></li>
+<li><p><strong>Assign a version</strong> to your data package. You could use semantic versioning eg. v0.0.1 or some thing even simpler eg. v1, v2, v3.</p></li>
+<li><p>Zip all these files into a folder and name the folder as the name of the dataset and the version of the package. Example: CTD_zone5_IYS_v0.0.1</p></li>
 </ul>
-</div>
+<p>Email data packages to <a href="mailto:secretariat@npafc.org" class="email">secretariat@npafc.org</a></p>
 
 
 

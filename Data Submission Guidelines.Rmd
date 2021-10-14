@@ -1,0 +1,24 @@
+---
+title: "Data Submission Guidelines"
+---
+
+All data sets must have certain accompanying documents to ensure that others can understand the data. Please submit datasets as a 'package' with the following additional files.
+
+Note: Trawl catch/specimen information, CTD, and Rosette data must be transformed to the standardized [IYS Data Template](https://international-year-of-the-salmon.github.io/about/IYS2022_data_template.xlsx) and submitted with all required accompanying files noted below. All other datasets may be submitted in a non-standardized wide view of the data (every variable has it's own column), so long as it is possible to link this data with events from the trawl catch/specimen or rosette data tables using the eventID column.
+
+Required accompanying files:
+
+* **Supply data as plain text files** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software
+
+* **Data Dictionary**:  This defines each variable (column name) in every table of your data. Include variable name, units, description. Recommended format: spreadsheet
+
+* **Supplementary materials:** Describe thoroughly the field, lab, and data processing protocols used to produce your data.
+  - This could be done in a `Readme.txt`, a .pdf, or previous publication(s) defining your methods. 
+  - Any scripts that were used to clean up/quality control data, filter data from the raw data, or calculate values in the final data package, or example scripts to join data. 
+  - Optionally include any literature referenced if it's published in an Open Access article.
+
+* **Assign a version** to your data package. You could use semantic versioning eg. v0.0.1 or some thing even simpler eg. v1, v2, v3.
+
+* Zip all these files into a folder and name the folder as the name of the dataset and the version of the package. Example: CTD_zone5_IYS_v0.0.1
+
+Email data packages to secretariat@npafc.org

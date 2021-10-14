@@ -8,12 +8,10 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Data Submission Guidelines"
+      href: Data-Submission-Guidelines.html
     - text: "Data Catalogue"
       href: https://iys.hakai.org
-    - text: "Templates"
-      menu: 
-        - text: "ERDDAP"
-          href: ERDDAP_xml_template.html
     - text: "Documents"
       menu:
         - text: "IYS Data Mobilization Strategic Recommendations"
@@ -23,6 +21,11 @@ navbar:
         - text: "Draft IYS Data Policy"
           href: IYS Data Policy_draft.pdf
         - text: "2022 Expedition Data Reporting Template"
-          href: IYS2022_Template_2021_08_12.xlsx
+          href: IYS2022_data_template.xlsx
         - text: "Data Management Plans"
           href: "https://drive.google.com/drive/folders/1vON4KCVBauzp7IgyJ-hrvFtQI9yx7L5r?usp=sharing"
+    - text: "Technical Templates"
+      menu: 
+        - text: "ERDDAP"
+          href: ERDDAP_xml_template.html
+    
