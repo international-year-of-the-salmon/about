@@ -4,11 +4,13 @@ title: "Data Submission Guidelines"
 
 All data sets must have the following accompanying documents to ensure that others can understand the data. Please submit datasets as a 'package' with the following additional files.
 
-**Note:** Trawl catch/specimen data, CTD, and Rosette data must be transformed to the standardized [IYS Data Template](https://international-year-of-the-salmon.github.io/about/IYS2022_data_template.xlsx) and submitted with all required accompanying files noted below. All other datasets may be submitted in a non-standardized wide view of the data (every variable has it's own column), so long as it is possible to link this data with events from the trawl catch/specimen or rosette data tables using the eventID column.
+**Note:** Trawl catch/specimen data, CTD, and Rosette data must be transformed to the standardized [IYS Data Template](https://international-year-of-the-salmon.github.io/about/IYS2022_data_template.xlsx) and submitted with all required accompanying files noted below. All other datasets may be submitted in a non-standardized wide view of the data (every variable has it's own column), so long as it is possible to link this data with events from the trawl catch/specimen or rosette data tables using a common column such as an eventID or a combimation of station name and time.
 
 Required accompanying files:
 
-* **Supply data as plain text files:** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software.
+* **Supply data as plain text files:** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software. 
+  - Indicate the time zone of date and time columns (UTC is preferred)
+  - 
 
 * **Data Dictionary:** This defines each variable (column name) in every table of your data. Include variable name, units, and short description if needed. Note that for Trawl catch/specimen data, CTD data, and Rosette the Data Dictionary exists as a tab in the Template Spreadsheet File. 
 
