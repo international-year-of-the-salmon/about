@@ -9,7 +9,7 @@ What is required by IYS scientists collecting data?
 
 1) Register the dataset you intend to collect by filling out [this spreadsheet](https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing). 
 
-2) Submit data to the IYS for publishing according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html). Data produced at sea should be submitted as soon as possible, coincident with publish a Cruise Report. Data that requires laboratory analysis should be submitted as soon as possible and not more than 2 years from collection, as discussed in the [IYS Data Policy](https://international-year-of-the-salmon.github.io/about/IYS%20Data%20Policy_draft.pdf).
+2) Submit data to the IYS for publishing according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html). Data produced at sea should be submitted as soon as possible, coincident with publishing a Cruise Report. Data that requires laboratory analysis should be submitted as soon as possible and not more than 2 years from collection, as discussed in the [IYS Data Policy](https://international-year-of-the-salmon.github.io/about/IYS%20Data%20Policy_draft.pdf).
 
 The IYS Data Science team will provide the following services:
 
@@ -18,3 +18,5 @@ The IYS Data Science team will provide the following services:
 2) Publish your data in a open-access, globally-integrated, domain-appropriate data repository. For example, biological species occurrenced and associated measurementds will be published to the [Ocean Biodiversity Information System (OBIS)](https://obis.org). Physical and chemical oceanographic data will be published to [ERDDAP](https://data.cioospacific.ca/erddap/index.html).
 
 Note: If your organization has a well established workflow or repository for mobilizing data to, let the IYS Data Science team know (iys.data@hakai.org) and we will be happy to forgo our standard approach and integrate your institutional data publishing strategy as long as the data are open-access and follow an international data standardization scheme.
+
+For more detailed background on data mobilization approach see or [Data Mobilization Strategy](https://international-year-of-the-salmon.github.io/about/IYS-OOS-strategy.pdf) and our [Data Mobilization and Communication Plan](http://127.0.0.1:13384/rmd_output/3/IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf)

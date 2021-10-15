@@ -10,7 +10,9 @@ Required accompanying files:
 
 * **Supply data as plain text files:** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software. 
   - Indicate the time zone of date and time columns (UTC is preferred)
-  - 
+  - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)
+  
+* Statement of data accessibility: Ie. can the data be made public immediately, or at a later date? If at a later date, then justification is required and a list of who is permitted access in the meantime is required. 
 
 * **Data Dictionary:** This defines each variable (column name) in every table of your data. Include variable name, units, and short description if needed. Note that for Trawl catch/specimen data, CTD data, and Rosette the Data Dictionary exists as a tab in the Template Spreadsheet File. 
 
