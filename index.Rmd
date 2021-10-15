@@ -2,5 +2,5 @@
 title: "Home"
 ---
 
-Data Mobilization overview or inforgraphic to go here.
+Data Mobilization overview or infographic to go here.
 

@@ -1,7 +1,6 @@
 name: "International Year of the Salmon"
 output:
  html_document:
-   code_folding: show
 output_dir: "docs"
 navbar:
   title: "IYS Data Mobilization"
@@ -20,8 +19,8 @@ navbar:
           href: IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf
         - text: "Draft IYS Data Policy"
           href: IYS Data Policy_draft.pdf
-        - text: "2022 Expedition Data Reporting Template"
-          href: IYS2022_data_template.xlsx
+        - text: "2022 Expedition Data Submission Template"
+          href: "https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true"
         - text: "Data Management Plans"
           href: "https://drive.google.com/drive/folders/1vON4KCVBauzp7IgyJ-hrvFtQI9yx7L5r?usp=sharing"
     - text: "Technical Templates"
