@@ -4,11 +4,9 @@ title: "Data Submission Guidelines"
 
 All data sets must have the following accompanying documents to ensure that others can understand the data. Please submit datasets as a 'package' with the following additional files.
 
-**Note:** Trawl catch/specimen data, CTD, and Rosette data must be transformed to the standardized [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true) and submitted with all required accompanying files noted below. All other datasets may be submitted in a non-standardized wide view of the data (every variable has it's own column), so long as it is possible to link this data with events from the trawl catch/specimen or rosette data tables using a common column such as an eventID or a combimation of station name and time.
-
 Required accompanying files:
 
-* **Supply data as plain text files:** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software. 
+* **Supply data as plain text files:** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software. Use the [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true) for catch/specimen data, CTD, and Rosette data. See the [example data package data file](https://github.com/international-year-of-the-salmon/about/tree/main/example_data_package/data.xlsk) for other data types.
   - Indicate the time zone of date and time columns (UTC is preferred)
   - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)
 
@@ -24,5 +22,6 @@ Required accompanying files:
   
 * **Supplementary Materials** Provide publication(s) referenced in protocol description. Provide any scripts or calibration files that were used to clean up/quality control data, filter data from the raw data, or calculate values in the final data package.
 
+See an [example data package to copy here](https://github.com/international-year-of-the-salmon/about/tree/main/example_data_package)
 
 Email data packages to iys.data@hakai.org
