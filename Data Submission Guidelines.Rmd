@@ -6,7 +6,7 @@ All data sets must have the following accompanying documents to ensure that othe
 
 Required accompanying files:
 
-* **Supply data as plain text files:** Use the [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true) for catch/specimen data, CTD, and Rosette data. See the [example data package data file](https://github.com/international-year-of-the-salmon/about/blob/main/data_package_example/data.xlsx) for other data types.
+* **Supply data as plain text files:** Before submission transform catch/specimen data, CTD, and Rosette data from collection format to the submission format using the [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true). For other datasets use  See the [example data package data file](https://github.com/international-year-of-the-salmon/about/blob/main/data_package_example/data.xlsx) for other data types.
   - Indicate the time zone of date and time columns (UTC is preferred)
   - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)
 
