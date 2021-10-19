@@ -6,7 +6,7 @@ All data sets must have the following accompanying documents to ensure that othe
 
 Required accompanying files:
 
-* **Supply data as plain text files:** (eg .csv, .txt) or common formats such as Microsoft Excel (.xlsx). Avoid formats that require special software. Use the [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true) for catch/specimen data, CTD, and Rosette data. See the [example data package data file](https://github.com/international-year-of-the-salmon/about/tree/main/example_data_package/data.xlsk) for other data types.
+* **Supply data as plain text files:** Use the [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true) for catch/specimen data, CTD, and Rosette data. See the [example data package data file](https://github.com/international-year-of-the-salmon/about/blob/main/data_package_example/data.xlsx) for other data types.
   - Indicate the time zone of date and time columns (UTC is preferred)
   - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)
 
@@ -22,6 +22,6 @@ Required accompanying files:
   
 * **Supplementary Materials** Provide publication(s) referenced in protocol description. Provide any scripts or calibration files that were used to clean up/quality control data, filter data from the raw data, or calculate values in the final data package.
 
-See an [example data package to copy here](https://github.com/international-year-of-the-salmon/about/tree/main/example_data_package)
+See an [example data package to copy here](https://github.com/international-year-of-the-salmon/about/tree/main/data_package_example)
 
-Email data packages to iys.data@hakai.org
+Email data packages to secretariat@npafc.org
