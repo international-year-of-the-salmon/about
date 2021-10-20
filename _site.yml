@@ -23,6 +23,8 @@ navbar:
           href: "https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true"
         - text: "2022 Dataset Registry"
           href: "https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing"
+        - text: "Sample Tracking Spreadsheet"
+          href: https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&ouid=105664784039276814199&rtpof=true&sd=true
     - text: "Technical Templates"
       menu: 
         - text: "ERDDAP"
