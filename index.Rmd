@@ -11,6 +11,8 @@ What is required by IYS scientists collecting data?
 
 2) Submit data to the IYS for publishing according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html). Data produced at sea should be submitted as soon as possible, coincident with publishing a Cruise Report. Data that requires laboratory analysis should be submitted as soon as possible and not more than 2 years from collection, as discussed in the [IYS Data Policy](https://international-year-of-the-salmon.github.io/about/IYS%20Data%20Policy_draft.pdf).
 
+3) Keep track of where your samples are using the [Sample Tracking Spreadsheet](https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&ouid=105664784039276814199&rtpof=true&sd=true)
+
 The IYS Data Science team will provide the following services:
 
 1) Create a metadata record in the [IYS Data Catalogue](https://iys.hakai.org) which includes minting a Digital Object Identifier that will make your dataset discoverable and citable.

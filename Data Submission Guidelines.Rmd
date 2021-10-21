@@ -2,13 +2,23 @@
 title: "Data Submission Guidelines"
 ---
 
-All data sets must have the following accompanying documents to ensure that others can understand the data. Please submit datasets as a 'package' with the following additional files.
+The ultimate goal of the IYS Data Mobilization Strategy is that all expedition data are able to be integrated within and among vessels for conducting pacific-wide analyses, and that data are archived in open-access domain-specific globally-integrated data repositories where they will contribute to global efforts tracking Essential Ocean Variables. How and where that is accomplished will vary by research domain and based on the standard operating procedures of each nation. Therefore, we anticipate three workflow options for submitting data (Figure 1). 
 
-Required accompanying files:
+Regardless, for all three options we recommend submitting early versions of data sets for internal use before public release (which must be approved by Data Provider according to [Data Policy](https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing)) and require the following accompanying documents to ensure that others can interpret the data. Please submit datasets to secretariat@npafc.org as a data package with the following additional files.
 
-* **Supply data as plain text files:** Before submission transform catch/specimen data, CTD, and Rosette data from collection format to the submission format using the [IYS Data Template](https://docs.google.com/spreadsheets/d/1bRWwUktLyE9LrqAkqRWp57k0OXtlVLa7/edit?usp=sharing&ouid=115784895965147788100&rtpof=true&sd=true). For other datasets use the [example data file](https://github.com/international-year-of-the-salmon/about/blob/main/data_package_example/data.xlsx) for other data types.
-  - Indicate the time zone of date and time columns (UTC is preferred)
-  - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)
+
+![Figure 1. IYS data submission options](images/IYS Data Submission.png)
+
+
+Required data package files:
+
+* **Data files** 
+  - *Option 1:* Before submission to IYS Data Scientists, IYS Participants may wish to transform catch/specimen data, CTD, Rosette, and other sampling data to the [IYS Data Template](https://github.com/international-year-of-the-salmon/about/raw/main/IYS2022_data_template.xlsx) submission format. This template establishes a common sampling event schema that will make it easier to link various samples together. This is the recommended workflow for trawl and specimen data especially because it will make standardization and analysis of data between vessels possible, and simplify the process of publishing of data by IYS Data Scientists.
+  - *Option 2:* May be preferable for when a) data types for which IYS Participants have well-established workflows for publishing to open-access repositories; or b) There is institutional or national support available for data management and data transformations and/or a desire to build capacity in publishing data to open-access repositories such as OBIS
+  - *Option 3:* Provided in case there are no resources available for option 1 or 2. Files should be plain text (.csv) or Microsoft excel files, but should not require other proprietary software. These datasets should adhere to the following minimum requirements outlined below and available in an [example data file](https://github.com/international-year-of-the-salmon/about/blob/main/data_package_example/data.xlsx)
+    - Indicate the time zone of date and time columns (UTC is preferred)
+    - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)
+    - Include unique sample identifiers
 
 * **Data Dictionary:** Define each variable (column name) in every table of your data. Include variable name, units, and short description if needed. Note that for Trawl catch/specimen data, CTD data, and Rosette the Data Dictionary exists as a tab in the Template Spreadsheet File. 
 
