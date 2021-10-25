@@ -6,7 +6,6 @@ The ultimate goal of the IYS Data Mobilization Strategy is that all expedition d
 
 Regardless, for all three options we recommend submitting early versions of data sets for internal use before public release (which must be approved by Data Provider according to [Data Policy](https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing)) and require the following accompanying documents to ensure that others can interpret the data. Please submit datasets to secretariat@npafc.org as a data package with the following additional files.
 
-
 ![Figure 1. IYS data submission options](images/IYS Data Submission.png)
 
 
@@ -32,6 +31,4 @@ Required data package files:
   
 * **Supplementary Materials** Provide publication(s) referenced in protocol description. Provide any scripts or calibration files that were used to clean up/quality control data, filter data from the raw data, or calculate values in the final data package.
 
-See an [example data package to copy here](https://github.com/international-year-of-the-salmon/about/tree/main/data_package_example)
-
-Email data packages to secretariat@npafc.org
+Email data packages to secretariat@npafc.org or create a new GitHub repository and upload your data package there following the [example data package to copy here](https://github.com/international-year-of-the-salmon/about/tree/main/data_package_example). 

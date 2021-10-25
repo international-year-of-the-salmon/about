@@ -19,7 +19,7 @@ The IYS Data Science team will provide the following services:
 
 1) Create a metadata record in the [IYS Data Catalogue](https://iys.hakai.org) which includes minting a Digital Object Identifier that will make your dataset discoverable and citable.
 
-2) Host early versions of data and manage internal access by IYS Participants on the [IYS GitHub repository](https://github.com/international-year-of-the-salmon/). Note: 
+2) Host early versions of data and manage internal access by IYS Participants on the [IYS GitHub repository](https://github.com/international-year-of-the-salmon/). Note: IYS participants may also create their own repository and upload data directly there.
 
 3) Publish your data in a open-access, globally-integrated, domain-appropriate data repository. For example, biological species occurrences and associated measurements will be published to the [Ocean Biodiversity Information System (OBIS)](https://obis.org). Physical and chemical oceanographic data will be published to [ERDDAP](https://data.cioospacific.ca/erddap/index.html).
 
