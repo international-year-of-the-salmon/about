@@ -9,8 +9,6 @@ navbar:
       href: index.html
     - text: "Data Submission Guidelines"
       href: Data-Submission-Guidelines.html
-    - text: "Data Catalogue"
-      href: https://iys.hakai.org
     - text: "Documents"
       menu:
         - text: "IYS Data Mobilization Strategic Recommendations"
@@ -21,10 +19,12 @@ navbar:
           href: https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing
         - text: "IYS Data Template"
           href: https://github.com/international-year-of-the-salmon/about/raw/main/IYS2022_data_template.xlsx
-        - text: "2022 Dataset Registry"
+        - text: "2022 Metadata Registry"
           href: "https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing"
         - text: "Sample Tracking Spreadsheet"
           href: https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&ouid=105664784039276814199&rtpof=true&sd=true
+    - text: "Data Catalogue"
+      href: https://iys.hakai.org
     - text: "Technical Templates"
       menu: 
         - text: "ERDDAP"

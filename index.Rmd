@@ -25,4 +25,4 @@ The IYS Data Science team will provide the following services:
 
 Note: If your organization has a well established workflow or repository for mobilizing data to, let the IYS Data Science team know (iys.data@hakai.org) and we will be happy to integrate your institutional data publishing strategy as long as the data are open-access and follow an international data standardization scheme.
 
-For more detailed background on data mobilization approach see or [Data Mobilization Strategy](https://international-year-of-the-salmon.github.io/about/IYS-OOS-strategy.pdf) and our [Data Mobilization and Communication Plan](http://127.0.0.1:13384/rmd_output/3/IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf)
+For more detailed background on data mobilization approach see or [Data Mobilization Strategy](https://international-year-of-the-salmon.github.io/about/IYS-OOS-strategy.pdf) and our [Data Mobilization and Communication Plan](http://127.0.0.1:13384/rmd_output/3/IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf) or the [IYS Data Policy](https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing)
