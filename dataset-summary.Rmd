@@ -24,4 +24,11 @@ subset <- pkgs %>%
 # Check for DOI
 # Check for minimum 2 resources with valid links
 # Check for abstract
+n_metadata_records <- length(pkgs)
 ```
+
+```{html, include = TRUE}
+<iframe src="https://graphcommons.com/graphs/471c7f04-98aa-42d1-9896-4a7313297ecf/embed" frameborder="0" style="overflow:hidden;border:1px solid #DDDDDD;width:1px;min-width:100%;height:400px;min-height:400px;" width="100%" height="400" allowfullscreen></iframe>
+```
+
+

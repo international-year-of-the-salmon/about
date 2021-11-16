@@ -8,14 +8,12 @@ Part of the process for uploading data to ERDDAP is to include some standard met
 
       <att name="project">International Year of the Salmon (IYS)</att>
       <att name="creator_name">Lead Author's name</att>
-      <att name="creator_type">Person</att>
       <att name="metadata_link">insert DOI here</att>
       <att name="id">insert DOI here</att>
-      <att name="publisher">Hakai Institute</att>
+      <att name="publisher">North Pacific Anadromous Fish Comission</att>
       <att name="publisher_type">Organization</att>
-      <att name="publisher_email">data@hakai.org</att>
-      <att name="infoUrl">http://yearofthesalmon.org</att>
-      <att name="institution">Lead authors</att>
+      <att name="infoUrl">insert DOI</att>
+      <att name="institution">North Pacific Anadromous Fish Commission</att>
       <att name="keywords">oceans, international year of the salmon (IYS)</att>
       <att name="license">https://creativecommons.org/licenses/by/4.0/</att>
       <att name="standard_name_vocabulary">CF Standard Name Table v55</att>
@@ -32,9 +30,11 @@ Make sure original data doesn't have raw data subfolder and instead just a stand
 * Include new columns:
    - cruise (eg. GoA2019)
    - station (eg GoA2019_Stn1)
-   - dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00+00:00)
+   - dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00Z)
    - year
    - month
    - day
    - time (in UTC)
+   - timezone
+   - citation
    
