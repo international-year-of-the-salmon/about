@@ -1,34 +1,40 @@
 ---
-title: "Dataset registry"
+title: "Published Data"
 ---
 
-```{r setup}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
 library(ckanr)
 library(tidyverse)
 ```
 
 ```{r, include = FALSE}
-ckanr_setup(url = "http://iys.hakai.org")
+ckanr_setup(url = "http://iys.hakai.org", key = "d386ae49-3756-4c39-945f-1b428b0fc130")
 
-pkgs <- package_list_current(as = "table")
-pkgs <- pkgs %>% unnest(resources, name_repair = "universal")
+pkgs <- package_list_current(as = "table", limit = 2000)
+resources <- pkgs$resources
 names(pkgs)
 
 subset <- pkgs %>% 
-  select(title, num_resources, `metadata-point-of-contact`, description , url, notes)
+  select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
+  filter(`unique-resource-identifier-full` != "") 
+  
+bits <- unlist(strsplit(subset$`unique-resource-identifier-full`, " "))
+nchar(bits)
+hist(nchar(bits))
+bites <- bits[nchar(bits) > 20]
+partial_dois <- str_match(bites, "10\\s*(.*?)\\s*\"")
+dois <- paste0("https://doi.org/10", partial_dois[,2])
+dois
+
+subset <- subset %>% 
+  mutate(dois = dois) %>% 
+  select("Dataset Title" = title, "Digital Object Identifier" = dois, -`unique-resource-identifier-full`, -id, -`metadata-point-of-contact`)
 ```
 
 ```{r, include = TRUE}
-
-# Check for DOI
-# Check for minimum 2 resources with valid links
-# Check for abstract
-n_metadata_records <- length(pkgs)
+knitr::kable(subset, caption = "IYS datasets that have been published")
 ```
 
-```{html, include = TRUE}
-<iframe src="https://graphcommons.com/graphs/471c7f04-98aa-42d1-9896-4a7313297ecf/embed" frameborder="0" style="overflow:hidden;border:1px solid #DDDDDD;width:1px;min-width:100%;height:400px;min-height:400px;" width="100%" height="400" allowfullscreen></iframe>
-```
 
 
