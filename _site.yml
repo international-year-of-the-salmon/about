@@ -20,7 +20,7 @@ navbar:
         - text: "IYS Data Template"
           href: https://github.com/international-year-of-the-salmon/about/raw/main/IYS2022_Data_template_11_15_2021.xlsx
         - text: "2022 Metadata Registry"
-          href: "https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing"
+          href: https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing
         - text: "Sample Tracking Spreadsheet"
           href: https://yearofthesalmon.sharepoint.com/:x:/s/secretariat/Edrmf3LTRPxEk_fjyYfGAZUBCE4UUWbGQqpax40ba3z6OA?e=Ka7T9s
     - text: "Data"
