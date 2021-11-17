@@ -18,8 +18,13 @@ navbar:
         - text: "Draft IYS Data Policy"
           href: https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing
         - text: "IYS Data Template"
+<<<<<<< HEAD
+          href: https://github.com/international-year-of-the-salmon/about/raw/main/IYS2022_Data_template_11_15_2021.xlsx
+        - text: "2022 Dataset Registry"
+=======
           href: https://github.com/international-year-of-the-salmon/about/raw/main/IYS2022_data_template.xlsx
         - text: "2022 Metadata Registry"
+>>>>>>> d4121dcf299b090e28804aef3552eb5c6cae3ad9
           href: "https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing"
         - text: "Sample Tracking Spreadsheet"
           href: https://yearofthesalmon.sharepoint.com/:x:/s/secretariat/Edrmf3LTRPxEk_fjyYfGAZUBCE4UUWbGQqpax40ba3z6OA?e=Ka7T9s
