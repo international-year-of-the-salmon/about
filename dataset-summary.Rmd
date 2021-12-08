@@ -20,8 +20,7 @@ subset <- pkgs %>%
   filter(`unique-resource-identifier-full` != "") 
   
 bits <- unlist(strsplit(subset$`unique-resource-identifier-full`, " "))
-nchar(bits)
-hist(nchar(bits))
+
 bites <- bits[nchar(bits) > 20]
 partial_dois <- str_match(bites, "10\\s*(.*?)\\s*\"")
 dois <- paste0("https://doi.org/10", partial_dois[,2])
