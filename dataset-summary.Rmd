@@ -34,6 +34,3 @@ subset <- subset %>%
 ```{r, include = TRUE}
 knitr::kable(subset, caption = "IYS datasets that have been published")
 ```
-
-
-
