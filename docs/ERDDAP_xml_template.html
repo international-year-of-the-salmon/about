@@ -318,17 +318,17 @@ $(document).ready(function () {
 </div>
 
 
-<p>Part of the process for uploading data to ERDDAP is to include some standard metadata fields defined in an .xml file. There are many things that could be included based on the Earth Science Information Partners (Attribute Convention for Data Discovery)[<a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3" class="uri">https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3</a>] (which ERDDAP adheres to a promotes). Below are some of the standard attributes and values that should be included with each dataset.</p>
+<p>Part of the process for uploading data to ERDDAP is to include some standard metadata fields defined in an .xml file. There are many things that could be included based on the Earth Science Information Partners <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute Convention for Data Discovery</a> (which ERDDAP adheres to and promotes). Below are some of the standard attributes and values that should be included with each dataset.</p>
 <div id="global-attributes" class="section level2">
 <h2>Global Attributes</h2>
 <pre><code>  &lt;att name=&quot;project&quot;&gt;International Year of the Salmon (IYS)&lt;/att&gt;
   &lt;att name=&quot;creator_name&quot;&gt;Lead Author&#39;s name&lt;/att&gt;
-  &lt;att name=&quot;metadata_link&quot;&gt;insert DOI here&lt;/att&gt;
+  &lt;att name=&quot;infoUrl&quot;&gt;http://yearofthesalmon.org&lt;/att&gt;
   &lt;att name=&quot;id&quot;&gt;insert DOI here&lt;/att&gt;
+  &lt;att name=&quot;DOI&quot;&gt;insert DOI here&lt;/att&gt;
   &lt;att name=&quot;publisher&quot;&gt;North Pacific Anadromous Fish Comission&lt;/att&gt;
   &lt;att name=&quot;publisher_type&quot;&gt;Organization&lt;/att&gt;
-  &lt;att name=&quot;infoUrl&quot;&gt;insert DOI&lt;/att&gt;
-  &lt;att name=&quot;institution&quot;&gt;North Pacific Anadromous Fish Commission&lt;/att&gt;
+  &lt;att name=&quot;institution&quot;&gt;Lead Author&#39;s&lt;/att&gt;
   &lt;att name=&quot;keywords&quot;&gt;oceans, international year of the salmon (IYS)&lt;/att&gt;
   &lt;att name=&quot;license&quot;&gt;https://creativecommons.org/licenses/by/4.0/&lt;/att&gt;
   &lt;att name=&quot;standard_name_vocabulary&quot;&gt;CF Standard Name Table v55&lt;/att&gt;</code></pre>
@@ -342,7 +342,7 @@ $(document).ready(function () {
 <li>Include new columns:
 <ul>
 <li>cruise (eg. GoA2019)</li>
-<li>station (eg GoA2019_Stn1)</li>
+<li>station (eg GoA2019:Stn1)</li>
 <li>dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00Z)</li>
 <li>year</li>
 <li>month</li>
