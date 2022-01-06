@@ -34,3 +34,10 @@ subset <- subset %>%
 ```{r, include = TRUE}
 knitr::kable(subset, caption = "IYS datasets that have been published")
 ```
+
+```{r}
+library(robis)
+
+trawl_20 <- occurrence(datasetid = "bdbfda38-c0fd-483c-85eb-4202baff1e52", mof = TRUE)
+```
+
