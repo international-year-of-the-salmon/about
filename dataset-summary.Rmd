@@ -10,25 +10,25 @@ library(tidyverse)
 
 ```{r, include = FALSE}
 ckanr_setup(url = "http://iys.hakai.org", key = "d386ae49-3756-4c39-945f-1b428b0fc130")
-
 pkgs <- package_list_current(as = "table", limit = 2000)
-resources <- pkgs$resources
+
 names(pkgs)
 
 subset <- pkgs %>% 
   select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
-  filter(`unique-resource-identifier-full` != "") 
-  
-bits <- unlist(strsplit(subset$`unique-resource-identifier-full`, " "))
+  filter(`unique-resource-identifier-full` != "NULL") 
 
-bites <- bits[nchar(bits) > 20]
-partial_dois <- str_match(bites, "10\\s*(.*?)\\s*\"")
-dois <- paste0("https://doi.org/10", partial_dois[,2])
-dois
+# rp <- pkgs$`cited-responsible-party`
+ 
+names <- bind_rows(subset$`metadata-point-of-contact`) %>% 
+  select(`Contact Person` = 'individual-name',
+         `Contact email` = 'contact-info_email')
 
-subset <- subset %>% 
-  mutate(dois = dois) %>% 
-  select("Dataset Title" = title, "Digital Object Identifier" = dois, -`unique-resource-identifier-full`, -id, -`metadata-point-of-contact`)
+dois <- bind_rows(subset$`unique-resource-identifier-full`) %>% 
+  mutate(dois = paste0("https://doi.org/10", code)) %>% 
+  select(`Digital Object Identifier`= dois)
+
+subset <- tibble(`Dataset Title` = subset$title, names, dois)
 ```
 
 ```{r, include = TRUE}
@@ -36,8 +36,7 @@ knitr::kable(subset, caption = "IYS datasets that have been published")
 ```
 
 ```{r}
-library(robis)
-
-trawl_20 <- occurrence(datasetid = "bdbfda38-c0fd-483c-85eb-4202baff1e52", mof = TRUE)
+# library(robis)
+# 
+# trawl_20 <- occurrence(datasetid = "bdbfda38-c0fd-483c-85eb-4202baff1e52", mof = TRUE)
 ```
-
