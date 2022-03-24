@@ -25,7 +25,7 @@ names <- bind_rows(subset$`metadata-point-of-contact`) %>%
          `Contact email` = 'contact-info_email')
 
 dois <- bind_rows(subset$`unique-resource-identifier-full`) %>% 
-  mutate(dois = paste0("https://doi.org/10", code)) %>% 
+  mutate(dois = paste0("https://doi.org/", code)) %>% 
   select(`Digital Object Identifier`= dois)
 
 subset <- tibble(`Dataset Title` = subset$title, names, dois)
