@@ -2,6 +2,8 @@
 title: "Published Data"
 ---
 
+Datasets from the 2019, 2020, and 2022 expeditions are in various stages of being published. A metric of FAIRness (Findable, Accessible, Interoperable, Reusable) is used to indicate what stage the data are at. Level 1: Data only have a metadata record. Level 2: Data have a metadata record and a non-standardized version of the dataset is openly available. Level 3: Data have a metadata record and a summarized, aggregated, incomplete or partial version of the data have been standardized and are available in a domain-specific repository. Level 4: Data have a metadata record and the full dataset is standardized and available in a domain-specific repository.      
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
 library(ckanr)
@@ -15,12 +17,14 @@ pkgs <- package_list_current(as = "table", limit = 2000)
 names(pkgs)
 
 subset <- pkgs %>% 
-  select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
+  select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`, extras) %>% 
   filter(`unique-resource-identifier-full` != "NULL") 
 
-# rp <- pkgs$`cited-responsible-party`
+constraints <- bind_rows(subset$extras) %>% 
+  filter(key == "licence")
  
-names <- bind_rows(subset$`metadata-point-of-contact`) %>% 
+names <- bind_rows(subset$`metadata-point-of-contact`, .id = "Name") %>% 
+  distinct(Name, .keep_all = TRUE) %>% 
   select(`Contact Person` = 'individual-name',
          `Contact email` = 'contact-info_email')
 
@@ -28,12 +32,38 @@ dois <- bind_rows(subset$`unique-resource-identifier-full`) %>%
   mutate(dois = paste0("https://doi.org/", code)) %>% 
   select(`Digital Object Identifier`= dois)
 
-subset <- tibble(`Dataset Title` = subset$title, names, dois)
+subset <- tibble(`Dataset Title` = subset$title, names, dois, `Access Constraints` = constraints$value) %>% 
+  mutate("FAIRness" = if_else(`Access Constraints` == "", 4,3))
+
+
 ```
 
 ```{r, include = TRUE}
-knitr::kable(subset, caption = "IYS datasets that have been published")
+knitr::kable(subset, caption = "Table 1. IYS datasets that have been published")
 ```
+
+```{r, include = FALSE}
+not_published <- pkgs %>% 
+  select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
+  filter(`unique-resource-identifier-full` == "NULL") %>% 
+  mutate(`Metadata Link` = paste0("https://iys.hakai.org/dataset/ca-cioos_", id))
+
+names <- bind_rows(not_published$`metadata-point-of-contact`, .id = "Name") %>% 
+  distinct(Name, .keep_all = TRUE) %>% 
+  select(`Contact Person` = 'individual-name',
+         `Contact email` = 'contact-info_email')
+
+not_published <- tibble(`Dataset Title` = not_published$title, names, 
+                        `Metadata Link` = not_published$`Metadata Link`) %>% 
+  mutate("FAIRness" = 1)
+```
+
+# Unpublished Data
+
+```{r, include = TRUE}
+knitr::kable(not_published, caption = "Tabel 2. IYS datasets that have not been published")
+```
+
 
 ```{r}
 # library(robis)
