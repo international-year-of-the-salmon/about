@@ -13,6 +13,7 @@
 
 <title>About</title>
 
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -79,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -231,7 +236,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -247,7 +252,7 @@ $(document).ready(function () {
   <a href="Data-Submission-Guidelines.html">Data Submission Guidelines</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Documents
      
     <span class="caret"></span>
@@ -277,7 +282,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Data
      
     <span class="caret"></span>
@@ -292,7 +297,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Technical Templates
      
     <span class="caret"></span>
@@ -320,22 +325,68 @@ $(document).ready(function () {
 </div>
 
 
-<p>Data Mobilization: The process of efficiently making data available for others.</p>
-<p>What is required by IYS scientists collecting data?</p>
+<p>Data Mobilization: The process of making data available for
+appropriate re-use.</p>
+<p><strong>What is required by IYS scientists collecting
+data?</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Register the dataset you intend to collect by filling out <a href="https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing">this spreadsheet</a>.</p></li>
-<li><p>Submit data to the IYS for internal sharing and publishing according to the <a href="https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html">Data Submission Guidelines</a>.</p></li>
-<li><p><a href="https://github.com/signup">Create a free GitHub account</a> and email <a href="mailto:iys.data@hakai.org" class="email">iys.data@hakai.org</a> your username so that we can add you to this data hosting service and you can access and share internal data.</p></li>
-<li><p>Keep track of where your samples are using the <a href="https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&amp;ouid=105664784039276814199&amp;rtpof=true&amp;sd=true">Sample Tracking Spreadsheet</a></p></li>
+<li><p>Register the dataset you have collected by filling out <a
+href="https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing">this
+metadata spreadsheet</a>.</p></li>
+<li><p>Submit standard data packages to the IYS (<a
+href="mailto:secretariat@npafc.org"
+class="email">secretariat@npafc.org</a> and cc <a
+href="mailto:iys.data@hakai.org" class="email">iys.data@hakai.org</a>)
+for internal sharing and publishing according to the <a
+href="https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html">Data
+Submission Guidelines</a>.</p></li>
+<li><p><a href="https://github.com/signup">Create a free GitHub
+account</a> and share your username with IYS Data Scientists by emailing
+us what your username is at <a href="mailto:iys.data@hakai.org"
+class="email">iys.data@hakai.org</a> so that we can add you to the IYS
+organizational data hosting service and you can access and share
+internal data before it goes public (according to the <a
+href="https://international-year-of-the-salmon.github.io/about/Final%20IYS%20Data%20Policy_Dec132021.pdf">IYS
+policy</a>).</p></li>
+<li><p>Keep track of where your samples are using the <a
+href="https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&amp;ouid=105664784039276814199&amp;rtpof=true&amp;sd=true">Sample
+Tracking Spreadsheet</a></p></li>
+<li><p>Cite datasets used in publications according to the recommended
+citation for each specific dataset in the <a
+href="https://iys.hakai.org">IYS Data Catalogue</a></p></li>
 </ol>
-<p>The IYS Data Science team will provide the following services:</p>
+<p><strong>The IYS Data Science team will provide the following
+services:</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Create a metadata record in the <a href="https://iys.hakai.org">IYS Data Catalogue</a> which includes minting a Digital Object Identifier that will make your dataset discoverable and citable.</p></li>
-<li><p>Host early versions of data and manage internal access by IYS Participants on the <a href="https://github.com/international-year-of-the-salmon/">IYS GitHub repository</a>. Note: IYS participants may also create their own repository and upload data directly there.</p></li>
-<li><p>Publish your data in a open-access, globally-integrated, domain-appropriate data repository. For example, biological species occurrences and associated measurements will be published to the <a href="https://obis.org">Ocean Biodiversity Information System (OBIS)</a>. Physical and chemical oceanographic data will be published to <a href="https://data.cioospacific.ca/erddap/index.html">ERDDAP</a>.</p></li>
+<li><p>Create a metadata record in the <a
+href="https://iys.hakai.org">IYS Data Catalogue</a> which includes
+minting a Digital Object Identifier that will make your dataset
+discoverable and citable.</p></li>
+<li><p>Host early versions of data and manage internal access by IYS
+Participants on the <a
+href="https://github.com/international-year-of-the-salmon/">IYS GitHub
+repository</a>.</p></li>
+<li><p>Publish your data in a open-access, globally-integrated,
+domain-specific data repository. For example, biological species
+occurrences and associated measurements will be published to the <a
+href="https://obis.org">Ocean Biodiversity Information System
+(OBIS)</a>. Physical and chemical oceanographic data will be published
+to <a
+href="https://data.cioospacific.ca/erddap/index.html">ERDDAP</a>.</p></li>
 </ol>
-<p>Note: If your organization has a well established workflow or repository for mobilizing data to, let the IYS Data Science team know (<a href="mailto:iys.data@hakai.org" class="email">iys.data@hakai.org</a>) and we will be happy to integrate your institutional data publishing strategy as long as the data are open-access and follow an international data standardization scheme.</p>
-<p>For more detailed background on data mobilization approach see or <a href="https://international-year-of-the-salmon.github.io/about/IYS-OOS-strategy.pdf">Data Mobilization Strategy</a> and our <a href="http://127.0.0.1:13384/rmd_output/3/IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf">Data Mobilization and Communication Plan</a> or the <a href="https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing">IYS Data Policy</a></p>
+<p>Note: If your organization has a well established workflow or
+repository for mobilizing data to, let the IYS Data Science team know
+(<a href="mailto:iys.data@hakai.org"
+class="email">iys.data@hakai.org</a>) and we will be happy to integrate
+your institutional data publishing strategy as long as the data are
+open-access and follow an international data standardization scheme.</p>
+<p>For more detailed background on data mobilization approach see or <a
+href="https://international-year-of-the-salmon.github.io/about/IYS-OOS-strategy.pdf">Data
+Mobilization Strategy</a> and our <a
+href="http://127.0.0.1:13384/rmd_output/3/IYS-OOS-Data-Mobilization-and-Communication-Plan_v2.pdf">Data
+Mobilization and Communication Plan</a> or the <a
+href="https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing">IYS
+Data Policy</a></p>
 
 
 

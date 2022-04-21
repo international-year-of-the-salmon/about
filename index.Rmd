@@ -2,26 +2,28 @@
 title: "About"
 ---
 
-Data Mobilization: The process of efficiently making data available for others.
+Data Mobilization: The process of making data available for appropriate re-use.
 
 
-What is required by IYS scientists collecting data?
+**What is required by IYS scientists collecting data?**
 
-1) Register the dataset you intend to collect by filling out [this spreadsheet](https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing). 
+1) Register the dataset you have collected by filling out [this metadata spreadsheet](https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing). 
 
-2) Submit data to the IYS for internal sharing and publishing according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html).
+2) Submit standard data packages to the IYS (secretariat@npafc.org and cc iys.data@hakai.org) for internal sharing and publishing according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html).
 
-3) [Create a free GitHub account](https://github.com/signup) and email iys.data@hakai.org your username so that we can add you to this data hosting service and you can access and share internal data.
+3) [Create a free GitHub account](https://github.com/signup) and share your username with IYS Data Scientists by emailing us what your username is at iys.data@hakai.org so that we can add you to the IYS organizational data hosting service and you can access and share internal data before it goes public (according to the [IYS policy](https://international-year-of-the-salmon.github.io/about/Final%20IYS%20Data%20Policy_Dec132021.pdf)).
 
 4) Keep track of where your samples are using the [Sample Tracking Spreadsheet](https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&ouid=105664784039276814199&rtpof=true&sd=true)
 
-The IYS Data Science team will provide the following services:
+5) Cite datasets used in publications according to the recommended citation for each specific dataset in the [IYS Data Catalogue](https://iys.hakai.org)
+
+**The IYS Data Science team will provide the following services:**
 
 1) Create a metadata record in the [IYS Data Catalogue](https://iys.hakai.org) which includes minting a Digital Object Identifier that will make your dataset discoverable and citable.
 
-2) Host early versions of data and manage internal access by IYS Participants on the [IYS GitHub repository](https://github.com/international-year-of-the-salmon/). Note: IYS participants may also create their own repository and upload data directly there.
+2) Host early versions of data and manage internal access by IYS Participants on the [IYS GitHub repository](https://github.com/international-year-of-the-salmon/).
 
-3) Publish your data in a open-access, globally-integrated, domain-appropriate data repository. For example, biological species occurrences and associated measurements will be published to the [Ocean Biodiversity Information System (OBIS)](https://obis.org). Physical and chemical oceanographic data will be published to [ERDDAP](https://data.cioospacific.ca/erddap/index.html).
+3) Publish your data in a open-access, globally-integrated, domain-specific data repository. For example, biological species occurrences and associated measurements will be published to the [Ocean Biodiversity Information System (OBIS)](https://obis.org). Physical and chemical oceanographic data will be published to [ERDDAP](https://data.cioospacific.ca/erddap/index.html).
 
 Note: If your organization has a well established workflow or repository for mobilizing data to, let the IYS Data Science team know (iys.data@hakai.org) and we will be happy to integrate your institutional data publishing strategy as long as the data are open-access and follow an international data standardization scheme.
 

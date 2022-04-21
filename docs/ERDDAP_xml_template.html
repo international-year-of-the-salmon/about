@@ -13,6 +13,7 @@
 
 <title>ERDDAP_dataset_xml_template</title>
 
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -79,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -231,7 +236,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -247,7 +252,7 @@ $(document).ready(function () {
   <a href="Data-Submission-Guidelines.html">Data Submission Guidelines</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Documents
      
     <span class="caret"></span>
@@ -277,7 +282,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Data
      
     <span class="caret"></span>
@@ -292,7 +297,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Technical Templates
      
     <span class="caret"></span>
@@ -320,7 +325,14 @@ $(document).ready(function () {
 </div>
 
 
-<p>Part of the process for uploading data to ERDDAP is to include some standard metadata fields defined in an .xml file. There are many things that could be included based on the Earth Science Information Partners <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute Convention for Data Discovery</a> (which ERDDAP adheres to and promotes). Below are some of the standard attributes and values that should be included with each dataset.</p>
+<p>Part of the process for uploading data to ERDDAP is to include some
+standard metadata fields defined in an .xml file. There are many things
+that could be included based on the Earth Science Information Partners
+<a
+href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute
+Convention for Data Discovery</a> (which ERDDAP adheres to and
+promotes). Below are some of the standard attributes and values that
+should be included with each dataset.</p>
 <div id="global-attributes" class="section level2">
 <h2>Global Attributes</h2>
 <pre><code>  &lt;att name=&quot;project&quot;&gt;International Year of the Salmon (IYS)&lt;/att&gt;
@@ -334,9 +346,12 @@ $(document).ready(function () {
   &lt;att name=&quot;keywords&quot;&gt;oceans, International Year of the Salmon (IYS)&lt;/att&gt;
   &lt;att name=&quot;license&quot;&gt;https://creativecommons.org/licenses/by/4.0/&lt;/att&gt;
   &lt;att name=&quot;standard_name_vocabulary&quot;&gt;CF Standard Name Table v55&lt;/att&gt;</code></pre>
-<p>It’s also important to determine the ’cdm_data_type, (the Common Data Model data type)</p>
-<p>Ensure there isn’t repetition in units/long names in ERDDAP table subset interface</p>
-<p>Make sure original data doesn’t have raw data subfolder and instead just a standardized data folder that’s git ignored</p>
+<p>It’s also important to determine the ’cdm_data_type, (the Common Data
+Model data type)</p>
+<p>Ensure there isn’t repetition in units/long names in ERDDAP table
+subset interface</p>
+<p>Make sure original data doesn’t have raw data subfolder and instead
+just a standardized data folder that’s git ignored</p>
 </div>
 <div id="data-structure" class="section level2">
 <h2>Data structure</h2>
@@ -345,7 +360,8 @@ $(document).ready(function () {
 <ul>
 <li>cruise (eg. GoA2019)</li>
 <li>station (eg GoA2019:Stn1)</li>
-<li>dateTime (in iso 8601 format in UTC timezone eg. 2019-03-02T21:30:00Z)</li>
+<li>dateTime (in iso 8601 format in UTC timezone eg.
+2019-03-02T21:30:00Z)</li>
 <li>year</li>
 <li>month</li>
 <li>day</li>

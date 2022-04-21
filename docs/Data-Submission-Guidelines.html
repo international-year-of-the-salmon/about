@@ -13,6 +13,7 @@
 
 <title>Data Submission Guidelines</title>
 
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -79,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -231,7 +236,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -247,7 +252,7 @@ $(document).ready(function () {
   <a href="Data-Submission-Guidelines.html">Data Submission Guidelines</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Documents
      
     <span class="caret"></span>
@@ -277,7 +282,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Data
      
     <span class="caret"></span>
@@ -292,7 +297,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Technical Templates
      
     <span class="caret"></span>
@@ -320,35 +325,100 @@ $(document).ready(function () {
 </div>
 
 
-<p>The ultimate goal of the IYS Data Mobilization Strategy is that all expedition data are able to be integrated within and among vessels for conducting pacific-wide analyses, and that data are archived in open-access domain-specific globally-integrated data repositories where they will contribute to global efforts tracking Essential Ocean Variables. How and where that is accomplished will vary by research domain and based on the standard operating procedures of each nation. Therefore, we anticipate three workflow options for submitting data (Figure 1).</p>
-<p>Regardless, for all three options we recommend submitting early versions of data sets for internal use before public release (which must be approved by Data Provider according to <a href="https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing">Data Policy</a>) and require the following accompanying documents to ensure that others can interpret the data. Please submit datasets to <a href="mailto:secretariat@npafc.org" class="email">secretariat@npafc.org</a> as a data package with the following additional files.</p>
+<p>The ultimate goal of the IYS Data Mobilization Strategy is that all
+expedition data are able to cruise participants, and that data are
+archived in open-access domain-specific data repositories where they
+will contribute to globally integrated analyses. How and where data are
+published will vary by research domain and based on the standard
+operating procedures of each nation. Therefore, we anticipate three
+workflow options for submitting data (Figure 1).</p>
 <div class="figure">
 <img src="images/IYS%20Data%20Submission.png" alt="" />
 <p class="caption">Figure 1. IYS data submission options</p>
 </div>
-<p>Required data package files:</p>
 <ul>
-<li><p><strong>Data files</strong></p>
+<li><strong>Data files</strong>
 <ul>
-<li><em>Option 1:</em> Before submission to IYS Data Scientists, IYS Participants may wish to transform catch/specimen data, CTD, Rosette, and other sampling data to the <a href="https://github.com/international-year-of-the-salmon/about/blob/main/IYS2022_Data_template_11_18_2021.xlsx?raw=true">IYS Data Template</a> submission format. This template establishes a common sampling event schema that will make it easier to link various samples and events together. This is the recommended workflow for trawl and specimen data especially because it will make standardization and analysis of data between vessels possible, and simplify the process of publishing of data by IYS Data Scientists.</li>
-<li><em>Option 2:</em> May be preferable for when a) data types for which IYS Participants have well-established workflows for publishing to open-access repositories; or b) There is institutional or national support available for data management and data transformations and/or a desire to build capacity in publishing data to open-access repositories such as OBIS</li>
-<li><em>Option 3:</em> Provided in case there are no resources available for option 1 or 2. Files should be plain text (.csv) or Microsoft excel files, but should not require other proprietary software. These datasets should adhere to the following minimum requirements outlined below and available in an <a href="https://github.com/international-year-of-the-salmon/about/blob/main/data_package_example/data.xlsx">example data file</a>
-<ul>
-<li>Indicate the time zone of date and time columns (UTC is preferred)</li>
-<li>Report locations as latitude and longitude in decimal degrees (ie. 49.12345, 110.54321)</li>
-<li>Include unique sample identifiers</li>
+<li><em>Option 1:</em> Before submission to IYS Data Scientists, IYS
+Participants should transform catch/specimen data, CTD, Rosette, and
+other sampling data to the <a
+href="https://github.com/international-year-of-the-salmon/about/blob/main/IYS2022_Data_template_final.xlsx?raw=true">IYS
+Data Template</a> submission format. This template establishes a common
+sampling event schema that will make it easier to link various samples
+and events together.</li>
+<li><em>Option 2:</em> Not for CTD, catch/specimen data, Rosette, or
+other standard data collected on every ship (see option 1 data template
+for those). Option 2 may be preferable for laboratory-analysis derived
+data for a) data types that IYS Participants have well-established
+workflows for publishing to open-access repositories; or b) There is
+institutional or national support available for data management and data
+transformations and/or a desire to build capacity in publishing data to
+open-access repositories such as OBIS</li>
+<li><em>Option 3:</em> Provided in case there are no resources available
+for option 1 or 2. Files should be plain text (.csv) or Microsoft excel
+files, but should not require other proprietary software.</li>
 </ul></li>
-</ul></li>
-<li><p><strong>Data Dictionary:</strong> Define each variable (column name) in every table of your data. Include variable name, units, and short description if needed. Note that for Trawl catch/specimen data, CTD data, and Rosette the Data Dictionary exists as a tab in the Template Spreadsheet File.</p></li>
-<li><p><strong>README file</strong> (.txt or .docx) with the following sections:</p>
-<ul>
-<li><p><strong>Statement of Data Access:</strong> When can data submitted be made public? Can all of the submitted data be published, or can only a summarized/aggregated view be published?</p></li>
-<li><p><strong>Abstract:</strong> This information will appear as the summary text in the metadata catalogue. Focus on <strong>what</strong> variables were measured, <strong>how</strong> the variables were measured, and <strong>why</strong> the data were collected to inform your hypotheses.</p></li>
-<li><p><strong>Protocols</strong>: Describe thoroughly the field, lab, and data processing protocols used to produce your data. This could be the same text used in a Cruise Report if there is sufficient information to reproduce methods.</p></li>
-</ul></li>
-<li><p><strong>Supplementary Materials</strong> Provide publication(s) referenced in protocol description. Provide any scripts or calibration files that were used to clean up/quality control data, filter data from the raw data, or calculate values in the final data package.</p></li>
 </ul>
-<p>Email data packages to <a href="mailto:secretariat@npafc.org" class="email">secretariat@npafc.org</a> or create a new GitHub repository and upload your data package there following the <a href="https://github.com/international-year-of-the-salmon/about/tree/main/data_package_example">example data package to copy here</a>.</p>
+<p>In all cases: - Indicate the time zone of date and time columns (UTC
+is preferred) - Report locations as latitude and longitude in decimal
+degrees (ie. 49.12345, -110.54321) - Include unique sample
+identifiers</p>
+<p>Please submit data before the deadlines noted in the <a
+href="https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing">Data
+Policy</a> by emailing datasets to <a
+href="mailto:secretariat@npafc.org"
+class="email">secretariat@npafc.org</a> and <a
+href="mailto:iys.data@hakai.org" class="email">iys.data@hakai.org</a> as
+a data package with additional files laid out in the Required Data
+Package section below.</p>
+<div id="required-data-package-files" class="section level2">
+<h2>Required Data Package Files:</h2>
+<ul>
+<li><p><strong>Data files</strong> Ideally in the IYS data template, in
+.csv or .xlsx format with time zone indicated (UTC preferred), latitude
+and longitude in decimal degrees, and unique sample
+identifiers.</p></li>
+<li><p><strong>Data Dictionary:</strong> Define each variable (column
+name) in every table of your data. Include variable name, units, and
+short description if needed. Note that for Trawl catch/specimen data,
+CTD data, and Rosette the Data Dictionary exists as a tab in the
+Template Spreadsheet File.</p></li>
+<li><p><strong>README file</strong> (.txt or .docx) with the following
+sections:</p>
+<ul>
+<li><p><strong>Statement of Data Access:</strong> When can data
+submitted be made public? Can all of the submitted data be published, or
+can only a summarized/aggregated view be published? Keep in mind
+timelines should be in accordance with the <a
+href="https://international-year-of-the-salmon.github.io/about/Final%20IYS%20Data%20Policy_Dec132021.pdf">IYS
+Data Policy</a></p></li>
+<li><p><strong>Abstract:</strong> (400 words) This information will
+appear as the summary text in the metadata catalogue. Focus on
+<strong>what</strong> variables were measured, <strong>how</strong> the
+variables were measured, and <strong>why</strong> the data were
+collected to inform your hypotheses.</p></li>
+<li><p><strong>Protocols</strong>: Describe thoroughly the field, lab,
+and data processing protocols used to produce your data. This could be
+the same text used in a Cruise Report if there is sufficient information
+to reproduce methods.</p></li>
+</ul></li>
+<li><p><strong>Supplementary Materials</strong> Provide publication(s)
+referenced in protocol description. Provide any scripts or calibration
+files that were used to clean up/quality control data, filter data from
+the raw data, or calculate values in the final data package.</p></li>
+</ul>
+<p>See an <a
+href="https://github.com/international-year-of-the-salmon/example-data-package/archive/refs/heads/main.zip">example
+data package to copy here</a>.</p>
+<p>Ensure you have filled out authorship metadata for your data set in
+the <a
+href="https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing">metadata
+spreadsheet</a> to ensure appropriate citation for dataset authors.</p>
+<p>Email data packages to <a href="mailto:secretariat@npafc.org"
+class="email">secretariat@npafc.org</a> and <a
+href="mailto:iys.data@hakai.org"
+class="email">iys.data@hakai.org</a></p>
+</div>
 
 
 

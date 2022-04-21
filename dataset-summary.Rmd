@@ -11,10 +11,14 @@ library(tidyverse)
 ```
 
 ```{r, include = FALSE}
-ckanr_setup(url = "http://iys.hakai.org", key = "d386ae49-3756-4c39-945f-1b428b0fc130")
+ckanr_setup(url = "http://iys.hakai.org")
 pkgs <- package_list_current(as = "table", limit = 2000)
 
 names(pkgs)
+
+pkgs <- pkgs %>% 
+  mutate(`metadata-point-of-contact` = map(`metadata-point-of-contact`, ~select(.x, c('individual-name', 'contact-info_email'))))
+  
 
 subset <- pkgs %>% 
   select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`, extras) %>% 
@@ -70,3 +74,4 @@ knitr::kable(not_published, caption = "Tabel 2. IYS datasets that have not been 
 # 
 # trawl_20 <- occurrence(datasetid = "bdbfda38-c0fd-483c-85eb-4202baff1e52", mof = TRUE)
 ```
+
