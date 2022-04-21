@@ -12,6 +12,7 @@ The ultimate goal of the IYS Data Mobilization Strategy is that all expedition d
   - *Option 3:* Provided in case there are no resources available for option 1 or 2. Files should be plain text (.csv) or Microsoft excel files, but should not require other proprietary software.
 
 In all cases:
+
 - Indicate the time zone of date and time columns (UTC is preferred)
 - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, -110.54321)
 - Include unique sample identifiers
