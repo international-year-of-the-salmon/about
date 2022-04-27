@@ -2,70 +2,99 @@
 title: "Published Data"
 ---
 
-Datasets from the 2019, 2020, and 2022 expeditions are in various stages of being published. A metric of FAIRness (Findable, Accessible, Interoperable, Reusable) is used to indicate what stage the data are at. Level 1: Data only have a metadata record. Level 2: Data have a metadata record and a non-standardized version of the dataset is openly available. Level 3: Data have a metadata record and a summarized, aggregated, incomplete or partial version of the data have been standardized and are available in a domain-specific repository. Level 4: Data have a metadata record and the full dataset is standardized and available in a domain-specific repository.      
+Datasets from the IYS expeditions are in various stages of being published. A metric of FAIRness (Findable, Accessible, Interoperable, Reusable) is used to indicate what stage the data are at. 
+
+Note: 2022 datasets are not yet represented in the table below.
+
+Dataset status levels:
+
+- Level 1: Data only have a metadata record, no data have been received. 
+- Level 2: Data have a metadata record and data have been received but not yet published publicly. 
+- Level 3: Data have a metadata record and a non-standardized version of the dataset is publicly available.
+- Level 4: Data have a metadata record and only a subset of the data have been standardized and made publicly available in a domain-specific repository. 
+- Level 5: Data have a metadata record and the full fidelity of the dataset is standardized and available in a domain-specific repository.
+
+A FAIR badge is assigned in the 'FAIRness' columns for datasets that have satisfied all the requirements of FAIR (Findable, Accessible, Interoperable, and Reusable) data.
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
 library(ckanr)
 library(tidyverse)
+library(reactable)
 ```
 
 ```{r, include = FALSE}
-ckanr_setup(url = "http://iys.hakai.org")
-pkgs <- package_list_current(as = "table", limit = 2000)
+# ckanr_setup(url = "http://iys.hakai.org")
+# pkgs <- package_list_current(as = "table", limit = 2000)
+# 
+# names(pkgs)
+# 
+# pkgs <- pkgs %>% 
+#   mutate(`metadata-point-of-contact` = map(`metadata-point-of-contact`, ~select(.x, c('individual-name', 'contact-info_email'))))
+#   
+# 
+# subset <- pkgs %>% 
+#   select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`, extras) %>% 
+#   filter(`unique-resource-identifier-full` != "NULL") 
+# 
+# constraints <- bind_rows(subset$extras) %>% 
+#   filter(key == "licence")
+#  
+# names <- bind_rows(subset$`metadata-point-of-contact`, .id = "Name") %>% 
+#   distinct(Name, .keep_all = TRUE) %>% 
+#   select(`Contact Person` = 'individual-name',
+#          `Contact email` = 'contact-info_email')
+# 
+# dois <- bind_rows(subset$`unique-resource-identifier-full`) %>% 
+#   mutate(dois = paste0("https://doi.org/", code)) %>% 
+#   select(`Digital Object Identifier`= dois)
+# 
+# subset <- tibble(`Dataset Title` = subset$title, names, dois, `Access Constraints` = constraints$value) %>% 
+#   mutate("FAIRness" = if_else(`Access Constraints` == "", 5,4))
+# 
+# write_csv(subset, here::here("published.csv"))
+# # At this stage I read the sheet into google sheets to make manual edits 
 
-names(pkgs)
-
-pkgs <- pkgs %>% 
-  mutate(`metadata-point-of-contact` = map(`metadata-point-of-contact`, ~select(.x, c('individual-name', 'contact-info_email'))))
-  
-
-subset <- pkgs %>% 
-  select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`, extras) %>% 
-  filter(`unique-resource-identifier-full` != "NULL") 
-
-constraints <- bind_rows(subset$extras) %>% 
-  filter(key == "licence")
- 
-names <- bind_rows(subset$`metadata-point-of-contact`, .id = "Name") %>% 
-  distinct(Name, .keep_all = TRUE) %>% 
-  select(`Contact Person` = 'individual-name',
-         `Contact email` = 'contact-info_email')
-
-dois <- bind_rows(subset$`unique-resource-identifier-full`) %>% 
-  mutate(dois = paste0("https://doi.org/", code)) %>% 
-  select(`Digital Object Identifier`= dois)
-
-subset <- tibble(`Dataset Title` = subset$title, names, dois, `Access Constraints` = constraints$value) %>% 
-  mutate("FAIRness" = if_else(`Access Constraints` == "", 4,3))
-
-
+# not_published <- pkgs %>% 
+#   select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
+#   filter(`unique-resource-identifier-full` == "NULL") %>% 
+#   mutate(`Metadata Link` = paste0("https://iys.hakai.org/dataset/ca-cioos_", id))
+# 
+# names <- bind_rows(not_published$`metadata-point-of-contact`, .id = "Name") %>% 
+#   distinct(Name, .keep_all = TRUE) %>% 
+#   select(`Contact Person` = 'individual-name',
+#          `Contact email` = 'contact-info_email')
+# 
+# not_published <- tibble(`Dataset Title` = not_published$title, names, 
+#                         `Metadata Link` = not_published$`Metadata Link`) %>% 
+#   mutate("FAIRness" = 1)
+# 
+# write_csv(not_published, here::here('not_published.csv'))
 ```
 
+```{r, include = FALSE}
+library(googlesheets4)
+1
+published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published")
+
+unpublished_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Not Published")
+```
+
+
+
+Table 1. Data that have been published. 
 ```{r, include = TRUE}
-knitr::kable(subset, caption = "Table 1. IYS datasets that have been published")
-```
 
-```{r, include = FALSE}
-not_published <- pkgs %>% 
-  select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
-  filter(`unique-resource-identifier-full` == "NULL") %>% 
-  mutate(`Metadata Link` = paste0("https://iys.hakai.org/dataset/ca-cioos_", id))
-
-names <- bind_rows(not_published$`metadata-point-of-contact`, .id = "Name") %>% 
-  distinct(Name, .keep_all = TRUE) %>% 
-  select(`Contact Person` = 'individual-name',
-         `Contact email` = 'contact-info_email')
-
-not_published <- tibble(`Dataset Title` = not_published$title, names, 
-                        `Metadata Link` = not_published$`Metadata Link`) %>% 
-  mutate("FAIRness" = 1)
+reactable(published_data, searchable = TRUE, resizable = TRUE)
 ```
 
 # Unpublished Data
 
+
+
+Table 2. Data that have not yet been received and/or published.
 ```{r, include = TRUE}
-knitr::kable(not_published, caption = "Tabel 2. IYS datasets that have not been published")
+reactable(unpublished_data, searchable = TRUE, resizable = TRUE)
 ```
 
 
