@@ -85,7 +85,8 @@ unpublished_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_ey
 Table 1. Data that have been published. 
 ```{r, include = TRUE}
 
-reactable(published_data, searchable = TRUE, resizable = TRUE)
+reactable(published_data, searchable = TRUE, resizable = TRUE, 
+          defaultSorted = list(Status = 'desc'))
 ```
 
 # Unpublished Data
@@ -94,7 +95,8 @@ reactable(published_data, searchable = TRUE, resizable = TRUE)
 
 Table 2. Data that have not yet been received and/or published.
 ```{r, include = TRUE}
-reactable(unpublished_data, searchable = TRUE, resizable = TRUE)
+reactable(unpublished_data, searchable = TRUE, resizable = TRUE,
+          defaultSorted = list(Status = 'desc'))
 ```
 
 
