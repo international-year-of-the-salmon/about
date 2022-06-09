@@ -17,6 +17,8 @@ Part of the process for uploading data to ERDDAP is to include some standard met
       <att name="keywords">oceans, International Year of the Salmon (IYS)</att>
       <att name="license">https://creativecommons.org/licenses/by/4.0/</att>
       <att name="standard_name_vocabulary">CF Standard Name Table v55</att>
+      <att name="platform">land/onshore structure</att>
+      <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
 
 It's also important to determine the 'cdm_data_type, (the Common Data Model data type)
 

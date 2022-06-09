@@ -1,26 +1,26 @@
 ---
-title: "Published Data"
+title: "Data"
 ---
 
-Datasets from the IYS expeditions are in various stages of being published. A metric of FAIRness (Findable, Accessible, Interoperable, Reusable) is used to indicate what stage the data are at. 
-
-Note: 2022 datasets are not yet represented in the table below.
+Datasets from the IYS expeditions are in various stages of being published. A dataset status number (1-5) is assgned to datasets and a FAIR (Findable, Accessible, Interoperable, Reusable) badge is assigned when the data reach level 5.
 
 Dataset status levels:
 
 - Level 1: Data only have a metadata record, no data have been received. 
-- Level 2: Data have a metadata record and data have been received but not yet published publicly. 
+- Level 2: Data have a metadata record, data have been received and are available internally to IYS expedition scientists but not yet published publicly. 
 - Level 3: Data have a metadata record and a non-standardized version of the dataset is publicly available.
 - Level 4: Data have a metadata record and only a subset of the data have been standardized and made publicly available in a domain-specific repository. 
 - Level 5: Data have a metadata record and the full fidelity of the dataset is standardized and available in a domain-specific repository.
 
-A FAIR badge is assigned in the 'FAIRness' columns for datasets that have satisfied all the requirements of FAIR (Findable, Accessible, Interoperable, and Reusable) data.
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
 library(ckanr)
 library(tidyverse)
 library(reactable)
+
+library(googlesheets4)
+
 ```
 
 ```{r, include = FALSE}
@@ -29,80 +29,158 @@ library(reactable)
 # 
 # names(pkgs)
 # 
-# pkgs <- pkgs %>% 
+# pkgs <- pkgs %>%
 #   mutate(`metadata-point-of-contact` = map(`metadata-point-of-contact`, ~select(.x, c('individual-name', 'contact-info_email'))))
-#   
 # 
-# subset <- pkgs %>% 
-#   select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`, extras) %>% 
-#   filter(`unique-resource-identifier-full` != "NULL") 
 # 
-# constraints <- bind_rows(subset$extras) %>% 
+# subset <- pkgs %>%
+#   select(title, id = name, `metadata-point-of-contact`, `unique-resource-identifier-full`, extras) %>%
+#   filter(`unique-resource-identifier-full` != "NULL")
+# 
+# constraints <- bind_rows(subset$extras) %>%
 #   filter(key == "licence")
-#  
-# names <- bind_rows(subset$`metadata-point-of-contact`, .id = "Name") %>% 
-#   distinct(Name, .keep_all = TRUE) %>% 
+# 
+# names <- bind_rows(subset$`metadata-point-of-contact`, .id = "Name") %>%
+#   distinct(Name, .keep_all = TRUE) %>%
 #   select(`Contact Person` = 'individual-name',
 #          `Contact email` = 'contact-info_email')
 # 
-# dois <- bind_rows(subset$`unique-resource-identifier-full`) %>% 
-#   mutate(dois = paste0("https://doi.org/", code)) %>% 
+# dois <- bind_rows(subset$`unique-resource-identifier-full`) %>%
+#   mutate(dois = paste0("https://doi.org/", code)) %>%
 #   select(`Digital Object Identifier`= dois)
 # 
-# subset <- tibble(`Dataset Title` = subset$title, names, dois, `Access Constraints` = constraints$value) %>% 
+# subset <- tibble(`Dataset Title` = subset$title, names, dois, `Access Constraints` = constraints$value) %>%
 #   mutate("FAIRness" = if_else(`Access Constraints` == "", 5,4))
 # 
 # write_csv(subset, here::here("published.csv"))
-# # At this stage I read the sheet into google sheets to make manual edits 
-
-# not_published <- pkgs %>% 
-#   select(title, id, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>% 
-#   filter(`unique-resource-identifier-full` == "NULL") %>% 
-#   mutate(`Metadata Link` = paste0("https://iys.hakai.org/dataset/ca-cioos_", id))
+# #At this stage I read the sheet into google sheets to make manual edits
+# not_published <- pkgs %>%
+#   select(title, id = name, `metadata-point-of-contact`, `unique-resource-identifier-full`) %>%
+#   filter(`unique-resource-identifier-full` == "NULL") %>%
+#   mutate(`Metadata Link` = paste0("https://iys.hakai.org/dataset/", id))
 # 
-# names <- bind_rows(not_published$`metadata-point-of-contact`, .id = "Name") %>% 
-#   distinct(Name, .keep_all = TRUE) %>% 
+# names <- bind_rows(not_published$`metadata-point-of-contact`, .id = "Name") %>%
+#   distinct(Name, .keep_all = TRUE) %>%
 #   select(`Contact Person` = 'individual-name',
 #          `Contact email` = 'contact-info_email')
 # 
-# not_published <- tibble(`Dataset Title` = not_published$title, names, 
-#                         `Metadata Link` = not_published$`Metadata Link`) %>% 
+# not_published <- tibble(`Dataset Title` = not_published$title, names,
+#                         `Metadata Link` = not_published$`Metadata Link`) %>%
 #   mutate("FAIRness" = 1)
 # 
 # write_csv(not_published, here::here('not_published.csv'))
 ```
 
 ```{r, include = FALSE}
-library(googlesheets4)
-1
-published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published")
 
-unpublished_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Not Published")
+
+published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published") %>% 
+  mutate(Year = str_extract_all(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
+         Vessel = if_else(Year == 2019, "Professor Kaganovsky", "Pacific Legacy NO 1")) %>% 
+  select(`Dataset Title`, Year, Vessel, `Contact Person`, `Contact email`, `Link to Access Data` = `Digital Object Identifier`, `Access Constraints`:FAIRness)
+1
+
+internal_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Available Internally") %>% 
+  mutate(Year = str_extract_all(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
+         Vessel = if_else(Year == 2019, "Professor Kaganovsky", "Pacific Legacy NO 1")) %>% 
+  select(`Dataset Title`, Year, Vessel, `Contact Person`, `Contact email`, `Link to Access Data` = `Metadata Link`, Status)
+
+unpublished_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Not Published") %>% 
+  mutate(Year = str_extract_all(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
+         Vessel = if_else(Year == 2019, "Professor Kaganovsky", "Pacific Legacy NO 1")) %>% 
+  select(`Dataset Title`, Year, Vessel, `Contact Person`:Status, -`Metadata Link`)
+
 ```
 
+```{r, read in 2022 data}
+twenty2 <- read_sheet('https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit#gid=1020959877', sheet = 'Master Sheet') %>%
+  mutate(Year = "2022") %>% 
+  select(`Dataset Title` = 'Dataset Title / Description', Vessel, Year, `Contact Person` = 'Principal Investigator(s)', priority = 'Priority Category (For Brett, Tim and Caroline to fill out)', `Digital Object Identifier`, `Access Constraints` = `Limitations of data`, Status = 'Dataset Publication Status (For Aidan, Brett, Tim to fill out) (1-5 as per IYS About page dataset summary table)')
 
+twenty2$`Contact Person` <- gsub("^(.*?),.*", "\\1", twenty2$`Contact Person`)
+twenty2$`Contact Person` <- gsub("^(.*?)/.*", "\\1", twenty2$`Contact Person`)
 
-Table 1. Data that have been published. 
+scientists <- read_sheet('https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit#gid=1020959877', sheet = 'Scientists') %>% 
+  select('Name', 'Contact email')
+
+twenty2 <- left_join(twenty2, scientists, by = c("Contact Person" = 'Name'))
+```
+
+```{r join 2022 with 2019 and 2022 tables}
+published_22 <- twenty2 %>% 
+  filter(Status > 2) %>% 
+  rename(`Link to Access Data` = `Digital Object Identifier`) %>% 
+  select(-priority)  
+
+published_data <- bind_rows(published_data, published_22)
+
+available_internally22 <- twenty2 %>% 
+  filter(Status == 2)%>% 
+  rename(`Link to Access Data` = `Digital Object Identifier`) %>% 
+  select(-priority)  
+
+internal_data <- bind_rows(internal_data, available_internally22) %>% 
+  mutate(`Access Constraints` = "Internal access only")
+
+unavailable22 <- twenty2 %>% 
+  filter(Status %in% c(NA, 0, 1)) %>% 
+  select(-priority)
+
+unpublished_data <- bind_rows(unpublished_data, unavailable22) %>% 
+  select(-`Digital Object Identifier`, `Access Constraints`)
+```
+
+# Available Data {.tabset .tabset-pills}
+
+## Published Data
+
+Table 1. Data that have been published and are publicly available. 
 ```{r, include = TRUE}
 
-reactable(published_data, searchable = TRUE, resizable = TRUE, 
+reactable(published_data, 
+          columns = list(
+          `Link to Access Data` = colDef(html = TRUE, cell = JS("
+    function(cellInfo) {
+      // Render as a link
+      const url = cellInfo.row['Digital Object Identifier'] + '_' + cellInfo.value
+      return '<a href=\"' + url + '\" target=\"_blank\">' + cellInfo.value + '</a>'
+    }
+  "))),
+          searchable = TRUE, resizable = TRUE, defaultSorted = list(Status = 'desc'))
+```
+
+## Data Available Internally
+
+
+
+#### **IMPORTANT: To access internal data you must:**
+
+* Register for a GitHub account https://github.com/signup
+* Email iys.data@hakai.org your GitHub username (so we can add you as an approved user)
+* Log in to GitHub before clicking on links below
+
+Table 2. Data that are not yet available publicly but are available internally.
+
+```{r, include = TRUE}
+reactable(internal_data,
+          columns = list(
+          `Link to Access Data` = colDef(html = TRUE, cell = JS("
+    function(cellInfo) {
+      // Render as a link
+      const url = cellInfo.row['Digital Object Identifier'] + '_' + cellInfo.value
+      return '<a href=\"' + url + '\" target=\"_blank\">' + cellInfo.value + '</a>'
+    }
+  "))),
+  searchable = TRUE, resizable = TRUE, 
           defaultSorted = list(Status = 'desc'))
 ```
 
-# Unpublished Data
 
+## Data Not Received
 
-
-Table 2. Data that have not yet been received and/or published.
+Table 3. Data that have not yet been received and/or published. Please contact the data provider for data access.
 ```{r, include = TRUE}
 reactable(unpublished_data, searchable = TRUE, resizable = TRUE,
           defaultSorted = list(Status = 'desc'))
-```
-
-
-```{r}
-# library(robis)
-# 
-# trawl_20 <- occurrence(datasetid = "bdbfda38-c0fd-483c-85eb-4202baff1e52", mof = TRUE)
 ```
 
