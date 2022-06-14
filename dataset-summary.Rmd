@@ -18,7 +18,6 @@ knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = 
 library(ckanr)
 library(tidyverse)
 library(reactable)
-
 library(googlesheets4)
 
 ```
@@ -73,28 +72,43 @@ library(googlesheets4)
 
 ```{r, include = FALSE}
 
-
-published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published") %>% 
-  mutate(Year = str_extract_all(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
-         Vessel = if_else(Year == 2019, "Professor Kaganovsky", "Pacific Legacy NO 1")) %>% 
-  select(`Dataset Title`, Year, Vessel, `Contact Person`, `Contact email`, `Link to Access Data` = `Digital Object Identifier`, `Access Constraints`:FAIRness)
+#(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
+published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published")
 1
+published_data$Year <- str_match_all(published_data$`Dataset Title`, "[0-9]+")
 
-internal_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Available Internally") %>% 
-  mutate(Year = str_extract_all(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
-         Vessel = if_else(Year == 2019, "Professor Kaganovsky", "Pacific Legacy NO 1")) %>% 
+published_data <- published_data %>% 
+  mutate(Vessel = if_else(Year == "2019", "Professor Kaganovsky", "Pacific Legacy NO 1"),
+         Vessel = if_else(Year == 'c("2019", "2020")', "Professor Kaganovsky, Pacific Legacy NO 1", Vessel),
+         Year = as.numeric(ifelse(Year == 'c("2019", "2020")', "20192020", Year))) %>% 
+  select(`Dataset Title`, Year, Vessel, `Contact Person`, `Contact email`, `Link to Access Data` = `Digital Object Identifier`, `Access Constraints`:FAIRness)
+
+
+internal_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Available Internally") 
+
+internal_data$Year <- str_match_all(internal_data$`Dataset Title`, "[0-9]+")
+
+internal_data <- internal_data %>% 
+  mutate(Vessel = if_else(Year == "2019", "Professor Kaganovsky", "Pacific Legacy NO 1"),
+         Vessel = if_else(Year == 'c("2019", "2020")', "Professor Kaganovsky, Pacific Legacy NO 1", Vessel),
+         Year = as.numeric(ifelse(Year == 'c("2019", "2020")', "20192020", Year))) %>% 
   select(`Dataset Title`, Year, Vessel, `Contact Person`, `Contact email`, `Link to Access Data` = `Metadata Link`, Status)
 
-unpublished_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Not Published") %>% 
-  mutate(Year = str_extract_all(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
-         Vessel = if_else(Year == 2019, "Professor Kaganovsky", "Pacific Legacy NO 1")) %>% 
+unpublished_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Not Published")
+
+unpublished_data$Year <- str_match_all(unpublished_data$`Dataset Title`, "[0-9]+")
+  
+unpublished_data <- unpublished_data %>% 
+  mutate(Vessel = if_else(Year == "2019", "Professor Kaganovsky", "Pacific Legacy NO 1"),
+         Vessel = if_else(Year == 'c("2019", "2020")', "Professor Kaganovsky, Pacific Legacy NO 1", Vessel),
+         Year = as.numeric(ifelse(Year == 'c("2019", "2020")', "20192020", Year))) %>% 
   select(`Dataset Title`, Year, Vessel, `Contact Person`:Status, -`Metadata Link`)
 
 ```
 
 ```{r, read in 2022 data}
 twenty2 <- read_sheet('https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit#gid=1020959877', sheet = 'Master Sheet') %>%
-  mutate(Year = "2022") %>% 
+  mutate(Year = 2022) %>% 
   select(`Dataset Title` = 'Dataset Title / Description', Vessel, Year, `Contact Person` = 'Principal Investigator(s)', priority = 'Priority Category (For Brett, Tim and Caroline to fill out)', `Digital Object Identifier`, `Access Constraints` = `Limitations of data`, Status = 'Dataset Publication Status (For Aidan, Brett, Tim to fill out) (1-5 as per IYS About page dataset summary table)')
 
 twenty2$`Contact Person` <- gsub("^(.*?),.*", "\\1", twenty2$`Contact Person`)
