@@ -8,9 +8,10 @@ Dataset status levels:
 
 - Level 1: Data only have a metadata record, no data have been received. 
 - Level 2: Data have a metadata record, data have been received and are available internally to IYS expedition scientists but not yet published publicly. 
-- Level 3: Data have a metadata record and a non-standardized version of the dataset is publicly available.
-- Level 4: Data have a metadata record and only a subset of the data have been standardized and made publicly available in a domain-specific repository. 
+- Level 3: Data have a metadata record and only a subset of the data have been standardized and made publicly available in a domain-specific repository. 
+- Level 4: Data have a metadata record and a non-standardized version of the dataset is publicly available.
 - Level 5: Data have a metadata record and the full fidelity of the dataset is standardized and available in a domain-specific repository.
+
 
 
 ```{r setup, include = FALSE}
@@ -156,7 +157,7 @@ reactable(published_data,
           `Link to Access Data` = colDef(html = TRUE, cell = JS("
     function(cellInfo) {
       // Render as a link
-      const url = cellInfo.row['Digital Object Identifier'] + '_' + cellInfo.value
+      const url = cellInfo.value
       return '<a href=\"' + url + '\" target=\"_blank\">' + cellInfo.value + '</a>'
     }
   "))),
@@ -181,7 +182,7 @@ reactable(internal_data,
           `Link to Access Data` = colDef(html = TRUE, cell = JS("
     function(cellInfo) {
       // Render as a link
-      const url = cellInfo.row['Digital Object Identifier'] + '_' + cellInfo.value
+      const url = cellInfo.value
       return '<a href=\"' + url + '\" target=\"_blank\">' + cellInfo.value + '</a>'
     }
   "))),

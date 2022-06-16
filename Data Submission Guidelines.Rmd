@@ -15,6 +15,7 @@ In all cases:
 
 - Indicate the time zone of date and time columns (UTC is preferred)
 - Report locations as latitude and longitude in decimal degrees (ie. 49.12345, -110.54321)
+- Include columns that indicate from which specimen, trawl, station, or event the data relate to
 - Include unique sample identifiers
 
 Please submit data before the deadlines noted in the [Data Policy](https://docs.google.com/document/d/1srIlyZfNdtGQ4-W8Ch2FStLnn9U_wW5WIS5wQ1E62w0/edit?usp=sharing) by emailing datasets to secretariat@npafc.org and iys.data@hakai.org as a data package with additional files laid out in the Required Data Package section below.
