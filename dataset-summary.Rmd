@@ -125,7 +125,8 @@ twenty2 <- left_join(twenty2, scientists, by = c("Contact Person" = 'Name'))
 published_22 <- twenty2 %>% 
   filter(Status > 2) %>% 
   rename(`Link to Access Data` = `Digital Object Identifier`) %>% 
-  select(-priority)  
+  select(-priority) %>% 
+  mutate(FAIRness = if_else(Status == 5, "FAIR", ""))
 
 published_data <- bind_rows(published_data, published_22)
 
@@ -173,6 +174,7 @@ reactable(published_data,
 * Register for a GitHub account https://github.com/signup
 * Email iys.data@hakai.org your GitHub username (so we can add you as an approved user)
 * Log in to GitHub before clicking on links below
+* Offer data providers with collaboration opportunity according the the [IYS Data Policy](https://international-year-of-the-salmon.github.io/about/Final%20IYS%20Data%20Policy_Dec132021.pdf)
 
 Table 2. Data that are not yet available publicly but are available internally.
 
