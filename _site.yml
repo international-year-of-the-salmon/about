@@ -31,8 +31,8 @@ navbar:
           href: https://iys.hakai.org
         - text: "Published Data"
           href: dataset-summary.html
-    - text: "Technical Templates"
+    - text: "Tutorials"
       menu: 
-        - text: "ERDDAP"
-          href: ERDDAP_xml_template.html
+        - text: "Navigating GitHub"
+          href: https://www.youtube.com/watch?v=hMVXrf6Qxw0
     
