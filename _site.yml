@@ -4,6 +4,10 @@ output:
 output_dir: "docs"
 navbar:
   title: "IYS Data Mobilization"
+  output: 
+  html_document:
+    includes:
+       in_header: GA_Script.html
   left:
     - text: "About"
       href: index.html
