@@ -204,27 +204,27 @@ reactable(unpublished_data, searchable = TRUE, resizable = TRUE,
 ## Priority 2022 Data Not Received
 
 ```{r Priority data table, include = TRUE}
-priority22 <- twenty2 |> 
-  filter(priority == 1) |> 
+priority22 <- twenty2 %>% 
+  filter(priority == 1) %>% 
   select(`Dataset Title`, Vessel, Year, `Contact Person`, Status)
 
 reactable(priority22, searchable = TRUE, resizable = TRUE, defaultSorted = c( 'Vessel', 'Dataset Title', 'Status'))
 
-p22 <- priority22 |> 
-  filter(!Vessel %in% c('Argo Floats', 'Glider')) |> 
-  group_by(Vessel) |> 
-  mutate(n = n()) |> 
-  ungroup() |> 
-  mutate(received = if_else(Status >= 1, "received", "not_received")) |> 
-  filter(received == "received") |> 
-  group_by(Vessel, received) |> 
-  mutate(n_received = n()) |> 
-  group_by(Vessel) |> 
-  summarize(prop = n_received / n) |> 
-  distinct() |> 
-  mutate(`Not Received` = 1 - prop) |> 
-  select(Vessel, "Received" = prop, `Not Received`) |> 
-  pivot_longer(cols = Received:`Not Received`, names_to = "type", values_to = "props") |> 
+p22 <- priority22 %>% 
+  filter(!Vessel %in% c('Argo Floats', 'Glider')) %>% 
+  group_by(Vessel) %>% 
+  mutate(n = n()) %>% 
+  ungroup() %>% 
+  mutate(received = if_else(Status >= 1, "received", "not_received")) %>% 
+  filter(received == "received") %>%
+  group_by(Vessel, received) %>% 
+  mutate(n_received = n()) %>% 
+  group_by(Vessel) %>% 
+  summarize(prop = n_received / n) %>% 
+  distinct() %>%
+  mutate(`Not Received` = 1 - prop) %>%
+  select(Vessel, "Received" = prop, `Not Received`) %>%
+  pivot_longer(cols = Received:`Not Received`, names_to = "type", values_to = "props") %>%
   ungroup()
   
 p22 <- add_row(p22,"Vessel" = "Raw Spirit", type = "Received", props = 0.0)  
@@ -238,15 +238,15 @@ ggplot(p22, aes(x= "", y = props, fill = type)) +
   labs(caption = "Figure 1. Proportion of each vessels priority data received or not") +
   theme(legend.title=element_blank())
 
-p_total_22 <- priority22 |> 
-  filter(!Vessel %in% c('Argo Floats', 'Glider')) |> 
-  mutate(received = if_else(Status >= 1, "received", "not_received")) |> 
-  filter(received == "received") |> 
-  mutate(n_datasets = length(Vessel)) |> 
-  group_by(Vessel) |> 
-  mutate(n_received = n()) |> 
-  group_by(Vessel) |> 
-  summarize(prop = n_received / n_datasets) |> 
+p_total_22 <- priority22 %>% 
+  filter(!Vessel %in% c('Argo Floats', 'Glider')) %>%
+  mutate(received = if_else(Status >= 1, "received", "not_received")) %>% 
+  filter(received == "received") %>% 
+  mutate(n_datasets = length(Vessel)) %>% 
+  group_by(Vessel) %>%
+  mutate(n_received = n()) %>% 
+  group_by(Vessel) %>% 
+  summarize(prop = n_received / n_datasets) %>% 
   distinct()
 
 ggplot(p_total_22, aes(x = "", y = prop, fill = Vessel)) +
