@@ -1,13 +1,11 @@
 name: "International Year of the Salmon"
 output:
  html_document:
+     includes:
+       in_header: GA_Script.html
 output_dir: "docs"
 navbar:
   title: "IYS Data Mobilization"
-  output: 
-  html_document:
-    includes:
-       in_header: GA_Script.html
   left:
     - text: "About"
       href: index.html
