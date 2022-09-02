@@ -14,7 +14,7 @@ If you click 'code' you can see the R code used to produce these plots. Feel fre
 
 ## 2022 Trawl Station Map Blue Bathymetry
 
-```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%"}
+```{r, warning = FALSE, message=FALSE, out.width = "100%", out.height = "100%"}
 library(ggOceanMaps)
 library(tidyverse)
 
