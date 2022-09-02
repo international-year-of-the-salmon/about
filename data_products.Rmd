@@ -46,8 +46,10 @@ bathymetric_station_map <-
   xlab("Longitude") + 
   ylab("Latitude")
 
-bathymetric_station_map +
+bathymetric_station_map <- bathymetric_station_map +
   guides(fill = "none")
+
+bathymetric_station_map
 ```
 
 ## 2022 Trawl Station Map Grey Bathymetry
