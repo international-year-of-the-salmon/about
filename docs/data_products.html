@@ -11,7 +11,7 @@
 
 
 
-<title>ERDDAP_dataset_xml_template</title>
+<title>Data Products</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +30,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -228,6 +229,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -330,60 +334,176 @@ $(document).ready(function () {
 
 <div id="header">
 
-
-
-<h1 class="title toc-ignore">ERDDAP_dataset_xml_template</h1>
-
-</div>
-
-
-<p>Part of the process for uploading data to ERDDAP is to include some
-standard metadata fields defined in an .xml file. There are many things
-that could be included based on the Earth Science Information Partners
-<a
-href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute
-Convention for Data Discovery</a> (which ERDDAP adheres to and
-promotes). Below are some of the standard attributes and values that
-should be included with each dataset.</p>
-<div id="global-attributes" class="section level2">
-<h2>Global Attributes</h2>
-<pre><code>  &lt;att name=&quot;project&quot;&gt;International Year of the Salmon (IYS)&lt;/att&gt;
-  &lt;att name=&quot;creator_name&quot;&gt;Lead Author&#39;s name&lt;/att&gt;
-  &lt;att name=&quot;infoUrl&quot;&gt;http://yearofthesalmon.org&lt;/att&gt;
-  &lt;att name=&quot;id&quot;&gt;insert DOI here&lt;/att&gt;
-  &lt;att name=&quot;DOI&quot;&gt;insert DOI here&lt;/att&gt;
-  &lt;att name=&quot;publisher&quot;&gt;North Pacific Anadromous Fish Commission&lt;/att&gt;
-  &lt;att name=&quot;publisher_type&quot;&gt;Organization&lt;/att&gt;
-  &lt;att name=&quot;institution&quot;&gt;Lead Author&#39;s&lt;/att&gt;
-  &lt;att name=&quot;keywords&quot;&gt;oceans, International Year of the Salmon (IYS)&lt;/att&gt;
-  &lt;att name=&quot;license&quot;&gt;https://creativecommons.org/licenses/by/4.0/&lt;/att&gt;
-  &lt;att name=&quot;standard_name_vocabulary&quot;&gt;CF Standard Name Table v55&lt;/att&gt;
-  &lt;att name=&quot;platform&quot;&gt;land/Research Vessel&lt;/att&gt;
-  &lt;att name=&quot;platform_vocabulary&quot;&gt;http://vocab.nerc.ac.uk/collection/L06/current/&lt;/att&gt;</code></pre>
-<p>It’s also important to determine the ’cdm_data_type, (the Common Data
-Model data type)</p>
-<p>Ensure there isn’t repetition in units/long names in ERDDAP table
-subset interface</p>
-<p>Make sure original data doesn’t have raw data subfolder and instead
-just a standardized data folder that’s git ignored</p>
-</div>
-<div id="data-structure" class="section level2">
-<h2>Data structure</h2>
-<ul>
-<li>Include new columns:
-<ul>
-<li>cruise (eg. GoA2019)</li>
-<li>station (eg GoA2019:Stn1)</li>
-<li>dateTime (in iso 8601 format in UTC timezone eg.
-2019-03-02T21:30:00Z)</li>
-<li>year</li>
-<li>month</li>
-<li>day</li>
-<li>time (in UTC)</li>
-<li>timezone</li>
-<li>citation</li>
-</ul></li>
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Data Products</h1>
+
+</div>
+
+
+<p>Here you will find a number of derived data products related to the
+IYS.</p>
+<div id="maps" class="section level1 tabset" number="1">
+<h1 class="tabset"><span class="header-section-number">1</span>
+Maps</h1>
+<p>If you click ‘code’ you can see the R code used to produce these
+plots. Feel free to copy the code and make edits yourself or contact <a
+href="mailto:brett.johnson@hakai.org"
+class="email">brett.johnson@hakai.org</a> for changes.</p>
+<div id="trawl-station-map-blue-bathymetry" class="section level2"
+number="1.1">
+<h2><span class="header-section-number">1.1</span> 2022 Trawl Station
+Map Blue Bathymetry</h2>
+<pre class="r"><code>library(ggOceanMaps)
+library(tidyverse)
+
+# Edit which vessels, years, or sampling event types you would like to plot
+vessel &lt;- c(&quot;TINRO&quot;, &quot;NW&quot;, &quot;Shimada&quot;, &quot;Franklin&quot;, &quot;Kaganovsky&quot;, &quot;Legacy&quot;, &quot;Raw_Spirit&quot;)
+sampling_year &lt;- c(2022)
+#event_types could include &quot;Trawl&quot;, &quot;CTD&quot; or &quot;CTD-Rosette&quot;, &quot;Gillnet&quot;
+event_types &lt;- c(&quot;Trawl&quot;, &quot;Gillnet&quot;)
+
+# Update IYS_events.csv with newest version from https://github.com/international-year-of-the-salmon/IYS-Integrated-Data-Collection
+iys_data &lt;- read_csv(&quot;https://raw.githubusercontent.com/international-year-of-the-salmon/about/main/data/IYS_events.csv&quot;) |&gt; 
+  filter(vessel_name_abbr %in% vessel,
+         year %in% sampling_year,
+         event_type %in% event_types) |&gt; 
+  rename(&quot;Vessel&quot; = &quot;vessel_name_abbr&quot;) |&gt; 
+  mutate(Vessel = ifelse(Vessel == &quot;NW&quot;, &quot;NW Explorer&quot;, Vessel),
+         Vessel = ifelse(Vessel == &quot;Raw_Spirit&quot;, &quot;Raw Spirit&quot;, Vessel))
+
+bathymetric_station_map &lt;- 
+  basemap(data = iys_data,  rotate = TRUE, bathymetry = TRUE,
+          lon.interval = 3) +
+
+  geom_spatial_point(data = iys_data, aes(x = longitude_start_decdeg,
+                                          y = latitude_start_decdeg, 
+                                          colour = Vessel,
+                     size = I(4)))+
+  annotation_scale(location = &quot;br&quot;) + 
+  annotation_north_arrow(location = &quot;tr&quot;, which_north = &quot;true&quot;) +
+  xlab(&quot;Longitude&quot;) + 
+  ylab(&quot;Latitude&quot;)
+
+bathymetric_station_map &lt;- bathymetric_station_map +
+  guides(fill = &quot;none&quot;)
+
+bathymetric_station_map</code></pre>
+<p><img src="data_products_files/figure-html/unnamed-chunk-1-1.png" width="100%" height="100%" /></p>
+</div>
+<div id="trawl-station-map-grey-bathymetry" class="section level2"
+number="1.2">
+<h2><span class="header-section-number">1.2</span> 2022 Trawl Station
+Map Grey Bathymetry</h2>
+<pre class="r"><code>library(ggOceanMaps)
+library(tidyverse)
+
+# Edit which vessels, years, or sampling event types you would like to plot
+vessel &lt;- c(&quot;TINRO&quot;, &quot;NW&quot;, &quot;Shimada&quot;, &quot;Franklin&quot;, &quot;Kaganovsky&quot;, &quot;Legacy&quot;, &quot;Raw_Spirit&quot;)
+sampling_year &lt;- c(2022)
+#event_types could include &quot;Trawl&quot;, &quot;CTD&quot; or &quot;CTD-Rosette&quot;, &quot;Gillnet&quot;
+event_types &lt;- c(&quot;Trawl&quot;, &quot;Gillnet&quot;)
+
+# Update IYS_events.csv with newest version from https://github.com/international-year-of-the-salmon/IYS-Integrated-Data-Collection
+iys_data &lt;- read_csv(&quot;https://raw.githubusercontent.com/international-year-of-the-salmon/about/main/data/IYS_events.csv&quot;) |&gt; 
+  filter(vessel_name_abbr %in% vessel,
+         year %in% sampling_year,
+         event_type %in% event_types) |&gt; 
+  rename(&quot;Vessel&quot; = &quot;vessel_name_abbr&quot;) |&gt; 
+  mutate(Vessel = ifelse(Vessel == &quot;NW&quot;, &quot;NW Explorer&quot;, Vessel),
+         Vessel = ifelse(Vessel == &quot;Raw_Spirit&quot;, &quot;Raw Spirit&quot;, Vessel))
+
+bathymetric_station_map &lt;- 
+  basemap(data = iys_data,  rotate = TRUE, bathymetry = TRUE, bathy.style = &quot;poly_greys&quot;,
+          lon.interval = 3) +
+  geom_spatial_point(data = iys_data, aes(x = longitude_start_decdeg,
+                                          y = latitude_start_decdeg, 
+                                          colour = Vessel,
+                     size = I(4)))+
+  annotation_scale(location = &quot;br&quot;) + 
+  annotation_north_arrow(location = &quot;tr&quot;, which_north = &quot;true&quot;) +
+  xlab(&quot;Longitude&quot;) + 
+  ylab(&quot;Latitude&quot;)
+
+bathymetric_station_map + guides(fill=&quot;none&quot;) # Removes bathymetry scale legend </code></pre>
+<p><img src="data_products_files/figure-html/unnamed-chunk-2-1.png" width="100%" height="100%" /></p>
+</div>
+<div id="trawl-station-map-viridis-bathymetry" class="section level2"
+number="1.3">
+<h2><span class="header-section-number">1.3</span> 2022 Trawl Station
+Map Viridis Bathymetry</h2>
+<pre class="r"><code>library(ggOceanMaps)
+library(tidyverse)
+
+# Edit which vessels, years, or sampling event types you would like to plot
+vessel &lt;- c(&quot;TINRO&quot;, &quot;NW&quot;, &quot;Shimada&quot;, &quot;Franklin&quot;, &quot;Kaganovsky&quot;, &quot;Legacy&quot;, &quot;Raw_Spirit&quot;)
+sampling_year &lt;- c(2022)
+#event_types could include &quot;Trawl&quot;, &quot;CTD&quot; or &quot;CTD-Rosette&quot;, &quot;Gillnet&quot;
+event_types &lt;- c(&quot;Trawl&quot;, &quot;Gillnet&quot;)
+
+# Update IYS_events.csv with newest version from https://github.com/international-year-of-the-salmon/IYS-Integrated-Data-Collection
+iys_data &lt;- read_csv(&quot;https://raw.githubusercontent.com/international-year-of-the-salmon/about/main/data/IYS_events.csv&quot;) |&gt; 
+  filter(vessel_name_abbr %in% vessel,
+         year %in% sampling_year,
+         event_type %in% event_types) |&gt; 
+  rename(&quot;Vessel&quot; = &quot;vessel_name_abbr&quot;) |&gt; 
+  mutate(Vessel = ifelse(Vessel == &quot;NW&quot;, &quot;NW Explorer&quot;, Vessel),
+         Vessel = ifelse(Vessel == &quot;Raw_Spirit&quot;, &quot;Raw Spirit&quot;, Vessel))
+
+bathymetric_station_map &lt;- 
+  basemap(data = iys_data,  rotate = TRUE, bathymetry = TRUE,
+          lon.interval = 3) +
+  geom_spatial_point(data = iys_data, aes(x = longitude_start_decdeg,
+                                          y = latitude_start_decdeg, 
+                                          colour = Vessel,
+                     size = I(4)))+
+  annotation_scale(location = &quot;br&quot;) + 
+  annotation_north_arrow(location = &quot;tr&quot;, which_north = &quot;true&quot;) +
+  xlab(&quot;Longitude&quot;) + 
+  ylab(&quot;Latitude&quot;) 
+
+bathymetric_station_map +guides(fill=&quot;none&quot;) + # Removes bathymetry scale legend
+  scale_fill_viridis_d()</code></pre>
+<p><img src="data_products_files/figure-html/unnamed-chunk-3-1.png" width="100%" height="100%" /></p>
+</div>
+</div>
+<div id="global-ocean-physics-analysis" class="section level1 tabset"
+number="2">
+<h1 class="tabset"><span class="header-section-number">2</span> Global
+Ocean Physics Analysis</h1>
+<p>These models are courtesy of Tetjana Ross (<a
+href="mailto:Tetjana.Ross@dfo-mpo.gc.ca"
+class="email">Tetjana.Ross@dfo-mpo.gc.ca</a>) from Fisheries and Oceans
+Canada. You must contact Tetjana and offer collaboration/co-authorship
+to use these images for publication.</p>
+<div id="mixed-layer-depth" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Mixed Layer
+Depth</h2>
+<video autosize:true controls>
+<source src="images/mixed_layer_depth.ogg" type="video/ogg">
+</video>
+</div>
+<div id="surface-currents" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Surface Currents</h2>
+<video autosize:true controls>
+<source src="images/currents.ogg" type="video/ogg">
+</video>
+</div>
+<div id="sea-surface-temperature" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Sea Surface
+Temperature</h2>
+<video autosize:true controls>
+<source src="images/sst.ogg" type="video/ogg">
+</video>
+</div>
 </div>
 
 
@@ -419,6 +539,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

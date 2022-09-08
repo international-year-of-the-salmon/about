@@ -20,7 +20,7 @@ navbar:
         - text: "IYS Data Policy"
           href: Final IYS Data Policy_Dec132021.pdf
         - text: "IYS Data Template"
-          href: https://github.com/international-year-of-the-salmon/about/blob/main/IYS2022_Data_template_final.xlsx?raw=true
+          href: https://github.com/international-year-of-the-salmon/about/blob/main/IYS2022_Data_template.xlsx?raw=true
         - text: "2022 Metadata Registry"
           href: https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing
         - text: "Sample Tracking Spreadsheet"
@@ -33,6 +33,8 @@ navbar:
           href: https://iys.hakai.org
         - text: "Published Data"
           href: dataset-summary.html
+        - text: "Data Products"
+          href: data_products.html
     - text: "Tutorials"
       menu: 
         - text: "Navigating GitHub"
