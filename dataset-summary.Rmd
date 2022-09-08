@@ -196,6 +196,7 @@ reactable(internal_data,
 ## Data Not Received
 
 Table 3. Data that have not yet been received and/or published. Please contact the data provider for data access.
+
 ```{r, include = TRUE}
 reactable(unpublished_data, searchable = TRUE, resizable = TRUE,
           defaultSorted = list(Status = 'desc'))
@@ -205,7 +206,8 @@ reactable(unpublished_data, searchable = TRUE, resizable = TRUE,
 
 ```{r Priority data table, include = TRUE}
 priority22 <- twenty2 %>% 
-  filter(priority == 1) %>% 
+  filter(priority == 1,
+         Status < 2) %>% 
   select(`Dataset Title`, Vessel, Year, `Contact Person`, Status)
 
 reactable(priority22, searchable = TRUE, resizable = TRUE, defaultSorted = c( 'Vessel', 'Dataset Title', 'Status'))
