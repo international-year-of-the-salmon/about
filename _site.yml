@@ -5,7 +5,7 @@ output:
        in_header: GA_Script.html
 output_dir: "docs"
 navbar:
-  title: "IYS Data Mobilization"
+  title: "IYS Data Mobilization Portal"
   left:
     - text: "About"
       href: index.html
