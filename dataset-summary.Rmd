@@ -71,7 +71,7 @@ library(googlesheets4)
 # write_csv(not_published, here::here('not_published.csv'))
 ```
 
-```{r, include = FALSE}
+```{r 2019 and 2020 data, include = FALSE}
 
 #(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
 published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published")
@@ -144,9 +144,82 @@ unavailable22 <- twenty2 %>%
 
 unpublished_data <- bind_rows(unpublished_data, unavailable22) %>% 
   select(-`Digital Object Identifier`, `Access Constraints`)
+
+all_data <- bind_rows(published_data, internal_data, unpublished_data)
 ```
 
 # Available Data {.tabset .tabset-pills}
+
+## Summary of Data Holdings
+
+Last updated: `r Sys.Date()`
+
+```{r summary of published data, include = TRUE, fig.cap= "Fig 1. The number of datasets received from the 2019 (Kagaonovsky), 2020 (Pacific Legacy) and 2022 International Year of the Salmon Expeditions."}
+
+library(scales)
+plot_data <- all_data |> 
+  filter(Status >= 2,
+         !Vessel %in% c("Argo Floats", "Glider", "Professor Kaganovsky, Pacific Legacy NO 1", "TINRO, Shimada, Franklin")) |>
+  add_row(Vessel = "Professor Kaganovsky") |> 
+  add_row(Vessel = "Professor Kaganovsky") |> 
+  add_row(Vessel = "Pacific Legacy NO 1") |>
+  add_row(Vessel = "Pacific Legacy NO 1") |>
+  add_row(Vessel = "TINRO") |> 
+  add_row(Vessel = "Shimada") |> 
+  add_row(Vessel = "Franklin") |> 
+  count(Vessel) |> 
+  add_row(Vessel = "Raw Spirit", n = 0) # Remove if Raw Spirit data are added
+
+
+
+plot_data$Vessel <- recode(plot_data$Vessel, `Professor Kaganovsky` = "Kaganovsky", `Pacific Legacy NO 1` = "Pacifc Legacy", `Northwest Explorer` = "NW Explorer")
+  
+ggplot(plot_data, aes(x = reorder(Vessel, n, decreasing = TRUE), y = n, fill = Vessel)) +
+  geom_bar(stat = "identity") +
+  xlab("Vessel") +
+  theme_bw()+
+  scale_y_continuous(breaks= pretty_breaks()) +
+  hakaiR::hakademic_theme()+
+  theme(legend.position="none") +
+  ylab("Numner of Published Datasets")
+
+# 2022 Priority Data
+```
+
+
+```{r summary of unpublished priority 2022 data, include = TRUE, fig.cap= "Figure 2. The number of datasets from the 2022 IYS Expeditions in the 'At sea observations / Data reported in Cruise Report' Data Category defined in the IYS Data Policy either received or not received organized by vessel. Green colour indicates received, red indicates not received. Hover over each block to identify the dataset."}
+library(plotly)
+tt_nr <- twenty2 |> filter(priority == 1,
+                  !Vessel %in% c("Argo Floats", "Glider")) |> 
+  select(`Dataset Title`, Vessel, Status) |> 
+  mutate(Status = if_else(Status < 2, "Not Received", "Received")) |> 
+  add_count(Vessel, `Dataset Title`) 
+
+n_published <- tt_nr |> 
+  select(Vessel, Status) |> 
+  filter(Status == "Received") |> 
+  count(Vessel) |> 
+  rename(n_published = n)
+
+tt_nr <- left_join(tt_nr, n_published, by = "Vessel") |> 
+  mutate(Vessel = reorder(Vessel, n_published, decreasing = TRUE))
+
+colours <- c("red", "green")
+
+tt_nr_plot <- ggplot(tt_nr, aes(x = Vessel, y = n, fill = Status, colour = `Dataset Title`)) +
+  geom_bar(stat = "identity") +
+  hakaiR::hakademic_theme() +
+  scale_y_continuous(breaks= pretty_breaks()) +
+  scale_fill_manual(values = colours) + 
+  xlab('Vessel') +
+  ylab("Number of Datasets")
+
+tt_nr_plot <- tt_nr_plot +  theme(legend.position="none") 
+
+ggplotly(tt_nr_plot)
+```
+
+
 
 ## Published Data
 
@@ -178,7 +251,7 @@ reactable(published_data,
 
 Table 2. Data that are not yet available publicly but are available internally.
 
-```{r, include = TRUE}
+```{r internal data reactable, include = TRUE}
 reactable(internal_data,
           columns = list(
           `Link to Access Data` = colDef(html = TRUE, cell = JS("
@@ -206,57 +279,9 @@ reactable(unpublished_data, searchable = TRUE, resizable = TRUE,
 
 ```{r Priority data table, include = TRUE}
 priority22 <- twenty2 %>% 
-  filter(priority == 1,
-         Status < 2) %>% 
+  filter(priority == 1) %>% 
   select(`Dataset Title`, Vessel, Year, `Contact Person`, Status)
 
-reactable(priority22, searchable = TRUE, resizable = TRUE, defaultSorted = c( 'Vessel', 'Dataset Title', 'Status'))
-
-p22 <- priority22 %>% 
-  filter(!Vessel %in% c('Argo Floats', 'Glider')) %>% 
-  group_by(Vessel) %>% 
-  mutate(n = n()) %>% 
-  ungroup() %>% 
-  mutate(received = if_else(Status >= 1, "received", "not_received")) %>% 
-  filter(received == "received") %>%
-  group_by(Vessel, received) %>% 
-  mutate(n_received = n()) %>% 
-  group_by(Vessel) %>% 
-  summarize(prop = n_received / n) %>% 
-  distinct() %>%
-  mutate(`Not Received` = 1 - prop) %>%
-  select(Vessel, "Received" = prop, `Not Received`) %>%
-  pivot_longer(cols = Received:`Not Received`, names_to = "type", values_to = "props") %>%
-  ungroup()
-  
-p22 <- add_row(p22,"Vessel" = "Raw Spirit", type = "Received", props = 0.0)  
-p22 <- add_row(p22,"Vessel" = "Raw Spirit", type= "Not Received", props = 1)
-
-ggplot(p22, aes(x= "", y = props, fill = type)) +
-  geom_bar(stat = "identity", width = 1) +
-  coord_polar("y", start = 0) +
-  facet_wrap(~Vessel) +
-  theme_void() +
-  labs(caption = "Figure 1. Proportion of each vessels priority data received or not") +
-  theme(legend.title=element_blank())
-
-p_total_22 <- priority22 %>% 
-  filter(!Vessel %in% c('Argo Floats', 'Glider')) %>%
-  mutate(received = if_else(Status >= 1, "received", "not_received")) %>% 
-  filter(received == "received") %>% 
-  mutate(n_datasets = length(Vessel)) %>% 
-  group_by(Vessel) %>%
-  mutate(n_received = n()) %>% 
-  group_by(Vessel) %>% 
-  summarize(prop = n_received / n_datasets) %>% 
-  distinct()
-
-ggplot(p_total_22, aes(x = "", y = prop, fill = Vessel)) +
-  geom_bar(stat = "identity", width = 1) +
-  coord_polar("y", start = 0) +
-  theme_void() +
-  labs(caption = "Figure 2. Proportion of total priority data received by vessel")
-  
-
+reactable(filter(priority22, Status < 2), searchable = TRUE, resizable = TRUE, defaultSorted = c( 'Vessel', 'Dataset Title', 'Status'))
 ```
 
