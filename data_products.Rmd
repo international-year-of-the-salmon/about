@@ -2,13 +2,25 @@
 title: "Data Products"
 output:
  html_document:
+   toc: true
+   toc_float: true
    code_folding: hide
    number_sections: true
 ---
 
 Here you will find a number of derived data products related to the IYS. 
 
-# Maps {.tabset}
+# Interactive Maps {.tabset}
+
+## NPAFC Interactive ArcGIS Map
+
+See an interactive map of the IYS expedition data [here](https://experience.arcgis.com/experience/96a6413cffa844df8220aff0b2b08d09/page/IYS-High-Seas-Expeditions/?data_id=dataSource_5-Map3_6563%3A17685)
+
+## Canadian Integrated Ocean Observing System Data Explorer
+
+See the [CIOOS Data Explorer here](https://explore.cioos.ca/) and in the Datasets search bar enter 'International Year of the Salmon'
+
+# Static Maps {.tabset}
 
 If you click 'code' you can see the R code used to produce these plots. Feel free to copy the code and make edits yourself or contact brett.johnson@hakai.org for changes.
 

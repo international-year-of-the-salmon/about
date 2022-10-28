@@ -19,19 +19,17 @@ Data Mobilization: The process of making data available for appropriate re-use.
 
 **What is required by IYS scientists collecting data?**
 
-1) Register the dataset you have collected by filling out [this metadata spreadsheet](https://docs.google.com/spreadsheets/d/1grJN_xPZScd4r-IgUK7v_jnCs5IGKhDDElTskt6qdAQ/edit?usp=sharing). 
+1) Register the dataset you have collected or will generate by filling out [this metadata intake form](https://cioos-siooc.github.io/metadata-entry-form/#/en/iys/submissions). 
 
 2) Submit standard data packages to the IYS (secretariat@npafc.org and cc iys.data@hakai.org) for internal sharing and publishing according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html).
 
 3) [Create a free GitHub account](https://github.com/signup) and share your username with IYS Data Scientists by emailing us what your username is at iys.data@hakai.org so that we can add you to the IYS organizational data hosting service and you can access and share internal data before it goes public (according to the [IYS policy](https://international-year-of-the-salmon.github.io/about/Final%20IYS%20Data%20Policy_Dec132021.pdf)).
 
-4) Keep track of where your samples are using the [Sample Tracking Spreadsheet](https://docs.google.com/spreadsheets/d/14fbK5XlhCUL7p3IaSdAjehEm64Myjlxt/edit?usp=sharing&ouid=105664784039276814199&rtpof=true&sd=true)
-
-5) Cite datasets used in publications according to the recommended citation for each specific dataset in the [IYS Data Catalogue](https://iys.hakai.org)
+4) Cite datasets used in publications according to the recommended citation for each specific dataset in the [IYS Data Catalogue](https://iys.hakai.org)
 
 **The IYS Data Science team will provide the following services:**
 
-1) Create a metadata record in the [IYS Data Catalogue](https://iys.hakai.org) which includes minting a Digital Object Identifier that will make your dataset discoverable and citable.
+1) Review your metadata record in the [IYS Data Catalogue](https://iys.hakai.org) which includes minting a Digital Object Identifier that will make your dataset discoverable and citable.
 
 2) Host early versions of data and manage internal access by IYS Participants on the [IYS GitHub repository](https://github.com/international-year-of-the-salmon/).
 

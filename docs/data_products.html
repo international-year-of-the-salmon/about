@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
@@ -235,6 +238,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -242,6 +308,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -354,16 +430,35 @@ $(document).ready(function () {
 
 <p>Here you will find a number of derived data products related to the
 IYS.</p>
-<div id="maps" class="section level1 tabset" number="1">
+<div id="interactive-maps" class="section level1 tabset" number="1">
 <h1 class="tabset"><span class="header-section-number">1</span>
+Interactive Maps</h1>
+<div id="npafc-interactive-arcgis-map" class="section level2"
+number="1.1">
+<h2><span class="header-section-number">1.1</span> NPAFC Interactive
+ArcGIS Map</h2>
+<p>See an interactive map of the IYS expedition data <a
+href="https://experience.arcgis.com/experience/96a6413cffa844df8220aff0b2b08d09/page/IYS-High-Seas-Expeditions/?data_id=dataSource_5-Map3_6563%3A17685">here</a></p>
+</div>
+<div id="canadian-integrated-ocean-observing-system-data-explorer"
+class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Canadian Integrated
+Ocean Observing System Data Explorer</h2>
+<p>See the <a href="https://explore.cioos.ca/">CIOOS Data Explorer
+here</a> and in the Datasets search bar enter ‘International Year of the
+Salmon’</p>
+</div>
+</div>
+<div id="static-maps" class="section level1 tabset" number="2">
+<h1 class="tabset"><span class="header-section-number">2</span> Static
 Maps</h1>
 <p>If you click ‘code’ you can see the R code used to produce these
 plots. Feel free to copy the code and make edits yourself or contact <a
 href="mailto:brett.johnson@hakai.org"
 class="email">brett.johnson@hakai.org</a> for changes.</p>
 <div id="trawl-station-map-blue-bathymetry" class="section level2"
-number="1.1">
-<h2><span class="header-section-number">1.1</span> 2022 Trawl Station
+number="2.1">
+<h2><span class="header-section-number">2.1</span> 2022 Trawl Station
 Map Blue Bathymetry</h2>
 <pre class="r"><code>library(ggOceanMaps)
 library(tidyverse)
@@ -403,8 +498,8 @@ bathymetric_station_map</code></pre>
 <p><img src="data_products_files/figure-html/unnamed-chunk-1-1.png" width="100%" height="100%" /></p>
 </div>
 <div id="trawl-station-map-grey-bathymetry" class="section level2"
-number="1.2">
-<h2><span class="header-section-number">1.2</span> 2022 Trawl Station
+number="2.2">
+<h2><span class="header-section-number">2.2</span> 2022 Trawl Station
 Map Grey Bathymetry</h2>
 <pre class="r"><code>library(ggOceanMaps)
 library(tidyverse)
@@ -440,8 +535,8 @@ bathymetric_station_map + guides(fill=&quot;none&quot;) # Removes bathymetry sca
 <p><img src="data_products_files/figure-html/unnamed-chunk-2-1.png" width="100%" height="100%" /></p>
 </div>
 <div id="trawl-station-map-viridis-bathymetry" class="section level2"
-number="1.3">
-<h2><span class="header-section-number">1.3</span> 2022 Trawl Station
+number="2.3">
+<h2><span class="header-section-number">2.3</span> 2022 Trawl Station
 Map Viridis Bathymetry</h2>
 <pre class="r"><code>library(ggOceanMaps)
 library(tidyverse)
@@ -479,29 +574,29 @@ bathymetric_station_map +guides(fill=&quot;none&quot;) + # Removes bathymetry sc
 </div>
 </div>
 <div id="global-ocean-physics-analysis" class="section level1 tabset"
-number="2">
-<h1 class="tabset"><span class="header-section-number">2</span> Global
+number="3">
+<h1 class="tabset"><span class="header-section-number">3</span> Global
 Ocean Physics Analysis</h1>
 <p>These models are courtesy of Tetjana Ross (<a
 href="mailto:Tetjana.Ross@dfo-mpo.gc.ca"
 class="email">Tetjana.Ross@dfo-mpo.gc.ca</a>) from Fisheries and Oceans
 Canada. You must contact Tetjana and offer collaboration/co-authorship
 to use these images for publication.</p>
-<div id="mixed-layer-depth" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Mixed Layer
+<div id="mixed-layer-depth" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Mixed Layer
 Depth</h2>
 <video autosize:true controls>
 <source src="images/mixed_layer_depth.ogg" type="video/ogg">
 </video>
 </div>
-<div id="surface-currents" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Surface Currents</h2>
+<div id="surface-currents" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Surface Currents</h2>
 <video autosize:true controls>
 <source src="images/currents.ogg" type="video/ogg">
 </video>
 </div>
-<div id="sea-surface-temperature" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Sea Surface
+<div id="sea-surface-temperature" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Sea Surface
 Temperature</h2>
 <video autosize:true controls>
 <source src="images/sst.ogg" type="video/ogg">
@@ -511,6 +606,8 @@ Temperature</h2>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -548,6 +645,35 @@ $(document).ready(function () {
 });
 </script>
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
