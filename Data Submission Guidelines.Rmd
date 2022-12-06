@@ -7,7 +7,7 @@ The ultimate goal of the IYS Data Mobilization Strategy is that all expedition d
 ![Figure 1. IYS data submission options](images/IYS Data Submission.png)
 
 * **Data files** 
-  - *Option 1:* Before submission to IYS Data Scientists, IYS Participants should transform catch/specimen data, CTD, Rosette, and other sampling data to the [IYS Data Template](https://github.com/international-year-of-the-salmon/about/blob/main/IYS2022_Data_template_final.xlsx?raw=true) submission format. This template establishes a common sampling event schema that will make it easier to link various samples and events together.
+  - *Option 1:* Before submission to IYS Data Scientists, IYS Participants should transform catch/specimen data, CTD, Rosette, and other sampling data to the [IYS Data Template](https://github.com/international-year-of-the-salmon/about/blob/main/IYS2022_Data_template.xlsx?raw=true) submission format. This template establishes a common sampling event schema that will make it easier to link various samples and events together.
   - *Option 2:* Not for CTD, catch/specimen data, Rosette, or other standard data collected on every ship (see option 1 data template for those). Option 2 may be preferable for laboratory-analysis derived data for a) data types that IYS Participants have well-established workflows for publishing to open-access repositories; or b) There is institutional or national support available for data management and data transformations and/or a desire to build capacity in publishing data to open-access repositories such as OBIS
   - *Option 3:* Provided in case there are no resources available for option 1 or 2. Files should be plain text (.csv) or Microsoft excel files, but should not require other proprietary software.
 
