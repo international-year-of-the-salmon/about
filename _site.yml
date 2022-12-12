@@ -31,9 +31,9 @@ navbar:
           href: IYS 2022 Expedition Cruise Plan_Dec302021.pdf
     - text: "Data"
       menu:
-        - text: "Metadata Catalogue"
+        - text: "Data Catalogue"
           href: https://iys.hakai.org
-        - text: "Published Data"
+        - text: "Published Data Summary"
           href: dataset-summary.html
         - text: "Data Products"
           href: data_products.html
