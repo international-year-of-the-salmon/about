@@ -285,3 +285,68 @@ priority22 <- twenty2 %>%
 reactable(filter(priority22, Status < 2), searchable = TRUE, resizable = TRUE, defaultSorted = c( 'Vessel', 'Dataset Title', 'Status'))
 ```
 
+## Number of Downloads and Citations
+
+```{r include = TRUE}
+# Loading required packages
+library(rgbif)
+library(dplyr)
+library(purrr)
+
+# Searching for datasets related to "International Year of the Salmon"
+iys_datasets <- datasets(query = "International Year of the Salmon")
+
+# Extracting dataset data
+iys_data <- iys_datasets$data
+
+# Extracting dataset keys
+iys_uuids <- iys_data$key
+
+# Function to fetch literature search results for a given datasetKey
+# and append datasetKey as a new column 'iys_pub' for citation tracking
+fetch_citations <- function(key) {
+  lit_search(datasetKey = key)$data %>% 
+    mutate(iys_pub = key)
+}
+
+# Apply fetch_citations function to all uuids
+# bind_rows function combines all fetched data frames into a single one
+iys_lit_citations <- map_df(iys_uuids, fetch_citations)
+
+# Preparing a dataframe with 'key', 'doi', and 'IYS_dataset_title' columns
+# Adding a new column 'iys_doi' which combines "https://doi.org/" with 'doi'
+iys_df <- iys_data %>% 
+  select(key, doi, IYS_dataset_title = title) %>% 
+  mutate(iys_doi = paste0("https://doi.org/", doi))
+
+# Selecting relevant columns from iys_lit_citations
+# Performing a left_join with iys_df dataframe to include dataset title and doi from IYS pubs
+iys_lit_citations <- iys_lit_citations %>% 
+  select(title, source, websites, year, iys_pub) %>% 
+  left_join(iys_df, by = c("iys_pub" = 'key'))
+
+# Summarizing citation data by counting number of citations for each IYS dataset
+iys_citations_summary <- iys_lit_citations %>% 
+  group_by(IYS_dataset_title, iys_pub) |> 
+  summarize(count = n())
+
+base_url <- "https://api.gbif.org/v1/occurrence/download/statistics/export?datasetKey="
+
+download_and_read <- function(uuid) {
+  url <- paste0(base_url, uuid)
+  df <- read_tsv(url)
+  return(df)
+}
+
+# Use purrr's map_df function to apply download_and_read to all uuids and bind the results
+master_df <- map_df(iys_uuids, download_and_read) 
+Sys.sleep(20)
+master_df_summary <- master_df |> 
+  group_by(dataset_key) |> 
+  summarize(count = sum(number_downloads)) |>
+  right_join(iys_citations_summary, by = c("dataset_key" = "iys_pub")) |> 
+  select(IYS_dataset_title, downloads = count.x, citations = count.y)
+
+reactable(master_df_summary)
+```
+
