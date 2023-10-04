@@ -30,7 +30,7 @@ jobs:
       run: Rscript -e 'rmarkdown::render_site()'
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4  # Updated to latest version
+      uses: peaceiris/actions-gh-pages@v3  # Updated to latest version
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs  # The directory where your site is built; adjust if different
