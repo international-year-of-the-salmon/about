@@ -21,10 +21,7 @@ jobs:
         r-version: 'release'  # Use the latest stable release
 
     - name: Install R dependencies
-      run: |
-        install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3",
-        "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly"
-        "rgbif", "purrr"))
+      run: Rscript -e 'install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3", "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly", "rgbif", "purrr"))'
 
     - name: Build R Markdown Website
       run: Rscript -e 'rmarkdown::render_site()'
