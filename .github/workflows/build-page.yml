@@ -21,7 +21,7 @@ jobs:
       uses: r-lib/actions/setup-pandoc@v2
       with:
         pandoc-version: '2.17.1'
-      run: echo "# Test" | pandoc -t html
+    - run: echo "# Test" | pandoc -t html
 
     - name: Setup R
       uses: r-lib/actions/setup-r@v2
