@@ -12,11 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
+      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4 
-    
+
+    - name: Debugging - Show current directory
+      run: pwd
+
+    - name: Debugging - List files
+      run: ls -al
+
     - name: Set up pandoc  
       uses: r-lib/actions/setup-pandoc@v2
       with:
