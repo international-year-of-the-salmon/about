@@ -12,16 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_LIBS_USER: '~/R/library'
+
       
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4 
-
-    - name: Debugging - Show current directory
-      run: pwd
-
-    - name: Debugging - List files
-      run: ls -al
 
     - name: Set up pandoc  
       uses: r-lib/actions/setup-pandoc@v2
@@ -38,9 +34,9 @@ jobs:
     - name: Cache R packages
       uses: actions/cache@v2
       with:
-        path: ${{ env.R_LIBS_USER }}
+        path: ${{ env.R_LIBS_USER }}  # Using the environment variable
         key: ${{ runner.os }}-r-${{ hashFiles('DESCRIPTION') }}
-        restore-keys: ${{ runner.os }}-r-
+        restore-keys: ${{ runner.os }}-r-${{ hashFiles('DESCRIPTION') }}
 
     - name: Install R dependencies
       run: Rscript -e 'install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3", "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly", "rgbif"))'
