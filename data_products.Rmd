@@ -26,7 +26,7 @@ If you click 'code' you can see the R code used to produce these plots. Feel fre
 
 ## 2022 Trawl Station Map Blue Bathymetry
 
-```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%"}
+```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%", eval=FALSE}
 library(ggOceanMaps)
 library(tidyverse)
 
@@ -66,7 +66,7 @@ bathymetric_station_map
 
 ## 2022 Trawl Station Map Grey Bathymetry
 
-```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%"}
+```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%", eval = FALSE}
 library(ggOceanMaps)
 library(tidyverse)
 
@@ -102,7 +102,7 @@ bathymetric_station_map + guides(fill="none") # Removes bathymetry scale legend
 
 ## 2022 Trawl Station Map Viridis Bathymetry
 
-```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%"}
+```{r, warning = FALSE, message=FALSE, cache = TRUE, out.width = "100%", out.height = "100%", eval = FALSE}
 library(ggOceanMaps)
 library(tidyverse)
 
