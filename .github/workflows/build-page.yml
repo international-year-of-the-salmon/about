@@ -7,7 +7,7 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Runs every day at midnight
 
-  jobs:
+jobs:
   build:
     runs-on: ubuntu-latest
 
@@ -22,7 +22,7 @@ on:
         r-version: 'release'  # Use the latest stable release
 
     - name: Install R dependencies
-      run: Rscript -e 'install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3", "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly", "rgbif", "purrr"))'
+      run: Rscript -e 'install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3", "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly", "rgbif"))'
     - name: Build R Markdown Website
       run: Rscript -e 'rmarkdown::render_site()'
 
