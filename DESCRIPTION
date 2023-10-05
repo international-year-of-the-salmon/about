@@ -1,0 +1,17 @@
+Package: MyProject
+Type: Project
+License: What license it uses
+Imports:
+ggOceanMaps,
+tidyverse,
+ckanr,
+reactable,
+googlesheets4,
+scales,
+plotly,
+rgbif,
+dplyr,
+purrr,
+rdatacite,
+networkD3
+
