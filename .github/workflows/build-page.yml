@@ -46,7 +46,7 @@ jobs:
       run: Rscript -e 'install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3", "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly", "rgbif"))'
     
     - name: Build R Markdown Website
-      run: Rscript -e 'rmarkdown::render_site()'
+      run: Rscript -e 'rmarkdown::render_site(encoding = "UTF-8")'
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.3
