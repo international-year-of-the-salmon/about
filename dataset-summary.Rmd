@@ -16,7 +16,6 @@ Dataset status levels:
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(include = FALSE, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
-library(ckanr)
 library(tidyverse)
 library(reactable)
 library(googlesheets4)
