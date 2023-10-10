@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Trigger the action on push events to the main branch
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at midnight
+    - cron: '0 0 * * *'  # Runs every day at midnight UTC
 
 jobs:
   build:

@@ -1,17 +1,22 @@
-Package: MyProject
-Type: Project
-License: What license it uses
-Imports:
-ggOceanMaps,
-tidyverse,
-ckanr,
-reactable,
-googlesheets4,
-scales,
-plotly,
-rgbif,
-dplyr,
-purrr,
-rdatacite,
-networkD3
-
+Package: about
+Title: About page
+Version: 0.0.0.9000
+Authors@R: 
+    person("Brett", "Johnson", , "brettthomasjohnson@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9317-0364"))
+Description: What the package does (one paragraph).
+License: AGPL 4.0 file LICENSE
+Imports: 
+    dplyr (>= 1.1.1),
+    googlesheets4 (>= 1.1.0),
+    networkD3 (>= 0.4),
+    plotly (>= 4.10.2),
+    purrr (>= 1.0.1),
+    rdatacite (>= 0.5.4),
+    reactable (>= 0.4.4),
+    rgbif (>= 3.7.7),
+    scales (>= 1.2.1),
+    tidyverse (>= 2.0.0)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
