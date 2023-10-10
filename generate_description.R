@@ -1,4 +1,5 @@
 # Identify packages used in R Markdown files
+install.packages('usethis')
 get_packages <- function(file_path) {
   lines <- readLines(file_path)
   packages <- unique(grep("library\\(", lines, value = TRUE))
