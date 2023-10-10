@@ -30,7 +30,7 @@ formatted_packages <- sapply(all_packages, function(pkg) {
 }, USE.NAMES = FALSE)
 
 # Concatenate all the package strings into a single string
-formatted_package_string <- paste(formatted_packages, collapse = "\n")
+formatted_package_string <- paste(formatted_packages, "usethis (>= 2.1.6)", collapse = "\n")
 
 # Remove the trailing comma from the last package
 formatted_package_string <- sub(",$", "", formatted_package_string)
