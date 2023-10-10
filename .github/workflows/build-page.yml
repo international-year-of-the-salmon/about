@@ -31,16 +31,8 @@ jobs:
       run: source("generate_description.R")
       shell: Rscript {0}
     
-    - name: Cache R packages
-      uses: actions/cache@v2
-      with:
-        path: ${{ env.R_LIBS_USER }}  # Using the environment variable
-        key: ${{ runner.os }}-r-${{ hashFiles('DESCRIPTION') }}
-        restore-keys: ${{ runner.os }}-r-${{ hashFiles('DESCRIPTION') }}
-
-    - name: Install R dependencies
-      run: install.packages(c("rmarkdown", "tidyverse", "rdatacite", "networkd3", "ggOceanMaps", "ckanr", "reactable", "googlesheets4", "scales", "plotly", "rgbif"))
-      shell: Rscript {0}
+    - name: Install dependencies
+      uses: r-lib/actions/setup-r-dependencies@v2
       
     - name: Build R Markdown Website
       run: rmarkdown::render_site(encoding = "UTF-8")
