@@ -7,26 +7,17 @@ Authors@R:
 Description: What the package does (one paragraph).
 License: AGPL 4.0 file LICENSE
 Imports: 
-    tidyverse (>= 2.0.0),
-    usethis (>= 2.1.6),
-    usethis (>= 2.1.6)
     dplyr (>= 1.1.1),
-    usethis (>= 2.1.6)
     googlesheets4 (>= 1.1.0),
-    usethis (>= 2.1.6)
     networkD3 (>= 0.4),
-    usethis (>= 2.1.6)
     plotly (>= 4.10.2),
-    usethis (>= 2.1.6)
     purrr (>= 1.0.1),
-    usethis (>= 2.1.6)
     rdatacite (>= 0.5.4),
-    usethis (>= 2.1.6)
     reactable (>= 0.4.4),
-    usethis (>= 2.1.6)
     rgbif (>= 3.7.7),
+    scales (>= 1.2.1),
+    tidyverse (>= 2.0.0),
     usethis (>= 2.1.6)
-    scales (>= 1.2.1)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
