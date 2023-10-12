@@ -36,12 +36,14 @@ formatted_package_string <- paste(formatted_packages, collapse = "\n")
 formatted_package_string <- sub(",$", "", formatted_package_string)
 
 description_content <- paste0(
-  "Package: About Page\n",
-  "Type: About page\n",
+  "Package: about\n",
+  "Version: 0.0.1\n",
+  "Title: About\n",
+  "Description: Website for IYS\n",
+  "Encoding: UTF-8\n",
   "License: CC BY 4.0\n",
   "Imports:\n",
-  paste(formatted_package_string),
-  "\n"
+  paste(formatted_package_string)
 )
 
 # Remove the old DESCRIPTION file if it exists

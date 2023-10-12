@@ -1,5 +1,8 @@
-Package: About Page
-Type: About page
+Package: about
+Version: 0.0.1
+Title: About
+Description: Website for IYS
+Encoding: UTF-8
 License: CC BY 4.0
 Imports:
     tidyverse (>= 2.0.0),
@@ -12,4 +15,3 @@ Imports:
     purrr (>= 1.0.1),
     rdatacite (>= 0.5.4),
     networkD3 (>= 0.4)
-
