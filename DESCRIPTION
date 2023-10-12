@@ -1,23 +1,15 @@
-Package: about
-Title: About page
-Version: 0.0.0.9000
-Authors@R: 
-    person("Brett", "Johnson", , "brettthomasjohnson@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-9317-0364"))
-Description: What the package does (one paragraph).
-License: AGPL 4.0 file LICENSE
-Imports: 
-    dplyr (>= 1.1.1),
+Package: About Page
+Type: About page
+License: CC BY 4.0
+Imports:
+    tidyverse (>= 2.0.0),
+    reactable (>= 0.4.4),
     googlesheets4 (>= 1.1.0),
-    networkD3 (>= 0.4),
+    scales (>= 1.2.1),
     plotly (>= 4.10.2),
+    rgbif (>= 3.7.7),
+    dplyr (>= 1.1.1),
     purrr (>= 1.0.1),
     rdatacite (>= 0.5.4),
-    reactable (>= 0.4.4),
-    rgbif (>= 3.7.7),
-    scales (>= 1.2.1),
-    tidyverse (>= 2.0.0),
-    usethis (>= 2.1.6)
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+    networkD3 (>= 0.4)
+

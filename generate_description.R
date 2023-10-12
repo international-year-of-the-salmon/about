@@ -1,5 +1,4 @@
 # Identify packages used in R Markdown files
-install.packages('usethis')
 get_packages <- function(file_path) {
   lines <- readLines(file_path)
   packages <- unique(grep("library\\(", lines, value = TRUE))
@@ -33,17 +32,22 @@ formatted_packages <- sapply(all_packages, function(pkg) {
 # Concatenate all the package strings into a single string
 formatted_package_string <- paste(formatted_packages, collapse = "\n")
 
-manual_entry <- "    usethis (>= 2.1.6),"
-# Prepend the manual entry to the existing formatted package string
-formatted_package_string <- paste(manual_entry, formatted_package_string, sep = "\n")
-
 # Remove the trailing comma from the last package
 formatted_package_string <- sub(",$", "", formatted_package_string)
+
+description_content <- paste0(
+  "Package: About Page\n",
+  "Type: About page\n",
+  "License: CC BY 4.0\n",
+  "Imports:\n",
+  paste(formatted_package_string),
+  "\n"
+)
 
 # Remove the old DESCRIPTION file if it exists
 if (file.exists("DESCRIPTION")) {
   file.remove("DESCRIPTION")
 }
 
-# Use the formatted package string in the `usethis::use_description` function
-usethis::use_description(fields = list(Title = "About page", Imports = formatted_package_string))
+# Write the DESCRIPTION file
+writeLines(description_content, "DESCRIPTION")
