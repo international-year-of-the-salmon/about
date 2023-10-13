@@ -178,7 +178,6 @@ ggplot(plot_data, aes(x = reorder(Vessel, n, decreasing = TRUE), y = n, fill = V
   xlab("Vessel") +
   theme_bw()+
   scale_y_continuous(breaks= pretty_breaks()) +
-  hakaiR::hakademic_theme()+
   theme(legend.position="none") +
   ylab("Numner of Published Datasets")
 
@@ -207,7 +206,6 @@ colours <- c("red", "green")
 
 tt_nr_plot <- ggplot(tt_nr, aes(x = Vessel, y = n, fill = Status, colour = `Dataset Title`)) +
   geom_bar(stat = "identity") +
-  hakaiR::hakademic_theme() +
   scale_y_continuous(breaks= pretty_breaks()) +
   scale_fill_manual(values = colours) + 
   xlab('Vessel') +
