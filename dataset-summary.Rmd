@@ -71,10 +71,10 @@ library(googlesheets4)
 ```
 
 ```{r 2019 and 2020 data, include = FALSE}
-
+gs4_deauth()
 #(`Dataset Title`,"\\(?[0-9,.]+\\)?")[[1]],
 published_data <- read_sheet("https://docs.google.com/spreadsheets/d/1SoeRT_eytuMS3-Ap5q6UPzcwBK2HKiqzsTbWLmxZcBA/edit#gid=1459056304", sheet = "Published")
-1
+
 published_data$Year <- str_match_all(published_data$`Dataset Title`, "[0-9]+")
 
 published_data <- published_data %>% 
