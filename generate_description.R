@@ -39,9 +39,15 @@ description_content <- paste0(
   "Package: about\n",
   "Version: 0.0.1\n",
   "Title: About\n",
+  "Date: 2023-04-07\n",
+  'Authors@R: c(
+    person("Brett", "Johnson", email = "Brett.Johnson@hakai.org",
+                  role = c("aut", "cre")
+                  )
+                  )\n',
   "Description: Website for IYS\n",
-  "Encoding: UTF-8\n",
   "License: CC BY 4.0\n",
+  "Encoding: UTF-8\n",
   "Imports:\n",
   paste(formatted_package_string)
 )

@@ -1,9 +1,15 @@
 Package: about
 Version: 0.0.1
 Title: About
+Date: 2023-04-07
+Authors@R: c(
+    person("Brett", "Johnson", email = "Brett.Johnson@hakai.org",
+                  role = c("aut", "cre")
+                  )
+                  )
 Description: Website for IYS
-Encoding: UTF-8
 License: CC BY 4.0
+Encoding: UTF-8
 Imports:
     tidyverse (>= 2.0.0),
     reactable (>= 0.4.4),
