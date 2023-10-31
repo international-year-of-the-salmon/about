@@ -1,0 +1,26 @@
+site_name: IYS Data Mobilization Portal
+site_url: https://international-year-of-the-salmon.github.io/about/index.html
+nav:
+  - Home: index.md
+  - About: about.md
+  - Data Submission Guidelines: data_submission_guidelines.md
+  - Resources: resources.md
+  - Data Catalogue: https://iys.hakai.org 
+
+plugins:
+  - mknotebooks
+  - table-reader
+
+markdown_extensions:
+  - tables
+
+
+theme:
+  name: material
+  favicon: assets/favicon.png
+  logo: assets/favicon.png
+  features:
+    - navigation.tabs
+
+extra_css: 
+  - assets/stylesheets/extra.css

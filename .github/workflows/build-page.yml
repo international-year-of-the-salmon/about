@@ -1,9 +1,9 @@
-name: Build and Deploy R Markdown Website
+name: Update R Visualization and Deploy MKDocs
 
 on:
   push:
     branches:
-      - main  # Trigger the action on push events to the main branch
+      - develop  # Trigger the action on push events to the main branch
   schedule:
     - cron: '0 0 * * *'  # Runs every day at midnight UTC
 
@@ -30,16 +30,23 @@ jobs:
     - name: Install dependencies
       uses: r-lib/actions/setup-r-dependencies@v2
       with:
-        packages: "tidyverse, reactable, googlesheets4, scales, plotly, rgbif, 
-        dplyr, purrr, rdatacite, networkD3" 
+        packages: "dplyr, readr, rdatacite, networkD3" 
+    
+    - name: Run R Script to Generate HTML
+      run: Rscript dataset-summary.R 
       
-    - name: Build R Markdown Website
-      run: rmarkdown::render_site(encoding = "UTF-8")
-      shell: Rscript {0}
-      
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.4.3
-      with:
-        clean: false
-        branch: gh-pages
-        folder: docs
+    - name: Inject HTML into Markdown
+        run: |
+          # Extract HTML content from generated HTML file
+          html_content=$(sed -n '/<body>/,/<\/body>/p' network.html)
+          
+          # Replace the placeholder div in Markdown file with the HTML content
+          sed -i "s|<div id=\"networkD3-container\"></div>|<div id=\"networkD3-container\">$html_content</div>|g" path/to/your/file.md
+ 
+    - name: Build docs
+      run: |
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        cd docs
+        git pull
+        poetry run mkdocs gh-deploy --clean
