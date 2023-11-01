@@ -3,7 +3,7 @@ name: Update R Visualization and Deploy MKDocs
 on:
   push:
     branches:
-      - develop  # Trigger the action on push events to the main branch
+      - develop  # Trigger the action on push events to the dev branch
   schedule:
     - cron: '0 0 * * *'  # Runs every day at midnight UTC
 
@@ -36,12 +36,12 @@ jobs:
       run: Rscript dataset-summary.R 
       
     - name: Inject HTML into Markdown
-        run: |
-          # Extract HTML content from generated HTML file
-          html_content=$(sed -n '/<body>/,/<\/body>/p' network.html)
+      run: |
+        # Extract HTML content from generated HTML file
+        html_content=$(sed -n '/<body>/,/<\/body>/p' network.html)
           
-          # Replace the placeholder div in Markdown file with the HTML content
-          sed -i "s|<div id=\"networkD3-container\"></div>|<div id=\"networkD3-container\">$html_content</div>|g" path/to/your/file.md
+        # Replace the placeholder div in Markdown file with the HTML content
+        sed -i "s|<div id=\"networkD3-container\"></div>|<div id=\"networkD3-container\">$html_content</div>|g" path/to/your/file.md
  
     - name: Build docs
       run: |

@@ -11,6 +11,10 @@ plugins:
   - mknotebooks
   - table-reader
 
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
 markdown_extensions:
   - tables
 

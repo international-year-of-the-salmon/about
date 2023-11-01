@@ -3,25 +3,22 @@ library(rdatacite)
 library(dplyr)
 library(networkD3)
 library(readr)
-# Using Datacite not just GBIF
+library(purrr)
+library(tibble)
 
-iys_dois <- dc_dois(client_id = 'hakai.dfukgl', limit = 1000)
+
+# Using Datacite to retrieve all IYS DOIs
+iys_dois <- dc_dois(query = "titles.title:International Year of the Salmon", limit = 1000)
+n_citations <- sum(iys_dois[["meta"]][["citations"]][["count"]])
 
 doi_data <- iys_dois[["data"]]
 filtered_data <- doi_data %>% 
-  filter(attributes$publisher == "North Pacific Anadromous Fish Commission") |> 
   select(id)
 
 # Use list of IYS DOIs to retrieve citations
 iys_dois <- dc_dois(ids = filtered_data$id, limit = 1000)
 
-n_citations <- sum(iys_dois[["meta"]][["citations"]][["count"]])
-
 # Citation network
-
-# Get the data from 'International Year of the Salmon' titles
-iys_dois <- dc_dois(query = "titles.title:International Year of the Salmon", limit = 1000)
-
 # Create a tibble with the title, citation count, and DOI for each record, then filter by citation count greater than 0
 iys_citations <- tibble(
   title = lapply(iys_dois$data$attributes$titles, "[[", "title"),
@@ -31,7 +28,7 @@ iys_citations <- tibble(
 
 write_csv(iys_citations, "docs/assets/data/iys_citations.csv")
 
-# Reduce the title to the substring from the 4th to the 80th character
+# Reduce the title to the substring
 iys_citations$title <- substr(iys_citations$title, 4, 80)
 
 # Initialize a list to store citation details of each DOI
@@ -128,3 +125,13 @@ plot <- forceNetwork(Links = links.d3, Nodes = nodes.d3, Source="from", Target="
                width = 600, height = 400)
 
 saveNetwork(plot, file = "./docs/assets/relationships.html", selfcontained = TRUE)
+
+# check that the html file is saved in the docs folder
+if (file.exists("./docs/assets/relationships.html")
+) {
+  message("Relationships html file saved in docs folder")
+} else {
+  message("Relationships html file not saved in docs folder")
+}
+
+
