@@ -117,12 +117,15 @@ nodes$size <- size
 
 nodes.d3 <- cbind(idn=factor(nodes$names, levels=nodes$names), nodes) 
 
+# JavaScript function to open a new tab with URL based on the clicked node's ids
+js_click_action <- "function(d) { window.open('https://doi.org/' + d.ids, '_blank'); }"
+
 # Create and render the network plot
 plot <- forceNetwork(Links = links.d3, Nodes = nodes.d3, Source="from", Target="to",
                NodeID = "idn", Group = "type.label",linkWidth = 1,
-               linkColour = "#afafaf", fontSize=12, zoom=T, legend=T, 
-               Nodesize="size", opacity = 0.8, charge=-300,
-               width = 600, height = 400)
+               linkColour = "#afafaf", fontSize=12, zoom=F, legend=T, 
+               Nodesize="size", opacity = 0.8, charge=-1000,
+               width = 1200, height = 800, bounded = TRUE, clickAction = js_click_action)
 
 saveNetwork(plot, file = "./docs/assets/relationships.html", selfcontained = TRUE)
 
