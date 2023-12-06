@@ -19,7 +19,7 @@ jobs:
       uses: abatilo/actions-poetry@v2.3.0
     - name: Install Dependencies
       run: |
-        pip install ../
+        pip install ./
     
     - name: Deploy MkDocs Site
       run: |
