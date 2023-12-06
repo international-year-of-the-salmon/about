@@ -1,8 +1,8 @@
 site_name: IYS Data Mobilization Portal
 site_url: https://international-year-of-the-salmon.github.io/about/index.html
 nav:
-  - Home: https://yearofthesalmon.org
-  - About: index.md
+  - IYS Home: https://yearofthesalmon.org
+  - About Data Mobilization: index.md
   - Data Submission Guidelines: data_submission_guidelines.md
   - Resources: resources.md
   - Data Catalogue: https://iys.hakai.org 

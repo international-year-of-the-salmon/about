@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "about"
+version = "0.1.0"
+description = "International Year of the Salmon Data Mobilization Portal"
+authors = ["Brett Johnson <brettthomasjohnson@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.2"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.4.7"
+mknotebooks = "^0.8.0"
+requests = "^2.31.0"
+networkx = "^3.2.1"
+matplotlib = "^3.8.0"
+pandas = "^2.1.2"
+datacite = "^1.1.3"
+mkdocs-table-reader-plugin = "^2.0.3"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.26.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
