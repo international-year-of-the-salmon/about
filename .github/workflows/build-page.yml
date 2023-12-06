@@ -47,3 +47,19 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.2' 
+
+      - name: Python Poetry Action
+        uses: abatilo/actions-poetry@v2.3.0
+      - name: Install Dependencies
+        run: |
+          poetry install
+    
+      - name: Deploy MkDocs Site
+        run: |
+          poetry run mkdocs build
+          poetry run mkdocs gh-deploy --force

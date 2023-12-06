@@ -136,5 +136,3 @@ if (file.exists("./docs/assets/relationships.html")
 } else {
   message("Relationships html file not saved in docs folder")
 }
-
-
