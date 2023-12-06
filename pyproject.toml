@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "International Year of the Salmon Data Mobilization Portal"
 authors = ["Brett Johnson <brettthomasjohnson@gmail.com>"]
 readme = "README.md"
+packages = [{include = "docs"}]
 
 [tool.poetry.dependencies]
 python = "3.11.2"
