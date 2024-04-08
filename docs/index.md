@@ -15,12 +15,12 @@ title:
 
 ## Open Access to IYS Data
 
-**Data Mobilization**: The process of making data available for appropriate re-use.
+The International Year of the Salmon Data Mobilization Portal centralizes access to data produced by  research expeditions into the high seas of the north Pacific Ocean in the winters of 2019, 2020 and 2022. This portal holds summaries of data publishing as well as technical documentation and policies for project participants. 
 
-Welcome to the International Year of the Salmon Data Mobilization Portal. The International Year of the Salmon was in 2019 but with projects lasting to 2024. This site is intended to be portal to centralize access to open access data, summaries of data publishing as well as technical documentation and policies.
+For public data access, see the **[IYS Data Catalogue](https://data.napfc.org/)**.
 
-<iframe frameborder="0" scrolling="no" src="assets/relationships.html" width="1500" height="900"></iframe>
-**Figure 1.** Network of published IYS datasets and their citations
+### [{{ sum_citations('docs/assets/data/iys_citations.csv') }}](https://raw.githubusercontent.com/international-year-of-the-salmon/about/gh-pages/assets/data/iys_citations.csv)
+
 
 ## How to Provide Data
 
@@ -28,22 +28,9 @@ Welcome to the International Year of the Salmon Data Mobilization Portal. The In
 
 1) Register the dataset you have collected or will generate by filling out [this metadata intake form](https://cioos-siooc.github.io/metadata-entry-form/#/en/iys/submissions). 
 
-2) Submit data to the IYS (secretariat@npafc.org and cc iys.data@hakai.org) for internal sharing and/or publishing to the [IYS Data Catalogue](https://iys.hakai.org/) according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html).
+2) Submit data to the IYS (secretariat@npafc.org and cc iys.data@hakai.org) for publishing to the [IYS Data Catalogue](https://iys.hakai.org/) according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html). Or create a github repository in the [IYS GitHub organization](https://github.com/international-year-of-the-salmon) and include the link to your repository in your metadata submission. To be added to the IYS GitHub organization, please first contact the NPAFC secretariat at secretariat@npafc.org.
 
-3) If you are a cruise participant and you would like to access data that has not yet been made publicly available [Create a free GitHub account](https://github.com/signup) and share your username with IYS Data Scientists by emailing us what your username is at secretariat@npafc.org and iys.data@hakai.org so that we can add you to the IYS organizational data hosting service and you can access and share internal data before it goes public (according to the [IYS policy](https://international-year-of-the-salmon.github.io/about/Final%20IYS%20Data%20Policy_Dec132021.pdf)).
+**Remember to cite datasets used in publications according to the recommended citation for each specific dataset in the [IYS Data Catalogue](https://iys.hakai.org)**
 
-4) Remember to cite datasets used in publications according to the recommended citation for each specific dataset in the [IYS Data Catalogue](https://iys.hakai.org)
-
-**The IYS Data Science team will provide the following services:**
-
-1) Review and publish your data record in the [IYS Data Catalogue](https://iys.hakai.org). You will receive a Digital Object Identifier that will make your dataset discoverable and citable.
-
-2) Store and host your data on the [IYS GitHub repository](https://github.com/international-year-of-the-salmon/).
-
-3) In some cases, we have and will continue to standardize data for publishing in domain-specific data servers as well.
-
-## Access Data
-
-See our data catalogue at https://iys.hakai.org or see our GitHub repository at https://github.com/international-year-of-the-salmon
 
 
