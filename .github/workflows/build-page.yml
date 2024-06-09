@@ -30,7 +30,8 @@ jobs:
             any::networkD3
             any::readr 
             any::purrr
-            any::tibble 
+            any::tibble
+            any::rcrossref
     
       - name: Run R Script to Generate HTML
         run: Rscript -e 'source("dataset-summary.R")'
