@@ -8,9 +8,6 @@ library(rcrossref)
 library(plotly)
 
 
-# View the results
-print(results)
-
 # Using Datacite to retrieve all IYS dataset DOIs
 iys_dois <- dc_dois(query = "titles.title:International Year of the Salmon", limit = 1000)
 n_citations <- sum(iys_dois[["meta"]][["citations"]][["count"]])
