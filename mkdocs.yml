@@ -5,7 +5,7 @@ nav:
   - About Data Mobilization: index.md
   - Data Submission Guidelines: data_submission_guidelines.md
   - Resources: resources.md
-  - Data Catalogue: https://iys.hakai.org 
+  - Data Catalogue: https://data.npafc.org 
 
 plugins:
   - mknotebooks
