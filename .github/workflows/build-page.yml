@@ -32,6 +32,7 @@ jobs:
             any::purrr
             any::tibble
             any::rcrossref
+            any::plotly
     
       - name: Run R Script to Generate HTML
         run: Rscript -e 'source("dataset-summary.R")'
