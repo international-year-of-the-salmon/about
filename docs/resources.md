@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-[Metadata Entry Form](https://cioos-siooc.github.io/metadata-entry-form/#/en/iys/submissions)
+[Metadata Entry Form](https://hakaiinstitute.github.io/hakai-metadata-entry-form/#/en/iys)
 
 [IYS Data Mobilization Strategic Recommendations](https://doi.org/10.5281/zenodo.7439525)
 
