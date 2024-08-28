@@ -26,7 +26,7 @@ For public data access, see the **[IYS Data Catalogue](https://data.napfc.org/)*
 
 **What is required by IYS scientists providing data?**
 
-1) Register the dataset you have collected or will generate by filling out [this metadata intake form](https://cioos-siooc.github.io/metadata-entry-form/#/en/iys/submissions). 
+1) Register the dataset you have collected or will generate by filling out [this metadata intake form](https://hakaiinstitute.github.io/hakai-metadata-entry-form/#/en/iys/). 
 
 2) Submit data to the IYS (secretariat@npafc.org and cc iys.data@hakai.org) for publishing to the [IYS Data Catalogue](https://iys.hakai.org/) according to the [Data Submission Guidelines](https://international-year-of-the-salmon.github.io/about/Data-Submission-Guidelines.html). Or create a github repository in the [IYS GitHub organization](https://github.com/international-year-of-the-salmon) and include the link to your repository in your metadata submission. To be added to the IYS GitHub organization, please first contact the NPAFC secretariat at secretariat@npafc.org.
 
