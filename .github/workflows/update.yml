@@ -1,0 +1,27 @@
+name: Update Citations
+
+on:
+  schedule:
+    - cron: '0 0 */14 * *'  # Every 14 days
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run update script
+        run: python update_citations.py
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add citations.json
+          git commit -m "Automated citation update"
+          git push
