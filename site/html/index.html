@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOI Citation Tracker</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 800px; margin: auto; }
+    h1 { color: #00467f; }
+    .entry { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Citations for DOI</h1>
+  <p id="doi"></p>
+  <p>Last updated: <span id="updated"></span></p>
+  <p>Total citations: <span id="count"></span></p>
+  <hr>
+  <div id="citations"></div>
+
+  <script>
+    fetch("citations.json")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("doi").textContent = data.doi;
+        document.getElementById("updated").textContent = new Date(data.last_updated).toLocaleString();
+        document.getElementById("count").textContent = data.citation_count;
+
+        const container = document.getElementById("citations");
+        data.citing_works.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.className = "entry";
+          div.innerHTML = `<strong>${index + 1}. ${item.title}</strong><br>
+                           <a href="https://doi.org/${item.doi}" target="_blank">${item.doi}</a><br>
+                           Published: ${new Date(item.published).toLocaleDateString()}`;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
