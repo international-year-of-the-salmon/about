@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       - name: Run update script
-        run: python update_citations.py
+        run: python site/html/update_citations.py
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
