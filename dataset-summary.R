@@ -7,6 +7,22 @@ library(tibble)
 library(rcrossref)
 library(plotly)
 
+# NOTE: As of March 2025, DataCite has reset ALL usage statistics (citations, views, downloads)
+# for IYS datasets. All 55 IYS DOIs now report 0 views and 0 downloads, with only 1 citation total.
+# DataCite updated all DOI records on 2025-03-25, which coincides with the data loss.
+#
+# Previously (as of April 2024):
+#   - 550+ total citations across top 10 IYS datasets
+#   - Top dataset (10.21966/7cmt-ca72) had 90 citations
+#
+# Current status (January 2026):
+#   - 1 total citation across all 55 IYS datasets
+#   - 0 total views across all 55 IYS datasets
+#   - 0 total downloads across all 55 IYS datasets
+#
+# This appears to be a DataCite infrastructure change, not an issue with this code.
+# The script continues to work correctly and will track metrics as they accumulate going forward.
+# Alternative tracking methods (Google Scholar, Crossref, OpenCitations) may provide better data.
 
 # Using Datacite to retrieve all IYS dataset DOIs
 iys_dois <- dc_dois(query = "titles.title:International Year of the Salmon", limit = 1000)

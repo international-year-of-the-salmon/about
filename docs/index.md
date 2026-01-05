@@ -19,8 +19,6 @@ The International Year of the Salmon Data Mobilization Portal centralizes access
 
 For public data access, see the **[IYS Data Catalogue](https://data.napfc.org/)**.
 
-### [{{ sum_citations('docs/assets/data/iys_citations.csv') }}](https://raw.githubusercontent.com/international-year-of-the-salmon/about/gh-pages/assets/data/iys_citations.csv)
-
 
 ## How to Provide Data
 

@@ -7,8 +7,6 @@ def define_env(env):
         df = pd.read_csv(file_path)
         return df.to_html(index=False)
 
-
-def define_env(env):
     @env.macro
     def sum_citations(file_path):
         df = pd.read_csv(file_path)
