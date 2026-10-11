@@ -1,0 +1,14 @@
+:root {
+    /* stylelint-disable */
+    --md-primary-fg-color:        #005676;
+    --md-primary-fg-color--light: #9bd7d9;
+    --md-primary-fg-color--dark:  #54b7b3;
+    /* stylelint-enable */
+  }
+  .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
